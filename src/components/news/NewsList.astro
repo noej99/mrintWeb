@@ -5,6 +5,7 @@
  */
 import type { NewsEntry } from '@/lib/content';
 import { formatDotDate } from '@/lib/date';
+import { withBase } from '@/lib/url';
 
 interface Props {
   items: readonly NewsEntry[];
@@ -17,7 +18,7 @@ const { items } = Astro.props;
   {
     items.map((item) => (
       <li>
-        <a class="news-row" href={`/news/${item.data.slug}`}>
+        <a class="news-row" href={withBase(`/news/${item.data.slug}`)}>
           <span class="news-row__title">{item.data.title}</span>
           <time class="news-row__date mono" datetime={item.data.date}>
             {formatDotDate(item.data.date)}

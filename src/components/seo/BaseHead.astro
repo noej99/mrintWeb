@@ -5,7 +5,7 @@
  * - noindex 페이지(404, search 등)는 canonical을 출력하지 않는다.
  */
 import { SITE_LOCALE, SITE_NAME } from '@/lib/site';
-import { toCanonicalUrl } from '@/lib/url';
+import { stripBase, toCanonicalUrl, withBase } from '@/lib/url';
 
 export interface Props {
   title: string;
@@ -21,8 +21,8 @@ export interface Props {
 const { title, description, canonicalPath, noindex = false, ogType = 'website', ogImage } = Astro.props;
 
 const site = Astro.site ?? new URL(Astro.url.origin);
-const canonical = toCanonicalUrl(canonicalPath ?? Astro.url.pathname, site);
-const ogImageUrl = ogImage ? new URL(ogImage, site).href : undefined;
+const canonical = toCanonicalUrl(withBase(canonicalPath ?? stripBase(Astro.url.pathname)), site);
+const ogImageUrl = ogImage ? new URL(withBase(ogImage), site).href : undefined;
 ---
 
 <meta charset="utf-8" />

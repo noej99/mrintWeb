@@ -3,6 +3,8 @@
  * Breadcrumb — 마지막 항목은 현재 페이지(aria-current="page")
  * BreadcrumbList 구조화 데이터는 Phase 10에서 추가한다.
  */
+import { withBase } from '@/lib/url';
+
 export interface BreadcrumbItem {
   label: string;
   href?: string;
@@ -26,7 +28,7 @@ const { items } = Astro.props;
               {isLast || !item.href ? (
                 <span aria-current={isLast ? 'page' : undefined}>{item.label}</span>
               ) : (
-                <a href={item.href}>{item.label}</a>
+                <a href={withBase(item.href)}>{item.label}</a>
               )}
             </li>
           );

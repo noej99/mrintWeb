@@ -6,7 +6,7 @@
  */
 import Container from '@/components/ui/Container.astro';
 import type { NavGroup } from '@/data/navigation';
-import { matchPath } from '@/lib/url';
+import { matchPath, withBase } from '@/lib/url';
 
 interface Props {
   group: NavGroup;
@@ -40,7 +40,7 @@ const isActive = children.some((link) => link.match);
             <li>
               <a
                 class="mega__link"
-                href={link.href}
+                href={withBase(link.href)}
                 aria-current={link.match === 'exact' ? 'page' : link.match ? 'true' : undefined}
               >
                 <span>{link.label}</span>

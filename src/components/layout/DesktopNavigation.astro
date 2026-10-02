@@ -1,6 +1,6 @@
 ---
 import { NAVIGATION } from '@/data/navigation';
-import { matchPath } from '@/lib/url';
+import { matchPath, withBase } from '@/lib/url';
 import MegaMenu from './MegaMenu.astro';
 
 interface Props {
@@ -22,7 +22,7 @@ const { currentPath } = Astro.props;
           <li>
             <a
               class="desktop-nav__cta"
-              href={item.href}
+              href={withBase(item.href)}
               aria-current={matchPath(currentPath, item.href) === 'exact' ? 'page' : undefined}
             >
               {item.label}

@@ -6,6 +6,7 @@
  */
 import StatusBadge from '@/components/ui/StatusBadge.astro';
 import type { ProjectEntry } from '@/lib/content';
+import { withBase } from '@/lib/url';
 
 export interface ProjectLabels {
   type: Record<string, string>;
@@ -31,7 +32,7 @@ const typeLabel = data.type ? labels.type[data.type] : undefined;
   data-status={data.status}
   data-year={String(data.year)}
 >
-  <a class="project-row" href={`/projects/${data.slug}`}>
+  <a class="project-row" href={withBase(`/projects/${data.slug}`)}>
     <span class="project-row__title">{data.title}</span>
     <span class="project-row__meta">
     <span class="project-row__year mono">

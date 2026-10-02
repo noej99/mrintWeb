@@ -8,6 +8,7 @@
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
 import ResponsiveImage from '@/components/ui/ResponsiveImage.astro';
 import type { HomeCard } from '@/data/home';
+import { withBase } from '@/lib/url';
 
 interface Props {
   card: HomeCard;
@@ -47,7 +48,7 @@ const datetime = card.date.replaceAll('.', '-');
   <div class="slide__content">
     <p class="slide__type eyebrow">{card.type}</p>
     <h2 class="slide__title">
-      <a class="slide__link" href={card.href}>
+      <a class="slide__link" href={withBase(card.href)}>
         {card.title}<span class="visually-hidden">{linkSuffix}</span>
       </a>
     </h2>

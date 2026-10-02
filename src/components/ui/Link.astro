@@ -6,6 +6,7 @@
  * newTab: 새 창으로 열고, 스크린리더에 "(새 창)"을 안내한다.
  */
 import type { HTMLAttributes } from 'astro/types';
+import { withBase } from '@/lib/url';
 
 type Props = Omit<HTMLAttributes<'a'>, 'target'> & {
   href: string;
@@ -13,11 +14,12 @@ type Props = Omit<HTMLAttributes<'a'>, 'target'> & {
   newTab?: boolean;
 };
 
-const { variant = 'inline', newTab = false, class: className, rel, ...attrs } = Astro.props;
+const { variant = 'inline', newTab = false, class: className, rel, href, ...attrs } = Astro.props;
 const relValue = newTab ? ['noopener', 'noreferrer', rel].filter(Boolean).join(' ') : rel;
 ---
 
 <a
+  href={withBase(href)}
   class:list={['link', `link--${variant}`, className]}
   target={newTab ? '_blank' : undefined}
   rel={relValue}

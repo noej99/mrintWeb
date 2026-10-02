@@ -1,0 +1,63 @@
+# Astro 빌드 결과물(dist/)을 GitHub Pages에 배포한다.
+# 저장소 Settings → Pages → Build and deployment → Source 를 "GitHub Actions"로 설정해야 한다.
+# (Source가 "Deploy from a branch"이면 Jekyll이 저장소 원본을 빌드하려다 실패한다.)
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 배포는 한 번에 하나만 실행하고, 진행 중인 배포는 취소하지 않는다.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v6
+
+      # package.json의 기존 build 명령을 그대로 사용한다.
+      # origin/base_path: 저장소 Pages URL 기준 (예: https://noej99.github.io, /mrintWeb). custom domain 사용 시 base_path는 빈 값.
+      - name: Build
+        run: npm run build
+        env:
+          ASTRO_SITE: ${{ steps.pages.outputs.origin }}
+          ASTRO_BASE: ${{ steps.pages.outputs.base_path }}
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

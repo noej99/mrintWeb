@@ -6,6 +6,7 @@
  */
 import '@/styles/pagination.css';
 import { buildPageHref, getPaginationItems } from '@/lib/pagination';
+import { withBase } from '@/lib/url';
 
 interface Props {
   current: number;
@@ -18,7 +19,7 @@ interface Props {
 
 const { current, total, basePath, query = {}, label = '페이지 탐색' } = Astro.props;
 const items = getPaginationItems(current, total);
-const href = (page: number) => buildPageHref(basePath, page, query);
+const href = (page: number) => buildPageHref(withBase(basePath), page, query);
 const hasPrev = current > 1;
 const hasNext = current < total;
 ---

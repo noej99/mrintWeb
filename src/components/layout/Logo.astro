@@ -1,5 +1,6 @@
 ---
 import { SITE_NAME } from '@/lib/site';
+import { withBase } from '@/lib/url';
 import LogoMark from './LogoMark.astro';
 
 interface Props {
@@ -11,7 +12,7 @@ interface Props {
 const { showName = true, class: className } = Astro.props;
 ---
 
-<a href="/" class:list={['logo', className]} aria-label={`${SITE_NAME} 홈`}>
+<a href={withBase('/')} class:list={['logo', className]} aria-label={`${SITE_NAME} 홈`}>
   <LogoMark class="logo__mark" />
   {showName && <span class="logo__name" aria-hidden="true">{SITE_NAME}</span>}
 </a>

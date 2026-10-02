@@ -4,6 +4,8 @@
  * - href가 있으면 Project 상세 링크
  * - current: 현재 페이지 프로젝트 (링크 대신 aria-current="page" 텍스트)
  */
+import { withBase } from '@/lib/url';
+
 export interface RelatedProjectItem {
   title: string;
   year?: string | number | undefined;
@@ -23,7 +25,7 @@ const { items } = Astro.props;
     items.map((item) => (
       <li class="related-projects__item">
         {item.href && !item.current ? (
-          <a class="related-projects__row" href={item.href}>
+          <a class="related-projects__row" href={withBase(item.href)}>
             <span class="related-projects__title">{item.title}</span>
             {item.year && (
               <span class="related-projects__year mono">

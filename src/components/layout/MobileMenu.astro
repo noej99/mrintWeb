@@ -7,7 +7,7 @@
 import { toMailtoHref, toTelHref } from '@/lib/contact';
 import { getCompany } from '@/lib/content';
 import { NAVIGATION } from '@/data/navigation';
-import { matchPath } from '@/lib/url';
+import { matchPath, withBase } from '@/lib/url';
 import Logo from './Logo.astro';
 
 interface Props {
@@ -44,7 +44,7 @@ const ariaCurrent = (href: string) => {
             <ul class="mobile-menu__list" role="list">
               {item.children.map((link) => (
                 <li>
-                  <a class="mobile-menu__link" href={link.href} aria-current={ariaCurrent(link.href)}>
+                  <a class="mobile-menu__link" href={withBase(link.href)} aria-current={ariaCurrent(link.href)}>
                     {link.label}
                   </a>
                 </li>
@@ -52,7 +52,7 @@ const ariaCurrent = (href: string) => {
             </ul>
           </section>
         ) : (
-          <a class="mobile-menu__link mobile-menu__link--solo" href={item.href} aria-current={ariaCurrent(item.href)}>
+          <a class="mobile-menu__link mobile-menu__link--solo" href={withBase(item.href)} aria-current={ariaCurrent(item.href)}>
             {item.label}
           </a>
         ),

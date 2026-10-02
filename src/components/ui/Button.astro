@@ -8,6 +8,7 @@
  * - solid: 현재 tone의 텍스트 색 배경 (반전)
  */
 import type { HTMLAttributes } from 'astro/types';
+import { withBase } from '@/lib/url';
 
 type Variant = 'primary' | 'secondary' | 'ghost' | 'solid';
 type Size = 'md' | 'lg';
@@ -30,7 +31,7 @@ const classes = ['button', `button--${variant}`, `button--${size}`, className];
 
 {
   'href' in attrs && attrs.href !== undefined ? (
-    <a class:list={classes} {...(attrs as HTMLAttributes<'a'>)}>
+    <a class:list={classes} {...(attrs as HTMLAttributes<'a'>)} href={withBase(attrs.href)}>
       <slot />
       {arrow && <span class="button__arrow" aria-hidden="true" />}
     </a>

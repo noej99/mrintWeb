@@ -5,6 +5,8 @@
  * - hover/focus 시 ink 패널이 아래에서 올라온다
  * slots: media(이미지), meta(배지 등), default(설명), footer
  */
+import { withBase } from '@/lib/url';
+
 type HeadingLevel = 2 | 3 | 4;
 
 interface Props {
@@ -37,7 +39,7 @@ const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4';
       )
     }
     <Heading class="card__title">
-      {href ? <a class="card__link" href={href}>{title}</a> : title}
+      {href ? <a class="card__link" href={withBase(href)}>{title}</a> : title}
     </Heading>
     {
       Astro.slots.has('default') && (

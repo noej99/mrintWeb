@@ -5,13 +5,14 @@ import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import SkipLink from '@/components/layout/SkipLink.astro';
 import BaseHead, { type Props as HeadProps } from '@/components/seo/BaseHead.astro';
+import { stripBase } from '@/lib/url';
 
 type Props = HeadProps & {
   headerVariant?: 'solid' | 'overlay';
 };
 
 const { headerVariant = 'solid', ...head } = Astro.props;
-const currentPath = Astro.url.pathname;
+const currentPath = stripBase(Astro.url.pathname);
 ---
 
 <!doctype html>

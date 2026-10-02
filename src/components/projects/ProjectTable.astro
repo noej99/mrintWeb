@@ -7,6 +7,7 @@
 import '@/styles/pagination.css';
 import EmptyState from '@/components/ui/EmptyState.astro';
 import type { ProjectEntry } from '@/lib/content';
+import { withBase } from '@/lib/url';
 import ProjectRow, { type ProjectLabels } from './ProjectRow.astro';
 
 interface Props {
@@ -37,7 +38,7 @@ const { projects, labels } = Astro.props;
 
   <div data-project-empty hidden>
     <EmptyState title="조건에 맞는 프로젝트가 없습니다." headingLevel={2}>
-      <a class="project-table__reset" href="/projects">필터 초기화</a>
+      <a class="project-table__reset" href={withBase('/projects')}>필터 초기화</a>
     </EmptyState>
   </div>
 
