@@ -423,7 +423,47 @@ src/data/* (원본, 불변)
 
 ---
 
+## 18. 구현 결과 (2026-10-02, D-23 확정)
+
+### 18-1. 결정 결과
+
+| # | 결정 | 비고 |
+|---|---|---|
+| Q1 | C — title, summary, description 블록, tab title/description | section title 블록(`Service Summary`, `어플리케이션운영 서비스`, `Mirae I&Tec Application Outsourcing Framework` 등)은 색인하지 않음 |
+| Q2 | B — Partner 이름은 연결된 Project(`partner`)·Business(`clients`) 문서 필드로만 | Partner 독립 문서 0, 미연결 27건 미색인 |
+| Q3 | name(ko/en), introduction, address(ko/en) | tel/fax/email 제외 |
+| Q4 | 908 본문 제외 (title만) | 화면과 같은 함수 `isNewsBodyWithheld()` (`src/lib/news.ts`) 사용 |
+| Q5 | 1~3자 영문/숫자 단어는 영문/숫자 단어 경계 | 4자 이상·한글은 부분 일치 |
+| Q6 | Type/Industry/Status label 포함, year 제외 | |
+| Q7 | Team Related Projects 제외 | |
+| Q8 | 유형 그룹 → 기존 목록 순서, 분할 없음 | 그룹 순서 = 사이트 메뉴 순서 Company → Team → News → Projects → Business |
+| Q9 | 안내 문구 | `html:not(.js)`에서만 표시 (Playwright의 JS 비활성화는 `<noscript>`를 렌더링하지 않아 기존 프로젝트 패턴 사용) |
+| Q10 | 요약문 없음, 일치 필드 표시 없음 | 결과 row = 제목 + 보조 정보(Project `연도 · Type`, News 날짜, Team 영문명). 유형 라벨은 그룹 heading(`PROJECT 17건` 등) |
+| Q11 | 정적 색인 + 자체 검색 | 의존성 추가 없음 |
+
+### 18-2. 설계안(§17)과 달라진 점
+
+- `SearchResults.astro` 대신 결과 DOM은 `src/scripts/search.ts`가 DOM API(`createElement`/`textContent`)로 생성하고, 스타일은 `src/pages/search.astro`의 `.search :global(...)`로 범위를 제한했다.
+- SearchDocument에서 `excerpt`, `weight`, `order` 제거 — 요약문 없음, ranking 없음, 순서는 배열 순서. `datetime`(News `<time>`) 추가.
+- 공백 차이 처리: 단어 AND 외에 공백을 제거한 검색어와 공백을 제거한 필드 비교를 추가 (`LGCNS` ↔ `LG CNS`).
+- 데이터 접근은 `src/lib/content.ts`의 `getSearchDocuments()`를 통한다 (`documents.ts`는 astro:content에 의존하지 않는 순수 함수).
+- `Button`이 `type` prop을 받도록 변경 (기본값 `button` 유지) — 검색 제출 버튼에 사용.
+- 404 페이지(`src/pages/404.astro`)에 홈 이동 + 같은 SearchForm.
+
+### 18-3. 산출물
+
+- `/search-index.json`: 76문서 (Company 1, Team 6, News 8, Project 57, Business 4), 약 86KB (gzip 약 21KB)
+- 검색 결과 건수 (실제 데이터, 단위·E2E 테스트 기준): 기업은행 7 / 은행 37 / IT 21 / SI 31 / SC 19 / CubeOne 2 / Cloud 1 / 흥국생명 6 / 시스템 40 / ITO 31 / 보험 12
+
+### 18-4. 알려진 제약
+
+- section title 블록을 색인하지 않으므로 `Framework` 등 title 블록에만 있는 단어는 Business 결과로 나오지 않는다.
+- `IT`는 단어 경계 규칙으로 `ITO`를 포함하지 않는다. `ITO`로 따로 검색해야 한다.
+- 동의어(`큐브원` ↔ `CubeOne`, `SC제일은행` ↔ `한국스탠다드차타드은행`)는 처리하지 않는다.
+
+---
+
 ## 참고
 
 - 조사 스크립트·원본 응답은 세션 scratchpad에만 저장했고 저장소에는 추가하지 않았다.
-- 관련 결정: D-01, D-03, D-07, D-12, D-17, D-18, D-21, D-22 (변경 없음).
+- 관련 결정: D-01, D-03, D-07, D-12, D-17, D-18, D-21, D-22 (변경 없음), D-23 (이번 Phase 확정).

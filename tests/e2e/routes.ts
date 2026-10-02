@@ -49,5 +49,6 @@ export const ROUTES: readonly string[] = [
   ...PROJECT_SAMPLE_SLUGS.map((slug) => `/projects/${slug}`),
   '/business',
   ...BUSINESS_SLUGS.map((slug) => `/business/${slug}`),
+  '/search',
   '/dev/components',
 ];

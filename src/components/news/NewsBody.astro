@@ -3,6 +3,7 @@
  * NewsBody — 원문 블록(문단/목록) 렌더링. 문단 안의 원문 줄바꿈('\n')은 <br>로 표시한다.
  * rights.status가 unknown/restricted인 외부 기사는 본문을 표시하지 않고 원문 출처 표기만 표시한다.
  */
+import { isNewsBodyWithheld } from '@/lib/news';
 import type { NewsData } from '@/schemas';
 
 interface Props {
@@ -10,7 +11,7 @@ interface Props {
 }
 
 const { news } = Astro.props;
-const withheld = news.rights && news.rights.status !== 'confirmed';
+const withheld = isNewsBodyWithheld(news);
 ---
 
 <div class="news-body" data-news-body>

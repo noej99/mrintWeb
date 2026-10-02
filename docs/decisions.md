@@ -26,7 +26,7 @@
 | D-14 | 지도 서비스 / API key | 일부 확정 | Phase 4: **외부 지도 링크만** 제공 (API/key 미사용). 좌표는 기존 사이트 실제 표시 지도(Google Maps) 기준 `37.5631966, 126.9900875`, zoom 16 보존. 기존 사이트는 Naver script를 로드하지만 미사용(초기화 주석 처리). API 연결 여부/서비스는 미결정 | 4 |
 | D-15 | 개인정보처리방침, 법적 고지 원문 | 미결정 | | 2 |
 | D-16 | 410 사용 여부 | 미결정 | | 11 |
-| D-23 | Search 범위 / 매칭 / 정렬 / 구현 방식 | 미결정 | 사전조사: `docs/research/phase-9-search.md` §16 Q1~Q11 (Business Line 범위 A/B/C, Partner 검색 방식, News 908 본문 색인, 짧은 영문 검색어 매칭, taxonomy label 색인, 정렬/분할, JS 미동작 처리, 구현 방식). D-21·D-22는 변경하지 않음. `/search` robots·canonical·sitemap은 Phase 10, `/?s=` redirect는 Phase 11 | 9, 10, 11 |
+| D-23 | Search 범위 / 매칭 / 정렬 / 구현 방식 | **확정** | **범위**: Company(회사명·introduction·address, 연락처 제외) / Team(이름 ko·en, 직함, introduction·functions·capabilities·biography, Related Projects 제외) / News(title·body, 본문 비공개 908은 title만 — D-18) / Projects(title·name·client·overview·description, Type·Industry·Status label, 연결 Partner 이름, year 제외) / Business(title·summary·description 블록·tab title/description·Main Clients 이름, section title 블록 제외). **Partner**: 독립 결과 없음, 연결된 Project/Business 문서 필드로만 색인 (D-22 유지). **매칭**: NFKC·lowercase·hyphen/공백 정규화, 공백 기준 단어 AND + 공백 제거 비교, 1~3자 영문/숫자 단어는 영문/숫자 단어 경계(한글·기호와 붙으면 일치). 형태소·동의어·ranking 없음. **정렬**: 유형 그룹(Company → Team → News → Projects → Business, 메뉴 순서) → 각 목록의 기존 순서. **구현**: build 시 정적 색인 `/search-index.json` + 브라우저 검색(`src/lib/search/*`, `src/scripts/search.ts`), 외부 서비스 없음. 결과 표시: 유형 그룹 heading + 제목 + 날짜/연도·Type/영문명, 요약문 없음. JS 미동작 시 안내 문구. `/search` noindex·canonical 없음 (title·sitemap 정책은 Phase 10), `/?s=` → `/search?q=` redirect는 Phase 11. 상세: `docs/research/phase-9-search.md` §18 | 9, 10, 11 |
 
 ## 기술 결정 (Phase 1)
 

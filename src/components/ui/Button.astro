@@ -27,16 +27,20 @@ type Props =
 
 const { variant = 'primary', size = 'md', arrow = false, class: className, ...attrs } = Astro.props;
 const classes = ['button', `button--${variant}`, `button--${size}`, className];
+// <button>의 type 기본값은 'button' (form 안에서 submit으로 쓰려면 type='submit' 지정)
+const { type: buttonType = 'button', ...buttonAttrs } = attrs as HTMLAttributes<'button'>;
+// <a>의 href는 base를 붙여 한 번만 출력한다. (spread와 중복 출력 방지)
+const { href: linkHref, ...linkAttrs } = attrs as HTMLAttributes<'a'>;
 ---
 
 {
-  'href' in attrs && attrs.href !== undefined ? (
-    <a class:list={classes} {...(attrs as HTMLAttributes<'a'>)} href={withBase(attrs.href)}>
+  linkHref !== undefined && linkHref !== null ? (
+    <a class:list={classes} {...linkAttrs} href={withBase(String(linkHref))}>
       <slot />
       {arrow && <span class="button__arrow" aria-hidden="true" />}
     </a>
   ) : (
-    <button class:list={classes} type="button" {...(attrs as HTMLAttributes<'button'>)}>
+    <button class:list={classes} type={buttonType} {...buttonAttrs}>
       <slot />
       {arrow && <span class="button__arrow" aria-hidden="true" />}
     </button>

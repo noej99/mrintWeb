@@ -10,6 +10,7 @@ import { resolveReferences, sortByDateDesc, sortByOrder } from './collections';
 import type { CountedCollection } from './constants';
 import { checkIntegrity, compareCounts } from './integrity';
 import { projectHistory, sortProjects } from './projects';
+import { buildSearchDocuments, type SearchDocument } from './search/documents';
 
 export type ProjectEntry = CollectionEntry<'projects'>;
 export type NewsEntry = CollectionEntry<'news'>;
@@ -114,6 +115,31 @@ export async function getCompany(): Promise<CompanyEntry | undefined> {
     throw new Error(`company collection에는 항목이 1개만 있어야 합니다. (현재 ${entries.length}개)`);
   }
   return entries[0];
+}
+
+// ── Search (파생 데이터, 원본 불변) ──
+/** 전체 사이트 검색 문서 — /search-index.json 으로 build 시 출력한다. (docs/decisions.md D-23) */
+export async function getSearchDocuments(): Promise<SearchDocument[]> {
+  const [company, team, news, projects, business, partners, type, industry, status] = await Promise.all([
+    getCompany(),
+    getTeam(),
+    getNews(),
+    getProjects(),
+    getBusinessLines(),
+    getPartners(),
+    getTermLabels('type'),
+    getTermLabels('industry'),
+    getTermLabels('status'),
+  ]);
+  return buildSearchDocuments({
+    company,
+    team,
+    news,
+    projects,
+    business,
+    partners,
+    termLabels: { type, industry, status },
+  });
 }
 
 // ── 검증 ──
