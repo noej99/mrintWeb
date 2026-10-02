@@ -1,0 +1,51 @@
+---
+/**
+ * Business Line 목록 (/business) — 기존 /business-line/ (page 43, Phase 11에서 301)
+ * - h1: 기존 page title `Business Line` (기존 목록 페이지는 h1 없음)
+ * - 카드: 기존 목록 순서 / title / description-summary / thumbnail(placeholder)
+ * TODO(Phase 10): title/description 정책 확정
+ */
+import BusinessCard from '@/components/business/BusinessCard.astro';
+import PageHeader from '@/components/ui/PageHeader.astro';
+import Section from '@/components/ui/Section.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getBusinessLines } from '@/lib/content';
+import { SITE_NAME } from '@/lib/site';
+
+const lines = await getBusinessLines();
+const pageTitle = 'Business Line';
+---
+
+<BaseLayout title={`${pageTitle} | ${SITE_NAME}`} canonicalPath="/business">
+  <PageHeader title={pageTitle} breadcrumbs={[{ label: 'Home', href: '/' }, { label: pageTitle }]} />
+
+  <Section spacing="compact" aria-label="Business Line 목록">
+    <ul class="business-list" role="list" data-business-list>
+      {
+        lines.map((line, index) => (
+          <li>
+            <BusinessCard line={line} index={index} />
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+</BaseLayout>
+
+<style>
+  .business-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--gutter);
+  }
+
+  .business-list > li {
+    min-width: 0;
+  }
+
+  @media (max-width: 767px) {
+    .business-list {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

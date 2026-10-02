@@ -1,0 +1,2292 @@
+[
+  {
+    "id": "partner-28",
+    "name": "동양생명",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/02/동양생명.png",
+      "legacyMediaId": 964,
+      "width": 1000,
+      "height": 1000,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 28,
+    "legacyUrl": "/partners/동양생명/",
+    "legacySlug": "동양생명",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-266",
+    "name": "교보생명",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/02/교보생명.png",
+      "legacyMediaId": 402,
+      "width": 640,
+      "height": 360,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "system-integration"
+    ],
+    "legacyId": 266,
+    "legacyUrl": "/partners/교보생명/",
+    "legacySlug": "교보생명",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-396",
+    "name": "SBI 저축은행",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/03/SBI-저축은행.png",
+      "legacyMediaId": 399,
+      "width": 300,
+      "height": 100,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing"
+    ],
+    "legacyId": 396,
+    "legacyUrl": "/partners/sbi-저축은행/",
+    "legacySlug": "sbi-저축은행",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "name",
+          "note": "띄어쓰기 `SBI 저축은행` — Project Client는 붙여 씀 (원문 유지)"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-400",
+    "name": "애큐온캐피탈",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/03/애큐온캐피탈.png",
+      "legacyMediaId": 401,
+      "width": 680,
+      "height": 137,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing"
+    ],
+    "legacyId": 400,
+    "legacyUrl": "/partners/애큐온캐피탈/",
+    "legacySlug": "애큐온캐피탈",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "name",
+          "note": "같은 이름의 Partner 존재 (partner-486) — 중복 의심, 병합하지 않음. 고객 확인 필요"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-420",
+    "name": "쿠팡",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/on-light-background.png",
+      "legacyMediaId": 421,
+      "width": 712,
+      "height": 160,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 420,
+    "legacyUrl": "/partners/쿠팡/",
+    "legacySlug": "쿠팡",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-422",
+    "name": "나이키",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/Logo_NIKE.svg",
+      "legacyMediaId": 986,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing"
+    ],
+    "legacyId": 422,
+    "legacyUrl": "/partners/나이키/",
+    "legacySlug": "나이키",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "logo",
+          "note": "SVG 로고 — 원본 width/height 메타데이터 없음"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-443",
+    "name": "CGV",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/CGV.png",
+      "legacyMediaId": 445,
+      "width": 79,
+      "height": 35,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 443,
+    "legacyUrl": "/partners/cgv/",
+    "legacySlug": "cgv",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-446",
+    "name": "CJ ONE",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/CJ-ONE.png",
+      "legacyMediaId": 447,
+      "width": 400,
+      "height": 225,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 446,
+    "legacyUrl": "/partners/cj-one/",
+    "legacySlug": "cj-one",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-448",
+    "name": "CJ 올리브영",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/CJ-올리브영.png",
+      "legacyMediaId": 449,
+      "width": 204,
+      "height": 192,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 448,
+    "legacyUrl": "/partners/cj-올리브영/",
+    "legacySlug": "cj-올리브영",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-450",
+    "name": "CJ 푸드빌",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/CJ-푸드빌.png",
+      "legacyMediaId": 451,
+      "width": 304,
+      "height": 166,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 450,
+    "legacyUrl": "/partners/cj-푸드빌/",
+    "legacySlug": "cj-푸드빌",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-452",
+    "name": "CJ E&M",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/CJ_EM.png",
+      "legacyMediaId": 453,
+      "width": 95,
+      "height": 55,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 452,
+    "legacyUrl": "/partners/cj-em/",
+    "legacySlug": "cj-em",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "name",
+          "note": "`CJ E&M` — Project Client 표기 `CJ ENM`과 다름 (원문 유지)"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-454",
+    "name": "CJ 제일제당",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/CJ_제일제당.png",
+      "legacyMediaId": 455,
+      "width": 100,
+      "height": 44,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 454,
+    "legacyUrl": "/partners/cj-제일제당/",
+    "legacySlug": "cj-제일제당",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-456",
+    "name": "CJ 대한통운",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/CJ대한통운로고.png",
+      "legacyMediaId": 457,
+      "width": 945,
+      "height": 404,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing",
+      "system-integration"
+    ],
+    "legacyId": 456,
+    "legacyUrl": "/partners/cj-대한통운/",
+    "legacySlug": "cj-대한통운",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-458",
+    "name": "핑거",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/finger.png",
+      "legacyMediaId": 459,
+      "width": 720,
+      "height": 677,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 458,
+    "legacyUrl": "/partners/핑거/",
+    "legacySlug": "핑거",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-460",
+    "name": "IBK 시스템",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/ibk-시스템.png",
+      "legacyMediaId": 461,
+      "width": 720,
+      "height": 677,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing"
+    ],
+    "legacyId": 460,
+    "legacyUrl": "/partners/ibk-시스템/",
+    "legacySlug": "ibk-시스템",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "name",
+          "note": "띄어쓰기 `IBK 시스템` — Project Client는 붙여 씀 (원문 유지)"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-462",
+    "name": "카카오뱅크",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/kakaobank.png",
+      "legacyMediaId": 463,
+      "width": 600,
+      "height": 600,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 462,
+    "legacyUrl": "/partners/카카오뱅크/",
+    "legacySlug": "카카오뱅크",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-464",
+    "name": "카카오페이",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/kakaopay.png",
+      "legacyMediaId": 465,
+      "width": 256,
+      "height": 256,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing"
+    ],
+    "legacyId": 464,
+    "legacyUrl": "/partners/카카오페이/",
+    "legacySlug": "카카오페이",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-466",
+    "name": "KT DS",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/kt-ds.png",
+      "legacyMediaId": 467,
+      "width": 335,
+      "height": 132,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 466,
+    "legacyUrl": "/partners/kt-ds/",
+    "legacySlug": "kt-ds",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-468",
+    "name": "LG CNS",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/LG-CNS.png",
+      "legacyMediaId": 469,
+      "width": 1875,
+      "height": 444,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 468,
+    "legacyUrl": "/partners/lg-cns/",
+    "legacySlug": "lg-cns",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-470",
+    "name": "LG 헬로비전",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/LG-hellovision.png",
+      "legacyMediaId": 471,
+      "width": 647,
+      "height": 364,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 470,
+    "legacyUrl": "/partners/lg-헬로비전/",
+    "legacySlug": "lg-헬로비전",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-472",
+    "name": "MG 새마을금고",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/MG-새마을금고.png",
+      "legacyMediaId": 473,
+      "width": 600,
+      "height": 600,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing"
+    ],
+    "legacyId": 472,
+    "legacyUrl": "/partners/mg-새마을금고-2/",
+    "legacySlug": "mg-새마을금고-2",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacySlug",
+          "note": "기존 slug `mg-새마을금고-2` (-2 접미사) — 원문 보존"
+        },
+        {
+          "field": "name",
+          "note": "띄어쓰기 `MG 새마을금고` — Project Client는 붙여 씀 (원문 유지)"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-474",
+    "name": "SC 제일은행",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/SC-제일은행.png",
+      "legacyMediaId": 476,
+      "width": 476,
+      "height": 134,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "system-integration"
+    ],
+    "legacyId": 474,
+    "legacyUrl": "/partners/sc-제일은행/",
+    "legacySlug": "sc-제일은행",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "name",
+          "note": "`SC 제일은행` — Project Client 표기 `한국스탠다드차타드은행`과 다름 (원문 유지)"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-477",
+    "name": "티시스",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/Tsis.png",
+      "legacyMediaId": 478,
+      "width": 389,
+      "height": 145,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 477,
+    "legacyUrl": "/partners/티시스/",
+    "legacySlug": "티시스",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-479",
+    "name": "기획재정부",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/기획재정부.png",
+      "legacyMediaId": 480,
+      "width": 835,
+      "height": 299,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 479,
+    "legacyUrl": "/partners/기획재정부/",
+    "legacySlug": "기획재정부",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-481",
+    "name": "라이나생명",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/라이나-생명.png",
+      "legacyMediaId": 482,
+      "width": 300,
+      "height": 100,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 481,
+    "legacyUrl": "/partners/라이나생명/",
+    "legacySlug": "라이나생명",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-483",
+    "name": "아시아나 IDT",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/아시아나-IDT.png",
+      "legacyMediaId": 484,
+      "width": 300,
+      "height": 120,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 483,
+    "legacyUrl": "/partners/아시아나-idt/",
+    "legacySlug": "아시아나-idt",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-486",
+    "name": "애큐온캐피탈",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/애큐온캐피탈.png",
+      "legacyMediaId": 487,
+      "width": 680,
+      "height": 137,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 486,
+    "legacyUrl": "/partners/애큐온캐피탈-2/",
+    "legacySlug": "애큐온캐피탈-2",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "name",
+          "note": "같은 이름의 Partner 존재 (partner-400) — 중복 의심, 병합하지 않음. 고객 확인 필요"
+        },
+        {
+          "field": "legacySlug",
+          "note": "기존 slug `애큐온캐피탈-2` (-2 접미사) — 원문 보존"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-490",
+    "name": "예금보험공사",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/예금보험공사.png",
+      "legacyMediaId": 492,
+      "width": 508,
+      "height": 138,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing"
+    ],
+    "legacyId": 490,
+    "legacyUrl": "/partners/예금보험공사/",
+    "legacySlug": "예금보험공사",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-494",
+    "name": "우리에프아이에스",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/우리에프아이에스.png",
+      "legacyMediaId": 495,
+      "width": 1888,
+      "height": 253,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 494,
+    "legacyUrl": "/partners/우리에프아이에스/",
+    "legacySlug": "우리에프아이에스",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-496",
+    "name": "우리은행",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/우리은행.png",
+      "legacyMediaId": 497,
+      "width": 800,
+      "height": 193,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 496,
+    "legacyUrl": "/partners/우리은행/",
+    "legacySlug": "우리은행",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-498",
+    "name": "전북은행",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/전북은행.png",
+      "legacyMediaId": 500,
+      "width": 1125,
+      "height": 211,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "system-integration"
+    ],
+    "legacyId": 498,
+    "legacyUrl": "/partners/전북은행/",
+    "legacySlug": "전북은행",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-501",
+    "name": "K-BIZ 중소기업중앙회",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/중소기업중앙회.png",
+      "legacyMediaId": 503,
+      "width": 650,
+      "height": 300,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 501,
+    "legacyUrl": "/partners/k-biz-중소기업중앙회/",
+    "legacySlug": "k-biz-중소기업중앙회",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-506",
+    "name": "하나금융TI",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/하나금융-ti.png",
+      "legacyMediaId": 508,
+      "width": 1263,
+      "height": 335,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 506,
+    "legacyUrl": "/partners/하나금융ti/",
+    "legacySlug": "하나금융ti",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-509",
+    "name": "한국은행",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/한국은행.png",
+      "legacyMediaId": 510,
+      "width": 600,
+      "height": 600,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing"
+    ],
+    "legacyId": 509,
+    "legacyUrl": "/partners/한국은행/",
+    "legacySlug": "한국은행",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-512",
+    "name": "캠코_한국자산관리공사",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/한국자산관리공사.png",
+      "legacyMediaId": 513,
+      "width": 586,
+      "height": 426,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 512,
+    "legacyUrl": "/partners/캠코_한국자산관리공사/",
+    "legacySlug": "캠코_한국자산관리공사",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-514",
+    "name": "행정안전부",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/행정안전부.png",
+      "legacyMediaId": 515,
+      "width": 1200,
+      "height": 388,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 514,
+    "legacyUrl": "/partners/행정안전부/",
+    "legacySlug": "행정안전부",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-516",
+    "name": "현대차증권",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/현대차증권.png",
+      "legacyMediaId": 517,
+      "width": 4000,
+      "height": 1333,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing"
+    ],
+    "legacyId": 516,
+    "legacyUrl": "/partners/현대차증권/",
+    "legacySlug": "현대차증권",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-518",
+    "name": "흥국생명",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/흥국생명-1.png",
+      "legacyMediaId": 519,
+      "width": 512,
+      "height": 161,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing",
+      "system-integration"
+    ],
+    "legacyId": 518,
+    "legacyUrl": "/partners/흥국생명-2/",
+    "legacySlug": "흥국생명-2",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacySlug",
+          "note": "기존 slug `흥국생명-2` (-2 접미사) — 원문 보존"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-520",
+    "name": "흥국화재",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/흥국화재.png",
+      "legacyMediaId": 521,
+      "width": 500,
+      "height": 101,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 520,
+    "legacyUrl": "/partners/흥국화재/",
+    "legacySlug": "흥국화재",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-545",
+    "name": "KB국민은행",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/KB_logo_2020.jpg",
+      "legacyMediaId": 546,
+      "width": 800,
+      "height": 217,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "system-integration"
+    ],
+    "legacyId": 545,
+    "legacyUrl": "/partners/kb국민은행/",
+    "legacySlug": "kb국민은행",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-575",
+    "name": "코스콤",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/Koscom_CI.jpg",
+      "legacyMediaId": 580,
+      "width": 1719,
+      "height": 573,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 575,
+    "legacyUrl": "/partners/코스콤/",
+    "legacySlug": "코스콤",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-651",
+    "name": "KDB산업은행",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/KDB_CI_Kor.jpg",
+      "legacyMediaId": 652,
+      "width": 1988,
+      "height": 301,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 651,
+    "legacyUrl": "/partners/kdb산업은행/",
+    "legacySlug": "kdb산업은행",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-657",
+    "name": "나이스신용평가",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/symbolmark.jpg",
+      "legacyMediaId": 660,
+      "width": 71,
+      "height": 71,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "system-integration"
+    ],
+    "legacyId": 657,
+    "legacyUrl": "/partners/나이스신용평가/",
+    "legacySlug": "나이스신용평가",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-662",
+    "name": "산림조합중앙회",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/2.-산림조합-CB-기본형2가로형.jpg",
+      "legacyMediaId": 663,
+      "width": 472,
+      "height": 118,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing"
+    ],
+    "legacyId": 662,
+    "legacyUrl": "/partners/산림조합중앙회/",
+    "legacySlug": "산림조합중앙회",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-670",
+    "name": "삼성꿈장학재단",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/삼성꿈장학재단.png",
+      "legacyMediaId": 671,
+      "width": 394,
+      "height": 131,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing"
+    ],
+    "legacyId": 670,
+    "legacyUrl": "/partners/삼성꿈장학재단/",
+    "legacySlug": "삼성꿈장학재단",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-674",
+    "name": "삼성카드",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/삼성카드-로고.png",
+      "legacyMediaId": 676,
+      "width": 298,
+      "height": 77,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "system-integration"
+    ],
+    "legacyId": 674,
+    "legacyUrl": "/partners/삼성카드/",
+    "legacySlug": "삼성카드",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-679",
+    "name": "신한은행",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/신한은행-로고.jpg",
+      "legacyMediaId": 680,
+      "width": 240,
+      "height": 67,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "system-integration"
+    ],
+    "legacyId": 679,
+    "legacyUrl": "/partners/신한은행/",
+    "legacySlug": "신한은행",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-698",
+    "name": "IBK기업은행",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/IBK기업은행_CI국문.jpg",
+      "legacyMediaId": 699,
+      "width": 2364,
+      "height": 946,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing"
+    ],
+    "legacyId": 698,
+    "legacyUrl": "/partners/ibk기업은행/",
+    "legacySlug": "ibk기업은행",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-707",
+    "name": "KB캐피탈",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/kb캐피탈.png",
+      "legacyMediaId": 708,
+      "width": 336,
+      "height": 67,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "system-integration"
+    ],
+    "legacyId": 707,
+    "legacyUrl": "/partners/kb캐피탈/",
+    "legacySlug": "kb캐피탈",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-713",
+    "name": "토스뱅크",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/토스뱅크.jpg",
+      "legacyMediaId": 714,
+      "width": 1181,
+      "height": 303,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "system-integration"
+    ],
+    "legacyId": 713,
+    "legacyUrl": "/partners/토스뱅크/",
+    "legacySlug": "토스뱅크",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-717",
+    "name": "하나은행",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/하나은행.jpg",
+      "legacyMediaId": 718,
+      "width": 2362,
+      "height": 616,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "system-integration"
+    ],
+    "legacyId": 717,
+    "legacyUrl": "/partners/하나은행/",
+    "legacySlug": "하나은행",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-728",
+    "name": "한국투자캐피탈",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/한국투자캐피탈.jpg",
+      "legacyMediaId": 729,
+      "width": 600,
+      "height": 131,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing",
+      "system-integration"
+    ],
+    "legacyId": 728,
+    "legacyUrl": "/partners/한국투자캐피탈/",
+    "legacySlug": "한국투자캐피탈",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "name",
+          "note": "같은 이름의 Partner 존재 (partner-1375) — 중복 의심, 병합하지 않음. 고객 확인 필요"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-754",
+    "name": "현대카드",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/HyundaiCard_Signature.jpg",
+      "legacyMediaId": 756,
+      "width": 948,
+      "height": 219,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing"
+    ],
+    "legacyId": 754,
+    "legacyUrl": "/partners/현대카드/",
+    "legacySlug": "현대카드",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-807",
+    "name": "한국투자저축은행",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/한투저축은행.svg",
+      "legacyMediaId": 808,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "infrastructure"
+    ],
+    "legacyId": 807,
+    "legacyUrl": "/partners/한국투자저축은행/",
+    "legacySlug": "한국투자저축은행",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "logo",
+          "note": "SVG 로고 — 원본 width/height 메타데이터 없음"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-837",
+    "name": "CJ올리브네트웍스",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/cj올리브네트웍스.jpg",
+      "legacyMediaId": 838,
+      "width": 512,
+      "height": 385,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "it-outsourcing"
+    ],
+    "legacyId": 837,
+    "legacyUrl": "/partners/cj올리브네트웍스/",
+    "legacySlug": "cj올리브네트웍스",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-858",
+    "name": "쇼핑엔티",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/쇼핑엔티.jpg",
+      "legacyMediaId": 859,
+      "width": 800,
+      "height": 420,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 858,
+    "legacyUrl": "/partners/쇼핑엔티/",
+    "legacySlug": "쇼핑엔티",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-865",
+    "name": "NIA 한국지능정보사회진흥원",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/NIA.jpg",
+      "legacyMediaId": 866,
+      "width": 1000,
+      "height": 1000,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 865,
+    "legacyUrl": "/partners/nia-한국지능정보사회진흥원/",
+    "legacySlug": "nia-한국지능정보사회진흥원",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-892",
+    "name": "CJ 프레시웨이",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/04/CJ프레시웨이.png",
+      "legacyMediaId": 893,
+      "width": 400,
+      "height": 300,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 892,
+    "legacyUrl": "/partners/cj-프레시웨이/",
+    "legacySlug": "cj-프레시웨이",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-1030",
+    "name": "뱅크웨어글로벌",
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 1030,
+    "legacyUrl": "/partners/뱅크웨어글로벌/",
+    "legacySlug": "뱅크웨어글로벌",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "기존 사이트에 로고(ACF bi) 미등록"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-1130",
+    "name": "태광그룹",
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 1130,
+    "legacyUrl": "/partners/태광그룹/",
+    "legacySlug": "태광그룹",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "기존 사이트에 로고(ACF bi) 미등록"
+        },
+        {
+          "field": "usage",
+          "note": "Project·Business Line 어디에도 연결되지 않음 — 데이터로만 보존, 화면 미표시"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-1137",
+    "name": "라이나손해보험",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/09/라이나손보.png",
+      "legacyMediaId": 1138,
+      "width": 449,
+      "height": 156,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 1137,
+    "legacyUrl": "/partners/라이나손해보험/",
+    "legacySlug": "라이나손해보험",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-1184",
+    "name": "애큐온저축은행",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/12/애큐온저축은행.png",
+      "legacyMediaId": 1185,
+      "width": 546,
+      "height": 86,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 1184,
+    "legacyUrl": "/partners/애큐온저축은행/",
+    "legacySlug": "애큐온저축은행",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-1191",
+    "name": "KDB캐피탈",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/12/IMG_0011.png",
+      "legacyMediaId": 1192,
+      "width": 1200,
+      "height": 630,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 1191,
+    "legacyUrl": "/partners/kdb캐피탈/",
+    "legacySlug": "kdb캐피탈",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-1284",
+    "name": "나비엔",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2024/12/경동나비엔.png",
+      "legacyMediaId": 1285,
+      "width": 485,
+      "height": 81,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "solution"
+    ],
+    "legacyId": 1284,
+    "legacyUrl": "/partners/나비엔/",
+    "legacySlug": "나비엔",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "name",
+          "note": "`나비엔` — Project Client 표기 `경동나비엔`과 다름 (같은 회사로 보이나 미확인, 원문 유지)"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-1350",
+    "name": "BNK캐피탈",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2025/06/BNK캐피탈.png",
+      "legacyMediaId": 1351,
+      "width": 512,
+      "height": 512,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 1350,
+    "legacyUrl": "/partners/bnk캐피탈/",
+    "legacySlug": "bnk캐피탈",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-1375",
+    "name": "한국투자캐피탈",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2025/06/200465_50349_2148.jpg",
+      "legacyMediaId": 1376,
+      "width": 600,
+      "height": 131,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [
+      "infrastructure"
+    ],
+    "legacyId": 1375,
+    "legacyUrl": "/partners/한국투자캐피탈-2/",
+    "legacySlug": "한국투자캐피탈-2",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "name",
+          "note": "같은 이름의 Partner 존재 (partner-728) — 중복 의심, 병합하지 않음. 고객 확인 필요"
+        },
+        {
+          "field": "legacySlug",
+          "note": "기존 slug `한국투자캐피탈-2` (-2 접미사) — 원문 보존"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  },
+  {
+    "id": "partner-1571",
+    "name": "농협은행",
+    "logo": {
+      "legacyUrl": "/wp-content/uploads/2026/02/cyber_signeture02.gif",
+      "legacyMediaId": 1570,
+      "width": 501,
+      "height": 161,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    "logoPermission": "unknown",
+    "businessLines": [],
+    "legacyId": 1571,
+    "legacyUrl": "/partners/농협은행/",
+    "legacySlug": "농협은행",
+    "review": {
+      "status": "needs-confirmation",
+      "notes": [
+        {
+          "field": "logo",
+          "note": "고객사 로고 사용 권한 미확인 (CLAUDE.md §3) — 확인 전까지 이미지 미사용"
+        },
+        {
+          "field": "legacyUrl",
+          "note": "기존 개별 URL은 본문 없는 빈 페이지로 색인됨 — 신규 개별 페이지 없음 (Phase 11 처리)"
+        }
+      ]
+    }
+  }
+]

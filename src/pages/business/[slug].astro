@@ -1,0 +1,41 @@
+---
+/**
+ * Business Line 상세 (/business/{slug}) — 기존 /business_line/{slug}/ (legacyUrl, Phase 11에서 301)
+ * - h1: 원문 title, 설명: 원문 description-summary
+ * - 섹션 제목 h2 (기존 h1 → h3 건너뜀 미재현), Service Features 탭 제목 h3
+ * - SEO: 데이터 seo가 approved일 때만 title/description 사용 (resolvePageSeo). 승인 전 description 미출력
+ * TODO(Phase 10): title/description 정책 확정
+ */
+import type { GetStaticPaths } from 'astro';
+import BusinessDetail from '@/components/business/BusinessDetail.astro';
+import PageHeader from '@/components/ui/PageHeader.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getBusinessClients, getBusinessLines, type BusinessEntry } from '@/lib/content';
+import { resolvePageSeo } from '@/lib/seo';
+import { SITE_NAME } from '@/lib/site';
+
+export const getStaticPaths = (async () => {
+  const lines = await getBusinessLines();
+  return lines.map((line) => ({ params: { slug: line.data.slug }, props: { line } }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  line: BusinessEntry;
+}
+
+const { line } = Astro.props;
+const { data } = line;
+const clients = await getBusinessClients(line);
+const seo = resolvePageSeo(data.seo, `${data.title} | ${SITE_NAME}`);
+---
+
+<BaseLayout {...seo} canonicalPath={`/business/${data.slug}`}>
+  <PageHeader
+    title={data.title}
+    eyebrow="Business Line"
+    description={data.summary}
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Business Line', href: '/business' }, { label: data.title }]}
+  />
+
+  <BusinessDetail line={line} clients={clients} />
+</BaseLayout>

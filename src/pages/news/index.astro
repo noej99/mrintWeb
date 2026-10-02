@@ -1,0 +1,25 @@
+---
+/**
+ * News 목록 (/news) — 기존 /newsnotices/ (docs/requirements.md §7, D-10: Option A 목록 + 상세)
+ * 기존 사이트처럼 8건 전체를 게시일 최신순 한 목록으로 표시한다. (기존 페이지당 12건, 1페이지)
+ * h1은 기존 표기 'News&Notices'를 사용한다.
+ * TODO(Phase 10): title/description 정책 확정
+ */
+import NewsList from '@/components/news/NewsList.astro';
+import PageHeader from '@/components/ui/PageHeader.astro';
+import Section from '@/components/ui/Section.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getNews } from '@/lib/content';
+import { SITE_NAME } from '@/lib/site';
+
+const items = await getNews();
+const pageTitle = 'News&Notices';
+---
+
+<BaseLayout title={`${pageTitle} | ${SITE_NAME}`} canonicalPath="/news">
+  <PageHeader title={pageTitle} breadcrumbs={[{ label: 'Home', href: '/' }, { label: pageTitle }]} />
+
+  <Section spacing="compact" aria-label="뉴스 목록">
+    <NewsList items={items} />
+  </Section>
+</BaseLayout>

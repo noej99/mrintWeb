@@ -1,0 +1,120 @@
+---
+/**
+ * ProjectDetail — 기존 상세 정보 구조를 하나의 마크업으로 구성 (PC/모바일 중복 마크업 없음)
+ * ├─ Meta (Type/Status/Name/Period/Client/Project Overview/Partner)
+ * ├─ Gallery (확인 전 placeholder, 원본 비율)
+ * ├─ Description (원문 블록, 있을 때만)
+ * └─ History (같은 partner의 프로젝트, 자기 자신 포함 — 1회만 출력)
+ */
+import NewsBody from '@/components/news/NewsBody.astro';
+import RelatedProjectList from '@/components/team/RelatedProjectList.astro';
+import Container from '@/components/ui/Container.astro';
+import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
+import SplitSection from '@/components/ui/SplitSection.astro';
+import type { ProjectEntry } from '@/lib/content';
+import ProjectMeta from './ProjectMeta.astro';
+
+interface Props {
+  project: ProjectEntry;
+  history: readonly ProjectEntry[];
+  typeLabel?: string | undefined;
+  statusLabel: string;
+  partnerName?: string | undefined;
+}
+
+const { project, history, typeLabel, statusLabel, partnerName } = Astro.props;
+const { data } = project;
+const historyItems = history.map((entry) => ({
+  title: entry.data.title,
+  year: entry.data.year,
+  href: `/projects/${entry.data.slug}`,
+  current: entry.id === project.id,
+}));
+---
+
+<Container class="project-detail">
+  <div class="project-detail__info">
+    <ProjectMeta project={data} typeLabel={typeLabel} statusLabel={statusLabel} partnerName={partnerName} />
+  </div>
+
+  <div class="project-detail__main">
+    {
+      data.images.length > 0 && (
+        <div class="project-detail__gallery" data-project-gallery>
+          {data.images.map((image) => (
+            <figure class="project-detail__figure">
+              {/* TODO: 이미지 원본/라이선스 확인 후 ResponsiveImage로 교체 (D-13) */}
+              <ImagePlaceholder ratio={image.width && image.height ? image.width / image.height : 16 / 9} tone="light" />
+            </figure>
+          ))}
+        </div>
+      )
+    }
+
+    {
+      data.description && (
+        <section class="project-detail__description" aria-labelledby="project-description">
+          <h2 id="project-description" class="project-detail__heading">
+            Description
+          </h2>
+          <NewsBody news={{ body: data.description }} />
+        </section>
+      )
+    }
+  </div>
+</Container>
+
+<SplitSection title="History" id="project-history" tone="paper">
+  <RelatedProjectList items={historyItems} />
+</SplitSection>
+
+<style>
+  :global(.project-detail.container) {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: clamp(32px, 4vw, 56px) var(--gutter);
+    padding-block: clamp(40px, 5vw, 72px) var(--space-section-compact);
+  }
+
+  .project-detail__info {
+    grid-column: 1 / 6;
+  }
+
+  .project-detail__main {
+    grid-column: 7 / -1;
+    display: grid;
+    gap: clamp(32px, 4vw, 56px);
+    min-width: 0;
+  }
+
+  .project-detail__gallery {
+    display: grid;
+    gap: 16px;
+  }
+
+  .project-detail__figure {
+    margin: 0;
+  }
+
+  .project-detail__heading {
+    margin-bottom: 20px;
+    font-size: clamp(22px, 2vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  @media (min-width: 1101px) {
+    .project-detail__info {
+      position: sticky;
+      top: calc(var(--header-h) + 32px);
+      align-self: start;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .project-detail__info,
+    .project-detail__main {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

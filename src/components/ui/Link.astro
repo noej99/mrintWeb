@@ -1,0 +1,67 @@
+---
+/**
+ * Link
+ * - inline: 본문 링크. 색상만으로 구분하지 않도록 항상 밑줄 (WCAG 1.4.1)
+ * - standalone: 단독 링크. hover/focus 시 밑줄이 그려진다.
+ * newTab: 새 창으로 열고, 스크린리더에 "(새 창)"을 안내한다.
+ */
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = Omit<HTMLAttributes<'a'>, 'target'> & {
+  href: string;
+  variant?: 'inline' | 'standalone';
+  newTab?: boolean;
+};
+
+const { variant = 'inline', newTab = false, class: className, rel, ...attrs } = Astro.props;
+const relValue = newTab ? ['noopener', 'noreferrer', rel].filter(Boolean).join(' ') : rel;
+---
+
+<a
+  class:list={['link', `link--${variant}`, className]}
+  target={newTab ? '_blank' : undefined}
+  rel={relValue}
+  {...attrs}
+>
+  <slot />{newTab && <span class="visually-hidden">(새 창)</span>}
+</a>
+
+<style>
+  .link--inline {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: color 0.25s;
+  }
+
+  .link--inline:hover {
+    color: var(--accent-text);
+  }
+
+  .link--standalone {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-weight: 500;
+  }
+
+  .link--standalone::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 8px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.45s var(--ease);
+  }
+
+  .link--standalone:hover::after,
+  .link--standalone:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+</style>

@@ -1,0 +1,78 @@
+/*
+ * Design tokens
+ * 출처: design/prototype/site.css (D-02: 디자인만 반영)
+ * 접근성 보정:
+ * - --accent-deep: #1F8A4C(흰 배경 대비 약 4.2:1) → #1A7A42(약 5.1:1)
+ * - mono/label 최소 12px, 본문 16px (모바일 포함)
+ *
+ * Breakpoints (CSS 변수는 media query에 쓸 수 없으므로 값으로 고정)
+ * - mobile:  max-width 767px   (검수 기준 390px)
+ * - tablet:  max-width 1100px  (검수 기준 768px, burger 메뉴)
+ * - desktop: min-width 1101px  (검수 기준 1440px)
+ */
+:root {
+  /* palette */
+  --ink: #0a110f;
+  --ink-2: #101916;
+  --ink-3: #18231f;
+  --paper: #f4f4f1;
+  --paper-2: #eaebe6;
+  --white: #fbfbf9;
+  --muted: #5e6763;
+  --muted-d: #8c9792;
+  --line: rgba(10, 17, 15, 0.12);
+  --line-d: rgba(244, 244, 241, 0.14);
+  --accent: #50d682;
+  --accent-deep: #1a7a42;
+  --logo-accent: #39b54a;
+
+  /* typography */
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+    'Malgun Gothic', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --fs-label: 12px;
+  --fs-sm: 14px;
+  --fs-base: 16px;
+  --fs-md: 18px;
+  --fs-lead: clamp(19px, 1.6vw, 24px);
+  --fs-h3: clamp(22px, 2vw, 30px);
+  --fs-h2: clamp(32px, 4.4vw, 68px);
+  --fs-h1: clamp(38px, 5vw, 80px);
+
+  --lh-body: 1.7;
+  --lh-heading: 1.16;
+  --tracking-body: -0.01em;
+  --tracking-heading: -0.04em;
+  --tracking-mono: 0.06em;
+
+  /* layout */
+  --max: 1480px;
+  --pad: clamp(16px, 4.2vw, 72px);
+  --gutter: 24px;
+  --header-h: 76px;
+  --space-section: clamp(96px, 12vw, 180px);
+  --space-section-compact: clamp(56px, 7vw, 100px);
+
+  /* motion */
+  --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+
+  /* focus */
+  --focus-width: 3px;
+  --focus-offset: 3px;
+
+  /* semantic (tone별로 재정의 — base.css .tone-*) */
+  --surface: var(--white);
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --border: var(--line);
+  --border-strong: var(--ink);
+  --accent-text: var(--accent-deep);
+  --focus-color: var(--accent-deep);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-h: 64px;
+  }
+}

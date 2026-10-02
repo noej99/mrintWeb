@@ -1,0 +1,61 @@
+{
+  "slug": "project-1044",
+  "title": "삼성꿈장학재단 ITO 유지보수",
+  "name": "삼성꿈장학재단 ITO 유지보수",
+  "date": "2024-05-02",
+  "year": 2024,
+  "type": "ito",
+  "industry": "27",
+  "status": "proceeding",
+  "period": "2023.12 ~ 진행중",
+  "client": "삼성꿈장학재단",
+  "overview": "꿈장학, 대학희망장학, 배움터지원사업, 교육실천가장학, 글로벌국내·국외장학, 홈페이지 등 개발 및 유지보수 ",
+  "description": [
+    {
+      "type": "paragraph",
+      "text": "삼성꿈장학재단은 교육 소외계층의 실질적인 교육기회 확대를 위한 장학사업과 복지친화적인 교육 여건 조성 사업을 실시함으로써 개인, 지역, 계층 간 교육격차를 해소하고 사회통합 및 국가발전에 기여하기 위해 설립되었습니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "다양한 분야에 꿈과 가능성이 있는 청소년들을 멘토와 함께 선발하여 학생들이 멘토 선생님의 교육적, 정서적 지지를 받으면서 자신의 꿈을 찾고 재능을 개발할 수 있도록 장학금을 지원하는 사업을 진행 중이며, 미래아이엔텍은 ITO 유지보수 사업을 맡아 진행하고 있습니다."
+    }
+  ],
+  "images": [
+    {
+      "legacyUrl": "/wp-content/uploads/2024/05/restmb_allidxmake.jpeg",
+      "legacyMediaId": 1048,
+      "width": 600,
+      "height": 337,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    }
+  ],
+  "partner": "partner-670",
+  "legacyId": 1044,
+  "legacyUrl": "/1044-2/",
+  "review": {
+    "status": "needs-confirmation",
+    "notes": [
+      {
+        "field": "year",
+        "note": "Year 2024 / Period 시작 2023.12 — 확인 필요"
+      },
+      {
+        "field": "images",
+        "note": "원본 파일/라이선스 미확인 (D-13), 고객사 로고·간판 포함 여부 확인 필요 — 확인 전까지 placeholder, alt 원문 없음"
+      },
+      {
+        "field": "images[0]",
+        "note": "파일명상 언론사 기사 이미지로 추정"
+      },
+      {
+        "field": "slug",
+        "note": "slug 규칙 project-{legacyId} (D-07) — 영문 SEO slug는 추후 별도 검토"
+      }
+    ]
+  },
+  "seo": {
+    "status": "draft"
+  }
+}

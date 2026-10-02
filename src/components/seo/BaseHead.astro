@@ -1,0 +1,56 @@
+---
+/**
+ * 공통 head (기본 구조). 페이지별 title/description 규칙과 JSON-LD는 Phase 10에서 완성한다.
+ * - description/og:image는 값이 있을 때만 출력한다. 임의 문구를 생성하지 않는다. (CLAUDE.md §14)
+ * - noindex 페이지(404, search 등)는 canonical을 출력하지 않는다.
+ */
+import { SITE_LOCALE, SITE_NAME } from '@/lib/site';
+import { toCanonicalUrl } from '@/lib/url';
+
+export interface Props {
+  title: string;
+  description?: string;
+  /** 기본값: 현재 경로 */
+  canonicalPath?: string;
+  noindex?: boolean;
+  ogType?: 'website' | 'article';
+  /** 절대 URL 또는 사이트 기준 경로 */
+  ogImage?: string;
+}
+
+const { title, description, canonicalPath, noindex = false, ogType = 'website', ogImage } = Astro.props;
+
+const site = Astro.site ?? new URL(Astro.url.origin);
+const canonical = toCanonicalUrl(canonicalPath ?? Astro.url.pathname, site);
+const ogImageUrl = ogImage ? new URL(ogImage, site).href : undefined;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+{description && <meta name="description" content={description} />}
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
+{!noindex && <link rel="canonical" href={canonical} />}
+
+<meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:locale" content={SITE_LOCALE} />
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={title} />
+<meta property="og:url" content={canonical} />
+{description && <meta property="og:description" content={description} />}
+{ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+
+<!-- TODO: favicon (공식 로고 확정 후, docs/decisions.md D-05) -->
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" />
+
+<script is:inline>
+  document.documentElement.classList.add('js');
+</script>

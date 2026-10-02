@@ -1,0 +1,51 @@
+---
+import { SITE_NAME } from '@/lib/site';
+import LogoMark from './LogoMark.astro';
+
+interface Props {
+  /** 워드마크 옆 한글 사명 표시 (모바일에서는 숨김) */
+  showName?: boolean;
+  class?: string;
+}
+
+const { showName = true, class: className } = Astro.props;
+---
+
+<a href="/" class:list={['logo', className]} aria-label={`${SITE_NAME} 홈`}>
+  <LogoMark class="logo__mark" />
+  {showName && <span class="logo__name" aria-hidden="true">{SITE_NAME}</span>}
+</a>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+    color: inherit;
+  }
+
+  .logo__mark {
+    width: auto;
+    height: 28px;
+  }
+
+  .logo__name {
+    padding-left: 14px;
+    border-left: 1px solid currentColor;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  @media (max-width: 767px) {
+    .logo__mark {
+      height: 24px;
+    }
+
+    .logo__name {
+      display: none;
+    }
+  }
+</style>

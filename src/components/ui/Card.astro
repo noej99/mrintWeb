@@ -1,0 +1,169 @@
+---
+/**
+ * Card — 프로토타입 business cell 디자인 기반
+ * - href가 있으면 제목 링크가 카드 전체 영역을 덮는다 (링크는 1개, 탭 1회)
+ * - hover/focus 시 ink 패널이 아래에서 올라온다
+ * slots: media(이미지), meta(배지 등), default(설명), footer
+ */
+type HeadingLevel = 2 | 3 | 4;
+
+interface Props {
+  title: string;
+  href?: string;
+  eyebrow?: string;
+  headingLevel?: HeadingLevel;
+  class?: string;
+}
+
+const { title, href, eyebrow, headingLevel = 3, class: className } = Astro.props;
+const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4';
+---
+
+<article class:list={['card', { 'card--link': href }, className]}>
+  {
+    Astro.slots.has('media') && (
+      <div class="card__media">
+        <slot name="media" />
+      </div>
+    )
+  }
+  <div class="card__body">
+    {
+      (eyebrow || Astro.slots.has('meta')) && (
+        <div class="card__top">
+          {eyebrow && <p class="card__eyebrow mono">{eyebrow}</p>}
+          <slot name="meta" />
+        </div>
+      )
+    }
+    <Heading class="card__title">
+      {href ? <a class="card__link" href={href}>{title}</a> : title}
+    </Heading>
+    {
+      Astro.slots.has('default') && (
+        <div class="card__content">
+          <slot />
+        </div>
+      )
+    }
+    {
+      Astro.slots.has('footer') && (
+        <div class="card__footer">
+          <slot name="footer" />
+        </div>
+      )
+    }
+  </div>
+</article>
+
+<style>
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .card__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 32px 32px 36px;
+  }
+
+  .card__media :global(img) {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .card__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .card__eyebrow {
+    color: var(--text-muted);
+    transition: color 0.4s;
+  }
+
+  .card__title {
+    font-size: var(--fs-h3);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.035em;
+  }
+
+  .card__content {
+    margin-top: 14px;
+    max-width: 40ch;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text-muted);
+    transition: color 0.4s;
+  }
+
+  .card__footer {
+    margin-top: auto;
+    padding-top: 32px;
+  }
+
+  /* 링크 카드 */
+  .card__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .card__link:focus-visible {
+    outline: none;
+  }
+
+  .card--link:has(.card__link:focus-visible) {
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
+  }
+
+  .card--link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--ink);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.6s var(--ease);
+  }
+
+  .card--link:hover,
+  .card--link:has(.card__link:focus-visible) {
+    --text: var(--paper);
+    --text-muted: rgba(244, 244, 241, 0.75);
+    --border: var(--line-d);
+    --focus-color: var(--accent);
+  }
+
+  .card--link:hover::before,
+  .card--link:has(.card__link:focus-visible)::before {
+    transform: scaleY(1);
+  }
+
+  @media (max-width: 767px) {
+    .card__body {
+      padding: 24px 22px 28px;
+    }
+
+    .card__top {
+      margin-bottom: 28px;
+    }
+  }
+</style>

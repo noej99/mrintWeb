@@ -1,0 +1,221 @@
+---
+/**
+ * ServiceFeatures — 기존 tabs_layout (탭 제목/이미지/설명 원문)
+ * - JS 미동작: 모든 탭 내용을 h3 제목과 함께 순서대로 표시 (콘텐츠가 사라지지 않음)
+ * - JS 동작(src/scripts/tabs.ts): button[role=tab] + tabpanel, 화살표/Home/End 키, roving tabindex
+ *   패널의 h3는 tab 이름과 중복되므로 tab 모드에서 hidden 처리한다.
+ */
+import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
+import { imageRatio } from '@/lib/business';
+import type { BusinessTab } from '@/schemas';
+import BusinessText from './BusinessText.astro';
+
+interface Props {
+  tabs: readonly BusinessTab[];
+  /** id 접두어 (페이지 안에서 고유) */
+  id: string;
+  /** tablist 이름 (섹션 제목 id) */
+  labelledby: string;
+}
+
+const { tabs, id, labelledby } = Astro.props;
+const tabId = (index: number) => `${id}-tab-${index + 1}`;
+const panelId = (index: number) => `${id}-panel-${index + 1}`;
+---
+
+<div class="features" data-tabs>
+  <div class="features__tablist" role="tablist" aria-labelledby={labelledby} hidden data-tabs-list>
+    {
+      tabs.map((tab, index) => (
+        <button
+          class="features__tab"
+          type="button"
+          role="tab"
+          id={tabId(index)}
+          aria-controls={panelId(index)}
+          aria-selected={index === 0 ? 'true' : 'false'}
+          tabindex={index === 0 ? 0 : -1}
+          data-tab
+        >
+          <span class="features__tab-index mono" aria-hidden="true">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <span class="features__tab-label">{tab.title}</span>
+        </button>
+      ))
+    }
+  </div>
+
+  <div class="features__panels">
+    {
+      tabs.map((tab, index) => (
+        <div class="features__panel" id={panelId(index)} data-tab-panel>
+          <h3 class="features__panel-title" data-tab-heading>
+            {tab.title}
+          </h3>
+          <div class="features__panel-body">
+            {tab.image && (
+              <figure class="features__media">
+                {/* TODO: 이미지 원본/라이선스/AI 생성 여부 확인 후 ResponsiveImage로 교체 (D-13) */}
+                <ImagePlaceholder ratio={imageRatio(tab.image, 1)} tone="light" />
+              </figure>
+            )}
+            <BusinessText text={tab.description} class="features__text" />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  import '@/scripts/tabs';
+</script>
+
+<style>
+  .features__tablist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+    border-top: 1px solid var(--border-strong);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .features__tablist[hidden] {
+    display: none;
+  }
+
+  .features__tab {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    min-height: 64px;
+    padding: 18px 20px 18px 0;
+    border: 0;
+    background: none;
+    color: var(--text-muted);
+    font: inherit;
+    font-size: var(--fs-base);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.3s var(--ease);
+  }
+
+  .features__tab::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s var(--ease);
+  }
+
+  .features__tab:hover,
+  .features__tab[aria-selected='true'] {
+    color: var(--text);
+  }
+
+  /* 선택 상태는 색상 + 밑줄(형태)로 표시 (색상만으로 전달하지 않음) */
+  .features__tab[aria-selected='true']::after {
+    transform: scaleX(1);
+  }
+
+  .features__tab:focus-visible {
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: calc(var(--focus-width) * -1);
+  }
+
+  .features__tab-index {
+    flex: none;
+    color: var(--text-muted);
+  }
+
+  .features__panels {
+    display: grid;
+    gap: clamp(48px, 6vw, 80px);
+  }
+
+  .features__panel[hidden] {
+    display: none;
+  }
+
+  [data-tabs][data-ready] .features__panels {
+    margin-top: clamp(32px, 4vw, 48px);
+  }
+
+  [data-tabs][data-ready] .features__panel:focus-visible {
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
+  }
+
+  .features__panel-title {
+    margin-bottom: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-strong);
+    font-size: var(--fs-h3);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.3;
+  }
+
+  .features__panel-title[hidden] {
+    display: none;
+  }
+
+  .features__panel-body {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 32px var(--gutter);
+    align-items: start;
+  }
+
+  .features__media {
+    margin: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    [data-tabs][data-ready] .features__panel:not([hidden]) {
+      animation: features-in 0.4s var(--ease);
+    }
+  }
+
+  @keyframes features-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .features__panel-body {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .features__media {
+      max-width: 480px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .features__tablist {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .features__tab {
+      min-height: 56px;
+      padding-block: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .features__tab:first-child {
+      border-top: 0;
+    }
+  }
+</style>

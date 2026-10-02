@@ -1,0 +1,35 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Container from './Container.astro';
+
+type Props = HTMLAttributes<'section'> & {
+  tone?: 'white' | 'paper' | 'ink';
+  spacing?: 'default' | 'compact' | 'none';
+  /** false면 Container 없이 slot을 그대로 렌더링한다. */
+  contained?: boolean;
+};
+
+const { tone = 'white', spacing = 'default', contained = true, class: className, ...attrs } = Astro.props;
+---
+
+<section class:list={['section', `tone-${tone}`, `section--${spacing}`, className]} {...attrs}>
+  {
+    contained ? (
+      <Container>
+        <slot />
+      </Container>
+    ) : (
+      <slot />
+    )
+  }
+</section>
+
+<style>
+  .section--default {
+    padding-block: var(--space-section);
+  }
+
+  .section--compact {
+    padding-block: var(--space-section-compact);
+  }
+</style>

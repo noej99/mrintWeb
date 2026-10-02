@@ -1,0 +1,89 @@
+{
+  "slug": "project-973",
+  "title": "IBK기업은행 정보시스템 운영",
+  "name": "IBK기업은행 정보시스템 운영",
+  "date": "2024-04-19",
+  "year": 2022,
+  "type": "ito",
+  "industry": "9",
+  "status": "proceeding",
+  "period": "2022.03 ~ 진행중",
+  "client": "IBK시스템",
+  "overview": "BPR, 연구비사업, 리스크, 여신계정, 여신채널, 인터넷뱅킹, 스마트뱅킹, 자금세탁방지 등 전반적인 부분의 유지보수",
+  "description": [
+    {
+      "type": "paragraph",
+      "text": "IBK기업은행은 국책 은행인 만큼 사업자 선정 기준이 엄격하고 이에 걸 맞는 수준의 제안을 준비해야 했습니다.\n이와 더불어 고객사인 IBK시스템의 관리 체계와 지원 요청을 빈틈없이 챙길 수 있는 전사적 조직의 준비도 필요했습니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "무엇보다도 이번 사업의 가장 중요한 성공 요소는 \"인수 및 인계\"에 대한 전략이었습니다.\n인수 계획을 수립하고 양측의 업무 및 책임을 명확히 정의했습니다. 이는 기존 시스템의 원활한 이전을 보장하기 위한 중요한 단계였습니다.\n또한, 기존 사업자가 보유한 기술적, 운영적 지식을 충분히 이해하고 수용하기 위해 준비했습니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "기존 운영 시스템의 분석을 통해 이전 과정에서 발생할 수 있는 문제점을 사전에 파악하고 대비했고\n이를 통해 중요한 기술 인력의 유실이나 서비스 중단과 같은 위험을 최소화했습니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "계약 체결 후에는 인수인계 과정을 계획대로 철저히 진행했습니다. 기존 사업자와의 원활한 소통과 협력을 통해 양측의 이해 관계를 강화했습니다.\n이렇게 함으로써 우리는 기존 사업자로부터 성공적으로 인수하고, 고객에게 지속적인 서비스를 제공할 수 있었습니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "As IBK Industrial Bank of Korea is a government-run bank, the criteria for selecting a business operator are strict and a proposal had to be prepared at an appropriate level.\nIn addition, it was necessary to prepare a company-wide organization that could thoroughly attend to the management system and support requests of our client, IBK System."
+    },
+    {
+      "type": "paragraph",
+      "text": "Above all, the most important success factor for this business was the “acquisition and handover” strategy.\nA transition plan was developed and the tasks and responsibilities of both parties were clearly defined. This was an important step to ensure a smooth transition of existing systems.\nIn addition, we have prepared to fully understand and accept the technical and operational knowledge possessed by existing operators."
+    },
+    {
+      "type": "paragraph",
+      "text": "Through analysis of the existing operating system, we identified and prepared for problems that may arise during the transfer process in advance.\nThis minimized risks such as loss of critical technical staff or service interruption."
+    },
+    {
+      "type": "paragraph",
+      "text": "After signing the contract, the handover process was carried out thoroughly as planned. The interests of both parties were strengthened through smooth communication and cooperation with existing businesses.\nThis has enabled us to successfully acquire from existing operators and continue to serve our customers."
+    }
+  ],
+  "images": [
+    {
+      "legacyUrl": "/wp-content/uploads/2024/04/기업은행.jpg",
+      "legacyMediaId": 978,
+      "width": 2560,
+      "height": 1707,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    }
+  ],
+  "partner": "partner-460",
+  "legacyId": 973,
+  "legacyUrl": "/ibk기업은행-정보시스템-운영/",
+  "review": {
+    "status": "needs-confirmation",
+    "notes": [
+      {
+        "field": "client",
+        "note": "Client가 최종 고객이 아닌 원청사로 보임('IBK시스템') — 표기 확인 필요"
+      },
+      {
+        "field": "description",
+        "note": "국문 + 영문 번역 원문 보존 — 영문 표기/품질 확인 필요. 프로토타입 연도 2024 / Year 2022"
+      },
+      {
+        "field": "images",
+        "note": "원본 파일/라이선스 미확인 (D-13), 고객사 로고·간판 포함 여부 확인 필요 — 확인 전까지 placeholder, alt 원문 없음"
+      },
+      {
+        "field": "images[0]",
+        "note": "여러 프로젝트에서 공유되는 이미지 (4건)"
+      },
+      {
+        "field": "slug",
+        "note": "slug 규칙 project-{legacyId} (D-07) — 영문 SEO slug는 추후 별도 검토"
+      }
+    ]
+  },
+  "seo": {
+    "status": "draft"
+  }
+}

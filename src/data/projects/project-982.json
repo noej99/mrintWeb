@@ -1,0 +1,85 @@
+{
+  "slug": "project-982",
+  "title": "Nike Korea Ltd. Retail & Logistics Tech Support",
+  "name": "Nike Korea Ltd. Retail & Logistics Tech Support",
+  "date": "2024-04-19",
+  "year": 2024,
+  "industry": "27",
+  "status": "proceeding",
+  "period": "2024.02.01 ~ 진행중",
+  "client": "TCS (TATA Consultancy Service)",
+  "overview": "Retail Tech Support / Logistics Tech Support",
+  "description": [
+    {
+      "type": "paragraph",
+      "text": "■소매 기술지원■\nNike 오프라인 매장에 대한 글로벌 리테일 플랫폼의 기술적 지원을 제공합니다.\n미래아이엔텍은 RPS(Retail Production Support)팀의 일원으로 Nike End User를 기술적으로 지원합니다.\nIssue 해결을 위해 글로벌 현지 기술팀과 소통/협업을 진행하고 있습니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "■물류센터 기술지원■\n글로벌/로컬 LC Digital 운영, 3PL Digital Distribution Center와 Nike 물류센터 간의 시스템 인터페이싱을 포함한 기술적 지원을 제공합니다.\n미래아이엔텍은 LC Tech 팀의 일원으로 서비스나우(ServiceNow) 플랫폼의 인시던트/리퀘스트를 처리합니다.\nIssue 해결을 위해 글로벌 현지 기술팀과 소통/협업을 진행하고 있습니다."
+    }
+  ],
+  "images": [
+    {
+      "legacyUrl": "/wp-content/uploads/2024/04/KakaoTalk_20240419_124857145.jpg",
+      "legacyMediaId": 983,
+      "width": 764,
+      "height": 764,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    },
+    {
+      "legacyUrl": "/wp-content/uploads/2024/04/KakaoTalk_20240419_124915889.jpg",
+      "legacyMediaId": 984,
+      "width": 445,
+      "height": 445,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    }
+  ],
+  "partner": "partner-422",
+  "legacyId": 982,
+  "legacyUrl": "/nikekorea-retail-logistics-tech-support/",
+  "review": {
+    "status": "needs-confirmation",
+    "notes": [
+      {
+        "field": "period",
+        "note": "Period 표기 형식 원문 유지: '2024.02.01 ~ 진행중'"
+      },
+      {
+        "field": "client",
+        "note": "Client가 최종 고객이 아닌 원청사로 보임('TCS (TATA Consultancy Service)') — 표기 확인 필요"
+      },
+      {
+        "field": "type",
+        "note": "기존 데이터에 Type 없음 — 임의 지정하지 않음 (requirements §15 Nike Korea type)"
+      },
+      {
+        "field": "description",
+        "note": "원문 기호 '■' 유지"
+      },
+      {
+        "field": "images",
+        "note": "원본 파일/라이선스 미확인 (D-13), 고객사 로고·간판 포함 여부 확인 필요 — 확인 전까지 placeholder, alt 원문 없음"
+      },
+      {
+        "field": "images[0]",
+        "note": "메신저(KakaoTalk) 사진 파일"
+      },
+      {
+        "field": "images[1]",
+        "note": "메신저(KakaoTalk) 사진 파일"
+      },
+      {
+        "field": "slug",
+        "note": "slug 규칙 project-{legacyId} (D-07) — 영문 SEO slug는 추후 별도 검토"
+      }
+    ]
+  },
+  "seo": {
+    "status": "draft"
+  }
+}

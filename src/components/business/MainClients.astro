@@ -1,0 +1,67 @@
+---
+/**
+ * MainClients — Business Line Main Clients (기존 ACF partners 순서)
+ * 로고 사용 권한 확인 전이므로 로고 이미지 대신 Partner 이름 텍스트로 표시한다. (D-13)
+ * 개별 Partner 페이지가 없으므로 링크하지 않는다.
+ */
+import type { PartnerEntry } from '@/lib/content';
+
+interface Props {
+  clients: readonly PartnerEntry[];
+}
+
+const { clients } = Astro.props;
+---
+
+<ol class="clients" role="list" data-main-clients>
+  {
+    clients.map((client, index) => (
+      <li class="clients__item" data-partner-id={client.id}>
+        <span class="clients__index mono" aria-hidden="true">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+        <span class="clients__name">{client.data.name}</span>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .clients {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+    column-gap: var(--gutter);
+    border-top: 1px solid var(--border-strong);
+  }
+
+  .clients__item {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    min-width: 0;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: var(--fs-md);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.45;
+  }
+
+  .clients__index {
+    flex: none;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .clients__name {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 767px) {
+    .clients__item {
+      padding-block: 14px;
+      font-size: var(--fs-base);
+    }
+  }
+</style>

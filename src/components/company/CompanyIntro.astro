@@ -1,0 +1,61 @@
+---
+/**
+ * INTRODUCTION — 대표 이미지 + 소개 문단 (원문 그대로, 문단 내 줄바꿈 보존)
+ * 이미지 src가 없으면(원본/라이선스 미확인) ImagePlaceholder를 원본 비율로 표시한다.
+ */
+import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
+import type { CompanyData } from '@/schemas';
+
+interface Props {
+  paragraphs: readonly string[];
+  image?: CompanyData['images'][number] | undefined;
+}
+
+const { paragraphs, image } = Astro.props;
+const ratio = image?.width && image.height ? image.width / image.height : 750 / 398;
+---
+
+<div class="company-intro">
+  {
+    image && (
+      <figure class="company-intro__media">
+        {/* TODO: 이미지 원본/라이선스 확인 후 ResponsiveImage로 교체 (D-13) */}
+        <ImagePlaceholder ratio={ratio} tone="light" />
+      </figure>
+    )
+  }
+  <div class="company-intro__text">
+    {
+      paragraphs.map((paragraph) => (
+        <p>
+          {paragraph.split('\n').map((line, index) => (
+            <>
+              {index > 0 && <br />}
+              {line}
+            </>
+          ))}
+        </p>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .company-intro {
+    display: grid;
+    gap: clamp(40px, 5vw, 64px);
+  }
+
+  .company-intro__media {
+    margin: 0;
+  }
+
+  .company-intro__text {
+    display: grid;
+    gap: 1.7em;
+    max-width: 64ch;
+    font-size: var(--fs-md);
+    line-height: 1.8;
+    letter-spacing: -0.02em;
+  }
+</style>

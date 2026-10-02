@@ -1,0 +1,151 @@
+---
+/**
+ * Home 슬라이드 1개
+ * - 카드 전체가 링크 영역 (제목 링크의 ::after가 슬라이드를 덮는다. 링크는 1개)
+ * - 링크 accessible name: "{title} 상세 보기" 또는 목록 임시 연결 시 "{title} — Projects 목록 보기"
+ * - 이미지가 없으면 ImagePlaceholder (레이아웃 동일)
+ */
+import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
+import ResponsiveImage from '@/components/ui/ResponsiveImage.astro';
+import type { HomeCard } from '@/data/home';
+
+interface Props {
+  card: HomeCard;
+  index: number;
+  total: number;
+}
+
+const { card, index, total } = Astro.props;
+const linkSuffix = card.linkTarget === 'detail' ? ' 상세 보기' : ` — ${card.type} 목록 보기`;
+const datetime = card.date.replaceAll('.', '-');
+---
+
+<div
+  class="slide"
+  role="group"
+  aria-roledescription="슬라이드"
+  aria-label={`${index + 1} / ${total}`}
+  data-slide
+>
+  <div class="slide__media">
+    {
+      card.image ? (
+        <ResponsiveImage
+          src={card.image}
+          alt={card.imageAlt}
+          sizes="100vw"
+          priority={index === 0}
+          class="slide__image"
+        />
+      ) : (
+        <ImagePlaceholder label={card.title} />
+      )
+    }
+  </div>
+  <div class="slide__veil" aria-hidden="true"></div>
+
+  <div class="slide__content">
+    <p class="slide__type eyebrow">{card.type}</p>
+    <h2 class="slide__title">
+      <a class="slide__link" href={card.href}>
+        {card.title}<span class="visually-hidden">{linkSuffix}</span>
+      </a>
+    </h2>
+    <p class="slide__date mono"><time datetime={datetime}>{card.date}</time></p>
+  </div>
+</div>
+
+<style>
+  .slide {
+    position: relative;
+    flex: 0 0 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .slide__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .slide__media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slide__veil {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(90deg, rgba(10, 17, 15, 0.85) 0%, rgba(10, 17, 15, 0.45) 50%, rgba(10, 17, 15, 0) 80%),
+      linear-gradient(0deg, rgba(10, 17, 15, 0.9) 0%, rgba(10, 17, 15, 0) 45%);
+  }
+
+  .slide__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 24px;
+    height: 100%;
+    max-width: var(--max);
+    margin-inline: auto;
+    padding: 96px var(--pad) calc(72px + clamp(48px, 7vw, 112px));
+  }
+
+  .slide__type {
+    color: var(--muted-d);
+  }
+
+  .slide__title {
+    max-width: 16ch;
+    font-size: clamp(40px, 6.4vw, 112px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.045em;
+    color: var(--paper);
+  }
+
+  .slide__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .slide__link:focus-visible {
+    outline: none;
+  }
+
+  .slide:has(.slide__link:focus-visible) {
+    outline: var(--focus-width) solid var(--accent);
+    outline-offset: -8px;
+  }
+
+  .slide__link:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.12em;
+  }
+
+  .slide__date {
+    color: var(--muted-d);
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 767px) {
+    .slide__veil {
+      background: linear-gradient(0deg, rgba(10, 17, 15, 0.95) 10%, rgba(10, 17, 15, 0.5) 60%, rgba(10, 17, 15, 0.3) 100%);
+    }
+
+    .slide__content {
+      gap: 16px;
+      padding-bottom: calc(64px + 40px);
+    }
+  }
+</style>

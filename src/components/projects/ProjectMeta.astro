@@ -1,0 +1,91 @@
+---
+/**
+ * ProjectMeta — 기존 상세 라벨 그대로: Type / Status / Name / Period / Client / Project Overview (+ Partner)
+ * 값은 원문 그대로 표시한다. 원본에 값이 없는 항목(#982 Type)은 행을 표시하지 않는다.
+ */
+import StatusBadge from '@/components/ui/StatusBadge.astro';
+import type { ProjectData } from '@/schemas';
+
+interface Props {
+  project: ProjectData;
+  typeLabel?: string | undefined;
+  statusLabel: string;
+  partnerName?: string | undefined;
+}
+
+const { project, typeLabel, statusLabel, partnerName } = Astro.props;
+---
+
+<dl class="project-meta">
+  {
+    typeLabel && (
+      <div>
+        <dt>Type</dt>
+        <dd>{typeLabel}</dd>
+      </div>
+    )
+  }
+  <div>
+    <dt>Status</dt>
+    <dd>
+      <StatusBadge label={statusLabel} tone={project.status === 'proceeding' ? 'strong' : 'outline'} />
+    </dd>
+  </div>
+  <div>
+    <dt>Name</dt>
+    <dd>{project.name}</dd>
+  </div>
+  <div>
+    <dt>Period</dt>
+    <dd class="project-meta__period">{project.period}</dd>
+  </div>
+  <div>
+    <dt>Client</dt>
+    <dd>{project.client}</dd>
+  </div>
+  <div>
+    <dt>Project Overview</dt>
+    <dd>{project.overview}</dd>
+  </div>
+  {
+    partnerName && (
+      <div>
+        <dt>Partner</dt>
+        <dd>{partnerName}</dd>
+      </div>
+    )
+  }
+</dl>
+
+<style>
+  .project-meta {
+    border-top: 1px solid var(--border-strong);
+  }
+
+  .project-meta > div {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 5fr);
+    gap: 16px;
+    align-items: baseline;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .project-meta dt {
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .project-meta dd {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.6;
+  }
+
+  .project-meta__period {
+    font-variant-numeric: tabular-nums;
+  }
+</style>

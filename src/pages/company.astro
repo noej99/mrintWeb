@@ -1,0 +1,44 @@
+---
+/**
+ * Company (/company) — 기존 /mirae/ (docs/requirements.md §5, docs/sitemap.md §3)
+ * 콘텐츠: src/data/company/company.json (기존 사이트 원문)
+ * 섹션 제목(INTRODUCTION, CONTACT US)과 h1(Mirae I&Tec)은 기존 페이지 표기를 그대로 사용한다.
+ * TODO(Phase 10): title/description 정책 확정. 기존 사이트 공통 description은 사용하지 않는다.
+ */
+import CompanyIntro from '@/components/company/CompanyIntro.astro';
+import ContactInfo from '@/components/company/ContactInfo.astro';
+import LocationMap from '@/components/company/LocationMap.astro';
+import PageHeader from '@/components/ui/PageHeader.astro';
+import SplitSection from '@/components/ui/SplitSection.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCompany } from '@/lib/content';
+import { SITE_NAME } from '@/lib/site';
+
+const company = await getCompany();
+if (!company) throw new Error('src/data/company 데이터가 없습니다.');
+
+const { data } = company;
+const pageTitle = 'Mirae I&Tec';
+---
+
+<BaseLayout title={`${pageTitle} | ${SITE_NAME}`} canonicalPath="/company">
+  <PageHeader title={pageTitle} breadcrumbs={[{ label: 'Home', href: '/' }, { label: pageTitle }]} />
+
+  <SplitSection title="INTRODUCTION" id="introduction">
+    {data.introduction && <CompanyIntro paragraphs={data.introduction.ko} image={data.images[0]} />}
+  </SplitSection>
+
+  <SplitSection title="CONTACT US" id="contact-us">
+    <div class="company-contact">
+      {data.map && <LocationMap point={data.map} />}
+      <ContactInfo company={data} />
+    </div>
+  </SplitSection>
+</BaseLayout>
+
+<style>
+  .company-contact {
+    display: grid;
+    gap: 8px;
+  }
+</style>

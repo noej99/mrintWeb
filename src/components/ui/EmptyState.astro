@@ -1,0 +1,76 @@
+---
+/**
+ * EmptyState — 결과 없음/데이터 없음 상태 (docs/architecture.md §19)
+ * live: 필터/검색 결과처럼 동적으로 바뀌는 경우 스크린리더에 안내한다.
+ * slot: 동작 버튼/링크
+ */
+interface Props {
+  title: string;
+  description?: string;
+  headingLevel?: 2 | 3;
+  live?: boolean;
+}
+
+const { title, description, headingLevel = 2, live = false } = Astro.props;
+const Heading = `h${headingLevel}` as 'h2' | 'h3';
+---
+
+<div class="empty-state" role={live ? 'status' : undefined}>
+  <span class="empty-state__mark" aria-hidden="true"></span>
+  <Heading class="empty-state__title">{title}</Heading>
+  {description && <p class="empty-state__description">{description}</p>}
+  {
+    Astro.slots.has('default') && (
+      <div class="empty-state__actions">
+        <slot />
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .empty-state {
+    display: grid;
+    justify-items: start;
+    gap: 16px;
+    padding: clamp(40px, 6vw, 72px) clamp(24px, 4vw, 48px);
+    border-top: 1px solid var(--border-strong);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .empty-state__mark {
+    width: 32px;
+    height: 32px;
+    border: 1px solid currentColor;
+    position: relative;
+  }
+
+  .empty-state__mark::after {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+  }
+
+  .empty-state__title {
+    font-size: var(--fs-h3);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.3;
+  }
+
+  .empty-state__description {
+    max-width: 56ch;
+    color: var(--text-muted);
+  }
+
+  .empty-state__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+  }
+</style>

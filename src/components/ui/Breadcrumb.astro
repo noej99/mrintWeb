@@ -1,0 +1,85 @@
+---
+/**
+ * Breadcrumb — 마지막 항목은 현재 페이지(aria-current="page")
+ * BreadcrumbList 구조화 데이터는 Phase 10에서 추가한다.
+ */
+export interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: readonly BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <nav class="breadcrumb" aria-label="현재 위치">
+      <ol role="list">
+        {items.map((item, index) => {
+          const isLast = index === items.length - 1;
+          return (
+            <li>
+              {isLast || !item.href ? (
+                <span aria-current={isLast ? 'page' : undefined}>{item.label}</span>
+              ) : (
+                <a href={item.href}>{item.label}</a>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  )
+}
+
+<style>
+  .breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 0;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .breadcrumb li {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .breadcrumb li + li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    margin: 0 12px;
+    border-top: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    transform: rotate(45deg);
+  }
+
+  .breadcrumb a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 4px;
+    transition: text-decoration-color 0.25s;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text);
+    text-decoration-color: currentColor;
+  }
+
+  .breadcrumb [aria-current] {
+    color: var(--text);
+  }
+</style>

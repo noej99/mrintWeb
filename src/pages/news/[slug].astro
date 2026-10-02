@@ -1,0 +1,80 @@
+---
+/**
+ * News 상세 (/news/{slug}) — 기존 /news_notices/{한글 slug}/ (legacyUrl, Phase 11에서 301)
+ * slug는 임시 규칙 news-{기존 post ID}. 영문 slug 규칙 확정 후 교체한다.
+ * TODO(Phase 10): title/description 정책 확정
+ */
+import type { GetStaticPaths } from 'astro';
+import NewsBody from '@/components/news/NewsBody.astro';
+import Container from '@/components/ui/Container.astro';
+import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
+import PageHeader from '@/components/ui/PageHeader.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getNews, type NewsEntry } from '@/lib/content';
+import { formatDotDate } from '@/lib/date';
+import { SITE_NAME } from '@/lib/site';
+
+export const getStaticPaths = (async () => {
+  const items = await getNews();
+  return items.map((item) => ({ params: { slug: item.data.slug }, props: { item } }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  item: NewsEntry;
+}
+
+const { item } = Astro.props;
+const { data } = item;
+const label = 'News&Notices';
+---
+
+<BaseLayout title={`${data.title} | ${SITE_NAME}`} canonicalPath={`/news/${data.slug}`} ogType="article">
+  <PageHeader
+    title={data.title}
+    size="compact"
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label, href: '/news' }, { label: data.title }]}
+  >
+    <p class="news-meta mono">
+      <span>{label}</span>
+      <time datetime={data.date}>{formatDotDate(data.date)}</time>
+    </p>
+  </PageHeader>
+
+  <div class="news-article">
+    <Container size="narrow">
+      {
+        data.images.map((image) => (
+          <figure class="news-article__media">
+            {/* TODO: 이미지 원본/라이선스 확인 후 ResponsiveImage로 교체 (D-13) */}
+            <ImagePlaceholder ratio={image.width && image.height ? image.width / image.height : 16 / 9} tone="light" />
+          </figure>
+        ))
+      }
+      <NewsBody news={data} />
+    </Container>
+  </div>
+</BaseLayout>
+
+<style>
+  .news-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    order: -1;
+    margin-bottom: 4px;
+    color: var(--text-muted);
+  }
+
+  .news-meta time {
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .news-article {
+    padding-block: clamp(48px, 6vw, 96px) var(--space-section-compact);
+  }
+
+  .news-article__media {
+    margin: 0 0 clamp(32px, 4vw, 56px);
+  }
+</style>

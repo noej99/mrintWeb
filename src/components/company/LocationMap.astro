@@ -1,0 +1,89 @@
+---
+/**
+ * 위치 — 지도 API 미연결 상태 (docs/decisions.md D-14)
+ * 지도 영역은 placeholder로 유지하고, 좌표 기반 외부 지도 링크를 제공한다. API/key 사용 안 함.
+ */
+import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
+import { buildExternalMapUrl, MAP_PROVIDER_LABEL, type MapPoint } from '@/lib/map';
+
+interface Props {
+  point: MapPoint;
+}
+
+const { point } = Astro.props;
+const href = buildExternalMapUrl(point);
+const providerLabel = MAP_PROVIDER_LABEL[point.provider];
+---
+
+<div class="location-map">
+  <ImagePlaceholder prefix="Map placeholder" label={providerLabel} tone="light" class="location-map__placeholder" />
+  <a class="location-map__link" href={href} target="_blank" rel="noopener noreferrer">
+    지도에서 보기<span class="visually-hidden"> ({providerLabel}, 새 창)</span>
+    <span class="location-map__icon" aria-hidden="true"></span>
+  </a>
+</div>
+
+<style>
+  .location-map {
+    position: relative;
+    height: 400px;
+  }
+
+  .location-map :global(.location-map__placeholder) {
+    position: absolute;
+    inset: 0;
+  }
+
+  .location-map__link {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    height: 56px;
+    padding: 0 28px;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    transition:
+      background 0.3s var(--ease),
+      color 0.3s;
+  }
+
+  .location-map__link:hover {
+    background: var(--accent);
+    color: var(--ink);
+  }
+
+  /* 외부 링크 아이콘 ↗ */
+  .location-map__icon {
+    position: relative;
+    width: 12px;
+    height: 1.5px;
+    background: currentColor;
+    transform: rotate(-45deg);
+  }
+
+  .location-map__icon::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -3px;
+    width: 7px;
+    height: 7px;
+    border-top: 1.5px solid currentColor;
+    border-right: 1.5px solid currentColor;
+    transform: translateY(0.5px) rotate(45deg);
+  }
+
+  @media (max-width: 767px) {
+    .location-map {
+      height: 280px;
+    }
+  }
+</style>

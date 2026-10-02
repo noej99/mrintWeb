@@ -1,0 +1,49 @@
+---
+/**
+ * BusinessText — 원문 description 표시. 빈 줄은 문단, 줄바꿈은 <br>로 표시한다.
+ * 원문의 기호(•, 번호, ™)·띄어쓰기는 변환하지 않는다. (목록/서식 변환 없음)
+ */
+import { toParagraphs } from '@/lib/business';
+
+interface Props {
+  text: string;
+  class?: string;
+}
+
+const { text, class: className } = Astro.props;
+const paragraphs = toParagraphs(text);
+---
+
+<div class:list={['business-text', className]} data-business-text>
+  {
+    paragraphs.map((lines) => (
+      <p>
+        {lines.map((line, index) => (
+          <>
+            {index > 0 && <br />}
+            {line}
+          </>
+        ))}
+      </p>
+    ))
+  }
+</div>
+
+<style>
+  .business-text {
+    display: grid;
+    gap: 1.2em;
+    max-width: 68ch;
+    font-size: var(--fs-md);
+    line-height: 1.85;
+    letter-spacing: -0.02em;
+    overflow-wrap: anywhere;
+    word-break: keep-all;
+  }
+
+  @media (max-width: 767px) {
+    .business-text {
+      font-size: var(--fs-base);
+    }
+  }
+</style>

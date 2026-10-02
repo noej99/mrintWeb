@@ -1,0 +1,43 @@
+{
+  "slug": "project-1083",
+  "title": "카카오페이 청구서서비스 운영",
+  "name": "카카오페이 청구서서비스 운영",
+  "date": "2024-05-07",
+  "year": 2021,
+  "type": "ito",
+  "industry": "11",
+  "status": "completed",
+  "period": "2021.07 ~ 2022.07",
+  "client": "카카오페이",
+  "overview": "고지서 연동 및 납부, 신용카드 명세서 연동 및 납무, 통신요금, 보험료 납부시스템, 자동납부 등",
+  "images": [
+    {
+      "legacyUrl": "/wp-content/uploads/2024/05/카카오페이.png",
+      "legacyMediaId": 1084,
+      "width": 860,
+      "height": 580,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    }
+  ],
+  "partner": "partner-464",
+  "legacyId": 1083,
+  "legacyUrl": "/카카오페이-청구서서비스-운영/",
+  "review": {
+    "status": "needs-confirmation",
+    "notes": [
+      {
+        "field": "images",
+        "note": "원본 파일/라이선스 미확인 (D-13), 고객사 로고·간판 포함 여부 확인 필요 — 확인 전까지 placeholder, alt 원문 없음"
+      },
+      {
+        "field": "slug",
+        "note": "slug 규칙 project-{legacyId} (D-07) — 영문 SEO slug는 추후 별도 검토"
+      }
+    ]
+  },
+  "seo": {
+    "status": "draft"
+  }
+}

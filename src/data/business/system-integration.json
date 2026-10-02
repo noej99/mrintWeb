@@ -1,0 +1,79 @@
+{
+  "slug": "system-integration",
+  "order": 2,
+  "title": "SYSTEM INTEGRATION",
+  "date": "2024-02-23",
+  "summary": "고객에게 최적화된 정보 시스템과 전문적이고 효율적인 IT 솔루션을 제공합니다.",
+  "thumbnail": {
+    "legacyUrl": "/wp-content/uploads/2024/02/Frame-62.png",
+    "legacyMediaId": 282,
+    "width": 1688,
+    "height": 301,
+    "alt": "",
+    "license": "unknown",
+    "aiGenerated": "unknown"
+  },
+  "contents": [
+    {
+      "type": "title",
+      "title": "Service Summary"
+    },
+    {
+      "type": "description",
+      "description": "시스템 통합(System Integration, SI)은 다양한 기술 시스템과 비즈니스 프로세스를 통합하여 조직의 효율성을 극대화하는 과정입니다.\r\n\r\n미래아이엔텍은 금융부터 제조, 서비스업까지 다양한 산업분야에서 IT 환경의 변화에 늘 발맞추며 고객들의 다양하고 폭넓은 요구사항을 충족시키기 위해 최선을 다하고 있습니다. 특히 금융 기관을 중심으로, 다양한 업종 및 규모의 고객층을 대상으로 정보화 개발 및 인프라 구축 등 IT 솔루션을 제공하고 있습니다.\r\n\r\n또한 미래아이엔텍은 각 산업의 다양한 요구에 맞춰 솔루션을 개발하고 적용함으로써 고객의 비즈니스 프로세스를 향상시키고 경쟁력을 강화하고 있습니다. 이를 위해 핵심 기술을 지속적으로 연구 및 개발하고, 업계의 트렌드를 주시하며 고객의 요구에 늘 빠르고 정확하게 대응하여 항상 최상의 서비스를 제공하기 위해 노력하고 있습니다."
+    },
+    {
+      "type": "image",
+      "image": {
+        "legacyUrl": "/wp-content/uploads/2024/02/kevin-ku-w7ZyuGYNpRQ-unsplash-scaled.jpg",
+        "legacyMediaId": 793,
+        "width": 2560,
+        "height": 1919,
+        "alt": "",
+        "license": "unknown",
+        "aiGenerated": "unknown"
+      }
+    }
+  ],
+  "clients": [
+    "partner-474",
+    "partner-518",
+    "partner-456",
+    "partner-679",
+    "partner-717",
+    "partner-713",
+    "partner-498",
+    "partner-728",
+    "partner-707",
+    "partner-657",
+    "partner-545",
+    "partner-674",
+    "partner-266"
+  ],
+  "legacyId": 278,
+  "legacyUrl": "/business_line/si/",
+  "review": {
+    "status": "needs-confirmation",
+    "notes": [
+      {
+        "field": "contents[2].image",
+        "note": "파일명 `kevin-ku-…-unsplash` — Unsplash 이미지로 추정. Home 카드 2 이미지와 동일 파일"
+      },
+      {
+        "field": "thumbnail",
+        "note": "`Frame-62.png` 1688×301 배너 — 이미지 속 텍스트 여부/출처 미확인"
+      },
+      {
+        "field": "images",
+        "note": "원본 alt·caption 모두 빈 값. license/AI 생성 여부 미확인 — 확인 전 placeholder 표시 (D-13)"
+      },
+      {
+        "field": "clients",
+        "note": "ACF partners 원문 순서. 로고 사용 권한 미확인으로 Partner 이름 텍스트로 표시"
+      }
+    ]
+  },
+  "seo": {
+    "status": "draft"
+  }
+}

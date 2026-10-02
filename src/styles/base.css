@@ -1,0 +1,199 @@
+/* Reset / base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  min-height: 100vh;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  letter-spacing: var(--tracking-body);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+/* Focus — 키보드 사용자에게 항상 보이는 focus 표시 (CLAUDE.md §9) */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+}
+
+/* 프로그램적으로 focus를 받는 영역(main 등)은 outline을 표시하지 않는다 */
+[tabindex='-1']:focus {
+  outline: none;
+}
+
+/* Tones — 배경별 semantic 색상 */
+.tone-white {
+  --surface: var(--white);
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --border: var(--line);
+  --border-strong: var(--ink);
+  --accent-text: var(--accent-deep);
+  --focus-color: var(--accent-deep);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.tone-paper {
+  --surface: var(--paper);
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --border: var(--line);
+  --border-strong: var(--ink);
+  --accent-text: var(--accent-deep);
+  --focus-color: var(--accent-deep);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.tone-ink {
+  --surface: var(--ink);
+  --text: var(--paper);
+  --text-muted: var(--muted-d);
+  --border: var(--line-d);
+  --border-strong: var(--paper);
+  --accent-text: var(--accent);
+  --focus-color: var(--accent);
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* Utilities */
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+}
+
+/* Eyebrow: 6×6 accent square + mono label */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.eyebrow::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+}
+
+/* Image treatment: 인물/팀 이미지 단색 처리, 링크 카드 hover/focus 시 컬러 (docs/design-system.md §5.6) */
+.media-mono img {
+  filter: grayscale(1);
+  transition: filter 0.6s var(--ease);
+}
+
+:is(a, .card--link):is(:hover, :focus-visible, :has(:focus-visible)) .media-mono img {
+  filter: none;
+}
+
+/* Page transition: CSS cross-document View Transition (docs/design-system.md §5.8) */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

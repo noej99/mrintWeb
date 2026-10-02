@@ -1,0 +1,109 @@
+---
+/**
+ * CONTACT US 연락처 — 기존 /mirae/ 구조: 주소(국문/영문) + Telephone / Fax / E-mail
+ * 전화는 tel:, 이메일은 mailto: 링크로 제공한다.
+ */
+import { toMailtoHref, toTelHref } from '@/lib/contact';
+import type { CompanyData } from '@/schemas';
+
+interface Props {
+  company: Pick<CompanyData, 'address' | 'tel' | 'fax' | 'email'>;
+}
+
+const { company } = Astro.props;
+---
+
+<address class="contact-info">
+  <div class="contact-info__address">
+    <p lang="ko">{company.address.ko}</p>
+    {company.address.en && <p lang="en">{company.address.en}</p>}
+  </div>
+  <dl class="contact-info__list">
+    <div>
+      <dt>Telephone</dt>
+      <dd><a href={toTelHref(company.tel)}>{company.tel}</a></dd>
+    </div>
+    <div>
+      <dt>Fax</dt>
+      <dd>{company.fax}</dd>
+    </div>
+    <div>
+      <dt>E-mail</dt>
+      <dd><a href={toMailtoHref(company.email)}>{company.email}</a></dd>
+    </div>
+  </dl>
+</address>
+
+<style>
+  .contact-info {
+    font-style: normal;
+  }
+
+  .contact-info__address {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px var(--gutter);
+    padding-block: 28px;
+    font-size: var(--fs-md);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-info__list {
+    border-top: 1px solid var(--border-strong);
+  }
+
+  .contact-info__list > div {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--gutter);
+    align-items: center;
+    min-height: 56px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact-info__list dt {
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .contact-info__list dd {
+    font-size: var(--fs-md);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .contact-info__list a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+    text-decoration-color: var(--border-strong);
+    transition: color 0.25s;
+  }
+
+  .contact-info__list a:hover {
+    color: var(--accent-text);
+  }
+
+  @media (max-width: 767px) {
+    .contact-info__address {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .contact-info__list > div {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: 16px;
+    }
+
+    .contact-info__list dd {
+      font-size: var(--fs-base);
+      overflow-wrap: anywhere;
+    }
+  }
+</style>

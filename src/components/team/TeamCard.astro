@@ -1,0 +1,73 @@
+---
+/**
+ * TeamCard — Card 재사용. 이미지(확인 전 placeholder) + 한국어/영어 이름 + 역할
+ * 카드 전체 링크 1개 (제목 = 한국어 이름)
+ */
+import Card from '@/components/ui/Card.astro';
+import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
+import type { TeamEntry } from '@/lib/content';
+
+interface Props {
+  member: TeamEntry;
+  headingLevel?: 2 | 3;
+}
+
+const { member, headingLevel = 2 } = Astro.props;
+const { data } = member;
+const ratio = data.image?.width && data.image.height ? data.image.width / data.image.height : 2 / 3;
+const role = [data.titleKo, data.titleEn].filter(Boolean);
+---
+
+<Card title={data.nameKo} href={`/team/${data.slug}`} headingLevel={headingLevel} class="team-card">
+  <div slot="media" class="team-card__media media-mono">
+    {/* TODO: 이미지 원본/라이선스 확인 후 ResponsiveImage로 교체 (D-13) */}
+    <ImagePlaceholder ratio={ratio} tone="light" />
+  </div>
+  <p class="team-card__en" lang="en">{data.nameEn}</p>
+  {
+    role.length > 0 && (
+      <p class="team-card__role mono">
+        {data.titleKo}
+        {data.titleEn && <span lang="en">{data.titleEn}</span>}
+      </p>
+    )
+  }
+</Card>
+
+<style>
+  .team-card__en {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .team-card__role {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    margin-top: 12px;
+    color: var(--text-muted);
+  }
+
+  .team-card__role span::before {
+    content: '/';
+    margin-right: 10px;
+  }
+
+  /* 390px 2열: 한글 팀명이 글자 단위로 끊기지 않도록
+     (Card 루트에는 TeamCard scope 속성이 붙지 않으므로 클래스 기준 global 선택자 사용) */
+  @media (max-width: 767px) {
+    :global(.team-card.card .card__body) {
+      padding: 20px 16px 22px;
+    }
+
+    :global(.team-card.card .card__title) {
+      font-size: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .team-card__en {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+</style>

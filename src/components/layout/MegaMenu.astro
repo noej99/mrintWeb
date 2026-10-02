@@ -1,0 +1,191 @@
+---
+/**
+ * MegaMenu — disclosure 패턴 (button + aria-expanded/aria-controls)
+ * - JS 동작: src/scripts/mega-menu.ts (click/Enter/Space 토글, ESC/바깥 클릭/focus 이탈 시 닫힘)
+ * - JS 미동작 시: :focus-within / :hover 로 패널 표시 (html:not(.js))
+ */
+import Container from '@/components/ui/Container.astro';
+import type { NavGroup } from '@/data/navigation';
+import { matchPath } from '@/lib/url';
+
+interface Props {
+  group: NavGroup;
+  currentPath: string;
+}
+
+const { group, currentPath } = Astro.props;
+const panelId = `mega-${group.id}`;
+const children = group.children.map((link) => ({ ...link, match: matchPath(currentPath, link.href) }));
+const isActive = children.some((link) => link.match);
+---
+
+<div class="mega" data-mega>
+  <button
+    type="button"
+    class="mega__trigger"
+    aria-expanded="false"
+    aria-controls={panelId}
+    data-mega-trigger
+    data-active={isActive ? '' : undefined}
+  >
+    {group.label}
+    <span class="mega__chevron" aria-hidden="true"></span>
+  </button>
+  <div class="mega__panel tone-white" id={panelId} data-mega-panel>
+    <Container class="mega__inner">
+      <p class="mega__label eyebrow">{group.label}</p>
+      <ul class="mega__list" role="list">
+        {
+          children.map((link) => (
+            <li>
+              <a
+                class="mega__link"
+                href={link.href}
+                aria-current={link.match === 'exact' ? 'page' : link.match ? 'true' : undefined}
+              >
+                <span>{link.label}</span>
+                <span class="mega__arrow" aria-hidden="true" />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </Container>
+  </div>
+</div>
+
+<style>
+  .mega__trigger {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .mega__trigger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 6px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.45s var(--ease);
+  }
+
+  .mega__trigger:hover::after,
+  .mega__trigger[aria-expanded='true']::after,
+  .mega__trigger[data-active]::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .mega__chevron {
+    width: 7px;
+    height: 7px;
+    margin-top: -4px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.3s var(--ease);
+  }
+
+  .mega__trigger[aria-expanded='true'] .mega__chevron {
+    margin-top: 3px;
+    transform: rotate(225deg);
+  }
+
+  .mega__panel {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-strong);
+    box-shadow: 0 24px 48px -32px rgba(10, 17, 15, 0.35);
+  }
+
+  .mega[data-open] .mega__panel,
+  :global(html:not(.js)) .mega:hover .mega__panel,
+  :global(html:not(.js)) .mega:focus-within .mega__panel {
+    display: block;
+  }
+
+  .mega__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    gap: var(--gutter);
+    padding-block: 40px 48px;
+  }
+
+  .mega__label {
+    padding-top: 10px;
+  }
+
+  .mega__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid var(--border-strong);
+  }
+
+  .mega__list li + li {
+    border-left: 1px solid var(--border);
+  }
+
+  .mega__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 88px;
+    padding: 20px 24px;
+    font-size: clamp(20px, 1.6vw, 26px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    transition:
+      background 0.3s var(--ease),
+      color 0.3s var(--ease);
+  }
+
+  .mega__link:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .mega__link:focus-visible {
+    outline-offset: -3px;
+  }
+
+  .mega__link[aria-current] {
+    color: var(--accent-text);
+  }
+
+  .mega__link[aria-current]:hover {
+    color: var(--accent);
+  }
+
+  .mega__arrow {
+    flex: none;
+    width: 10px;
+    height: 10px;
+    border-top: 1.5px solid currentColor;
+    border-right: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    opacity: 0.5;
+    transition:
+      opacity 0.3s,
+      transform 0.4s var(--ease);
+  }
+
+  .mega__link:hover .mega__arrow {
+    opacity: 1;
+    transform: rotate(45deg) translate(2px, -2px);
+  }
+</style>

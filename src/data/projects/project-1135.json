@@ -1,0 +1,47 @@
+{
+  "slug": "project-1135",
+  "title": "라이나손해보험 어플리케이션 유지보수",
+  "name": "라이나손해보험 AO",
+  "date": "2024-09-06",
+  "year": 2024,
+  "type": "ito",
+  "industry": "8",
+  "status": "proceeding",
+  "period": "2024.09 ~ 진행중",
+  "client": "라이나손해보험",
+  "overview": "InsuCore, IFRS, KICS, TM/채널, GA, MCIS관리, 계속계약, 고객서비스 등 운영 및 유지보수",
+  "images": [
+    {
+      "legacyUrl": "/wp-content/uploads/2024/09/LAINA.jpg",
+      "legacyMediaId": 1140,
+      "width": 518,
+      "height": 366,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    }
+  ],
+  "partner": "partner-1137",
+  "legacyId": 1135,
+  "legacyUrl": "/라이나-손해보험-어플리케이션-유지보수/",
+  "review": {
+    "status": "needs-confirmation",
+    "notes": [
+      {
+        "field": "name",
+        "note": "제목과 Name(businesss_name) 원문 상이: '라이나손해보험 AO'"
+      },
+      {
+        "field": "images",
+        "note": "원본 파일/라이선스 미확인 (D-13), 고객사 로고·간판 포함 여부 확인 필요 — 확인 전까지 placeholder, alt 원문 없음"
+      },
+      {
+        "field": "slug",
+        "note": "slug 규칙 project-{legacyId} (D-07) — 영문 SEO slug는 추후 별도 검토"
+      }
+    ]
+  },
+  "seo": {
+    "status": "draft"
+  }
+}

@@ -1,0 +1,16 @@
+---
+/**
+ * Home (docs/requirements.md §4)
+ * 기존 사이트처럼 메인 카드 4개 slider가 중심인 구조. 추가 섹션은 고객 승인 시에만 추가한다.
+ * title/description 등 SEO 문구는 Phase 10에서 확정한다. (임의 description 생성 금지)
+ */
+import HomeSlider from '@/components/home/HomeSlider.astro';
+import { HOME_CARDS } from '@/data/home';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SITE_NAME } from '@/lib/site';
+---
+
+<BaseLayout title={SITE_NAME}>
+  <h1 class="visually-hidden">{SITE_NAME}</h1>
+  <HomeSlider cards={HOME_CARDS} label="메인 슬라이드" />
+</BaseLayout>

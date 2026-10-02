@@ -1,0 +1,41 @@
+---
+/**
+ * Team 목록 (/team) — 기존 /team/ (docs/requirements.md §6)
+ * 기존 사이트 순서: 대표이사(별도 행) → ITO / SI / 인프라 / 솔루션 / 미래기술연구소
+ * TODO(Phase 10): title/description 정책 확정
+ */
+import TeamGrid from '@/components/team/TeamGrid.astro';
+import PageHeader from '@/components/ui/PageHeader.astro';
+import Section from '@/components/ui/Section.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getTeam } from '@/lib/content';
+import { SITE_NAME } from '@/lib/site';
+
+const members = await getTeam();
+const people = members.filter((member) => member.data.kind === 'person');
+const teams = members.filter((member) => member.data.kind === 'team');
+const pageTitle = 'Team';
+---
+
+<BaseLayout title={`${pageTitle} | ${SITE_NAME}`} canonicalPath="/team">
+  <PageHeader title={pageTitle} breadcrumbs={[{ label: 'Home', href: '/' }, { label: pageTitle }]} />
+
+  <Section spacing="compact" aria-label="팀 목록">
+    <div class="team-list">
+      {people.length > 0 && <TeamGrid members={people} />}
+      {teams.length > 0 && <TeamGrid members={teams} />}
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .team-list {
+    display: grid;
+    gap: clamp(32px, 4vw, 56px);
+  }
+
+  .team-list > :global(* + *) {
+    padding-top: clamp(32px, 4vw, 56px);
+    border-top: 1px solid var(--border);
+  }
+</style>

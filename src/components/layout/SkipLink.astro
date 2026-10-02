@@ -1,0 +1,29 @@
+---
+interface Props {
+  target?: string;
+}
+
+const { target = 'main' } = Astro.props;
+---
+
+<a class="skip-link" href={`#${target}`}>본문 바로가기</a>
+
+<style>
+  .skip-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 100;
+    padding: 12px 20px;
+    background: var(--ink);
+    color: var(--paper);
+    font-weight: 600;
+    --focus-color: var(--accent);
+    transform: translateY(calc(-100% - 24px));
+  }
+
+  .skip-link:focus,
+  .skip-link:focus-visible {
+    transform: none;
+  }
+</style>

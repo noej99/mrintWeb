@@ -1,0 +1,69 @@
+{
+  "slug": "project-1051",
+  "title": "MG새마을금고 업무프로그램 개발 및 유지보수",
+  "name": "MG새마을금고 업무프로그램 개발 및 유지보수",
+  "date": "2024-05-02",
+  "year": 2018,
+  "type": "ito",
+  "industry": "9",
+  "status": "proceeding",
+  "period": "2018.10 ~ 현재",
+  "client": "MG새마을금고",
+  "overview": "정보통합시스템, 경영정보시스템 개발 및 유지보수",
+  "description": [
+    {
+      "type": "paragraph",
+      "text": "미래아이엔텍은 'MG새마을금고 업무프로그램 개발 및 유지보수'를 2018년부터 현재까지 진행하고 있습니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "1) 정보통합시스템\n가. 자금세탁, 여신, 기업여신, 경영지원"
+    },
+    {
+      "type": "paragraph",
+      "text": "2) 경영정보시스템\n가. ETL, 정보분석, 경영컨설팅"
+    },
+    {
+      "type": "paragraph",
+      "text": "3) 상기 사항 외 기타업무 개발 및 그에 따른 유지보수"
+    },
+    {
+      "type": "paragraph",
+      "text": "충분한 능력과 경험을 갖춘 인력들이 계약을 수행하고 있습니다."
+    }
+  ],
+  "images": [
+    {
+      "legacyUrl": "/wp-content/uploads/2024/05/새마을금고중앙회-IT센터-전경04_1608495857597.jpg",
+      "legacyMediaId": 1055,
+      "width": 1920,
+      "height": 1080,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    }
+  ],
+  "partner": "partner-472",
+  "legacyId": 1051,
+  "legacyUrl": "/mg새마을금고-업무프로그램-개발-및-유지보수/",
+  "review": {
+    "status": "needs-confirmation",
+    "notes": [
+      {
+        "field": "period",
+        "note": "Period 표기 형식 원문 유지: '2018.10 ~ 현재'"
+      },
+      {
+        "field": "images",
+        "note": "원본 파일/라이선스 미확인 (D-13), 고객사 로고·간판 포함 여부 확인 필요 — 확인 전까지 placeholder, alt 원문 없음"
+      },
+      {
+        "field": "slug",
+        "note": "slug 규칙 project-{legacyId} (D-07) — 영문 SEO slug는 추후 별도 검토"
+      }
+    ]
+  },
+  "seo": {
+    "status": "draft"
+  }
+}

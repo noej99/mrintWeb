@@ -1,0 +1,144 @@
+---
+/**
+ * NewsList — editorial list row (docs/design-system.md §5.4)
+ * 행 전체가 링크 1개. DOM 순서는 제목 → 날짜 (스크린리더는 제목을 먼저 읽음), 화면은 날짜 → 제목.
+ */
+import type { NewsEntry } from '@/lib/content';
+import { formatDotDate } from '@/lib/date';
+
+interface Props {
+  items: readonly NewsEntry[];
+}
+
+const { items } = Astro.props;
+---
+
+<ol class="news-list" role="list">
+  {
+    items.map((item) => (
+      <li>
+        <a class="news-row" href={`/news/${item.data.slug}`}>
+          <span class="news-row__title">{item.data.title}</span>
+          <time class="news-row__date mono" datetime={item.data.date}>
+            {formatDotDate(item.data.date)}
+          </time>
+          <span class="news-row__arrow" aria-hidden="true" />
+        </a>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .news-list {
+    border-top: 1px solid var(--border-strong);
+  }
+
+  .news-list li {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .news-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr) 24px;
+    gap: 24px;
+    align-items: baseline;
+    padding: 26px 0;
+    transition: padding 0.4s var(--ease);
+  }
+
+  .news-row::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -1px;
+    height: 1px;
+    background: var(--border-strong);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s var(--ease);
+  }
+
+  .news-row:hover,
+  .news-row:focus-visible {
+    padding-left: 12px;
+  }
+
+  .news-row:hover::before,
+  .news-row:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+  .news-row:focus-visible {
+    outline-offset: -3px;
+  }
+
+  .news-row__date {
+    grid-column: 1;
+    grid-row: 1;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .news-row__title {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: clamp(17px, 1.35vw, 20px);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.5;
+  }
+
+  .news-row__arrow {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+    width: 10px;
+    height: 10px;
+    border-top: 1.5px solid currentColor;
+    border-right: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    opacity: 0.35;
+    transition:
+      opacity 0.3s,
+      transform 0.4s var(--ease);
+  }
+
+  .news-row:hover .news-row__arrow,
+  .news-row:focus-visible .news-row__arrow {
+    opacity: 1;
+    transform: rotate(45deg) translate(2px, -2px);
+  }
+
+  @media (max-width: 767px) {
+    .news-row {
+      grid-template-columns: minmax(0, 1fr) 16px;
+      gap: 8px 16px;
+      padding: 20px 0;
+    }
+
+    .news-row:hover,
+    .news-row:focus-visible {
+      padding-left: 0;
+    }
+
+    .news-row__date {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .news-row__title {
+      grid-column: 1;
+      grid-row: 2;
+      font-size: var(--fs-base);
+    }
+
+    .news-row__arrow {
+      grid-column: 2;
+      grid-row: 2;
+    }
+  }
+</style>

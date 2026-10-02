@@ -1,0 +1,71 @@
+---
+/**
+ * Projects 목록 (/projects) — 기존 /projects/ (docs/requirements.md §8, docs/decisions.md D-08)
+ * - 필터: Type / Industry / Status / Year (query: _type, _industry, _status, _year), 0건 Year(2017, 2019)는 숨김
+ * - Pagination: 20건씩 (_paged), 정렬: Status → Year → 게시일 (기존 사이트 순서)
+ * - JS 미동작 시: 필터/페이지 없이 57건 전체 목록
+ * TODO(Phase 10): title/description 정책, pagination canonical 확정 (현재 canonical은 /projects)
+ */
+import ProjectFilter, { type FilterGroup } from '@/components/projects/ProjectFilter.astro';
+import ProjectTable from '@/components/projects/ProjectTable.astro';
+import PageHeader from '@/components/ui/PageHeader.astro';
+import Section from '@/components/ui/Section.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getProjects, getTaxonomyTerms, getTermLabels } from '@/lib/content';
+import { PROJECT_FILTER_PARAMS } from '@/lib/projects';
+import { SITE_NAME } from '@/lib/site';
+import type { TaxonomyGroup } from '@/schemas';
+
+const projects = await getProjects();
+const [typeLabels, industryLabels, statusLabels] = await Promise.all([
+  getTermLabels('type'),
+  getTermLabels('industry'),
+  getTermLabels('status'),
+]);
+
+const GROUP_LABELS: Record<TaxonomyGroup, string> = { type: 'Type', industry: 'Industry', status: 'Status', year: 'Year' };
+const valueOf = (group: TaxonomyGroup, data: (typeof projects)[number]['data']) =>
+  group === 'year' ? String(data.year) : data[group];
+
+const groups: FilterGroup[] = await Promise.all(
+  (['type', 'industry', 'status', 'year'] as const).map(async (group) => {
+    const terms = await getTaxonomyTerms(group);
+    const options = terms
+      .map((term) => ({
+        key: term.data.key,
+        label: term.data.label,
+        count: projects.filter((project) => valueOf(group, project.data) === term.data.key).length,
+      }))
+      // 실제 프로젝트가 없는 term(Year 2017, 2019)은 기본 필터 UI에서 숨긴다.
+      .filter((option) => option.count > 0);
+    return { group, label: GROUP_LABELS[group], param: PROJECT_FILTER_PARAMS[group], options };
+  }),
+);
+
+const pageTitle = 'Projects';
+---
+
+<BaseLayout title={`${pageTitle} | ${SITE_NAME}`} canonicalPath="/projects">
+  <PageHeader title={pageTitle} breadcrumbs={[{ label: 'Home', href: '/' }, { label: pageTitle }]} />
+
+  <Section spacing="compact" aria-label="프로젝트 목록">
+    <div class="projects" data-projects>
+      <ProjectFilter groups={groups} total={projects.length} />
+      <ProjectTable
+        projects={projects}
+        labels={{ type: typeLabels, industry: industryLabels, status: statusLabels }}
+      />
+    </div>
+  </Section>
+</BaseLayout>
+
+<script>
+  import '@/scripts/project-filter';
+</script>
+
+<style>
+  .projects {
+    display: grid;
+    gap: 24px;
+  }
+</style>

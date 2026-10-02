@@ -1,0 +1,43 @@
+{
+  "slug": "project-1270",
+  "title": "IBK연금보험 정보시스템 운영",
+  "name": "IBK연금보험 정보시스템 운영",
+  "date": "2024-12-18",
+  "year": 2022,
+  "type": "ito",
+  "industry": "11",
+  "status": "proceeding",
+  "period": "2022.08 ~ 진행중",
+  "client": "IBK연금보험",
+  "overview": "DBMS, 정보보안, 네트워크 운영",
+  "images": [
+    {
+      "legacyUrl": "/wp-content/uploads/2024/12/IBK연금보험.png",
+      "legacyMediaId": 1271,
+      "width": 784,
+      "height": 695,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    }
+  ],
+  "partner": "partner-460",
+  "legacyId": 1270,
+  "legacyUrl": "/ibk연금보험-정보시스템-운영/",
+  "review": {
+    "status": "needs-confirmation",
+    "notes": [
+      {
+        "field": "images",
+        "note": "원본 파일/라이선스 미확인 (D-13), 고객사 로고·간판 포함 여부 확인 필요 — 확인 전까지 placeholder, alt 원문 없음"
+      },
+      {
+        "field": "slug",
+        "note": "slug 규칙 project-{legacyId} (D-07) — 영문 SEO slug는 추후 별도 검토"
+      }
+    ]
+  },
+  "seo": {
+    "status": "draft"
+  }
+}

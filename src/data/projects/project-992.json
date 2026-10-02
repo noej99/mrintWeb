@@ -1,0 +1,61 @@
+{
+  "slug": "project-992",
+  "title": "현대차증권 IT아웃소싱 외주개발 도급계약",
+  "name": "현대차증권 IT아웃소싱 외주개발 도급계약",
+  "date": "2024-04-24",
+  "year": 2016,
+  "type": "ito",
+  "industry": "10",
+  "status": "proceeding",
+  "period": "2016.01.01 ~ 진행중",
+  "client": "현대차증권",
+  "overview": "원장(매매, 상품채권, 출납, 수익증권, 계좌, 권리, 실적, 대외접속 등), DW/감사/컴플, 퇴직연금, MTS, 홈페이지(웹), 회계시스템의 개발 및 유지보수",
+  "description": [
+    {
+      "type": "paragraph",
+      "text": "미래아이엔텍은 '현대차증권 IT아웃소싱 외주개발 도급계약'을 2016년부터 현재까지 9년 간(2024년 기준) 진행하고 있습니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "원장, 회계, DW/감사/컴플, 퇴직연금, MTS, 홈페이지(웹) 등 증권사 Core 업무/채널 전 영역을 운영/개발 중에 있으며 인프라 모니터링(OP) 수행하고 있습니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "양 사간 매년 서비스 수준 합의서(SLA)를 체결하여 서비스 사용자의 사업 목표 달성에 기여할 수 있는 책임감 있는 서비스를 제공하고 있습니다."
+    }
+  ],
+  "images": [
+    {
+      "legacyUrl": "/wp-content/uploads/2024/04/현대차증권_사옥최종_135853183.jpg",
+      "legacyMediaId": 993,
+      "width": 1200,
+      "height": 800,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    }
+  ],
+  "partner": "partner-516",
+  "legacyId": 992,
+  "legacyUrl": "/992-2/",
+  "review": {
+    "status": "needs-confirmation",
+    "notes": [
+      {
+        "field": "period",
+        "note": "Period 표기 형식 원문 유지: '2016.01.01 ~ 진행중'"
+      },
+      {
+        "field": "images",
+        "note": "원본 파일/라이선스 미확인 (D-13), 고객사 로고·간판 포함 여부 확인 필요 — 확인 전까지 placeholder, alt 원문 없음"
+      },
+      {
+        "field": "slug",
+        "note": "slug 규칙 project-{legacyId} (D-07) — 영문 SEO slug는 추후 별도 검토"
+      }
+    ]
+  },
+  "seo": {
+    "status": "draft"
+  }
+}

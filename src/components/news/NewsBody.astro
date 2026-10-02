@@ -1,0 +1,88 @@
+---
+/**
+ * NewsBody — 원문 블록(문단/목록) 렌더링. 문단 안의 원문 줄바꿈('\n')은 <br>로 표시한다.
+ * rights.status가 unknown/restricted인 외부 기사는 본문을 표시하지 않고 원문 출처 표기만 표시한다.
+ */
+import type { NewsData } from '@/schemas';
+
+interface Props {
+  news: Pick<NewsData, 'body' | 'source' | 'rights'>;
+}
+
+const { news } = Astro.props;
+const withheld = news.rights && news.rights.status !== 'confirmed';
+---
+
+<div class="news-body" data-news-body>
+  {
+    withheld ? (
+      news.source && (
+        <p class="news-body__source" data-news-source>
+          {news.source.label}
+        </p>
+      )
+    ) : (
+      news.body.map((block) =>
+        block.type === 'list' ? (
+          <ul class="news-body__list" role="list">
+            {block.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>
+            {block.text.split('\n').map((line, index) => (
+              <>
+                {index > 0 && <br />}
+                {line}
+              </>
+            ))}
+          </p>
+        ),
+      )
+    )
+  }
+</div>
+
+<style>
+  .news-body {
+    display: grid;
+    gap: 1.4em;
+    font-size: var(--fs-md);
+    line-height: 1.85;
+    letter-spacing: -0.02em;
+  }
+
+  .news-body__list {
+    border-top: 1px solid var(--border-strong);
+  }
+
+  .news-body__list li {
+    position: relative;
+    padding: 14px 0 14px 24px;
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  .news-body__list li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: calc(14px + 0.8em - 3px);
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+  }
+
+  .news-body__source {
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+  }
+
+  @media (max-width: 767px) {
+    .news-body {
+      font-size: var(--fs-base);
+    }
+  }
+</style>

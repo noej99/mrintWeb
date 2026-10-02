@@ -1,0 +1,185 @@
+---
+/**
+ * ProjectRow — 목록 1행. 행 전체가 실제 링크 1개 (기존 사이트의 숨김 링크 방식 미사용)
+ * 링크 텍스트(accessible name) = 제목 → Year → Industry → Type → Status 순
+ * data-* 는 src/scripts/project-filter.ts의 필터 기준 (taxonomy key)
+ */
+import StatusBadge from '@/components/ui/StatusBadge.astro';
+import type { ProjectEntry } from '@/lib/content';
+
+export interface ProjectLabels {
+  type: Record<string, string>;
+  industry: Record<string, string>;
+  status: Record<string, string>;
+}
+
+interface Props {
+  project: ProjectEntry;
+  labels: ProjectLabels;
+}
+
+const { project, labels } = Astro.props;
+const { data } = project;
+const typeLabel = data.type ? labels.type[data.type] : undefined;
+---
+
+<li
+  class="project-row-item"
+  data-project-row
+  data-type={data.type ?? ''}
+  data-industry={data.industry}
+  data-status={data.status}
+  data-year={String(data.year)}
+>
+  <a class="project-row" href={`/projects/${data.slug}`}>
+    <span class="project-row__title">{data.title}</span>
+    <span class="project-row__meta">
+    <span class="project-row__year mono">
+      <span class="visually-hidden">Year </span>{data.year}
+    </span>
+    <span class="project-row__industry">
+      <span class="visually-hidden">Industry </span>{labels.industry[data.industry]}
+    </span>
+    <span class="project-row__type mono">
+      {typeLabel && <span class="visually-hidden">Type </span>}{typeLabel}
+    </span>
+    </span>
+    <span class="project-row__status">
+      <span class="visually-hidden">Status </span>
+      <StatusBadge label={labels.status[data.status] ?? data.status} tone={data.status === 'proceeding' ? 'strong' : 'outline'} />
+    </span>
+    <span class="project-row__arrow" aria-hidden="true"></span>
+  </a>
+</li>
+
+<style>
+  .project-row-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .project-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 72px 120px 96px 88px 16px;
+    gap: 24px;
+    align-items: center;
+    padding: 22px 0;
+    transition: padding 0.4s var(--ease);
+  }
+
+  .project-row::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -1px;
+    height: 1px;
+    background: var(--border-strong);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s var(--ease);
+  }
+
+  .project-row:hover,
+  .project-row:focus-visible {
+    padding-left: 12px;
+  }
+
+  .project-row:hover::before,
+  .project-row:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+  .project-row:focus-visible {
+    outline-offset: -3px;
+  }
+
+  /* desktop: meta wrapper는 grid 열에 참여 (display: contents) */
+  .project-row__meta {
+    display: contents;
+  }
+
+  .project-row__title {
+    font-size: clamp(16px, 1.3vw, 19px);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.5;
+  }
+
+  .project-row__year,
+  .project-row__type {
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .project-row__industry {
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+  }
+
+  .project-row__status {
+    justify-self: start;
+  }
+
+  .project-row__arrow {
+    justify-self: end;
+    width: 10px;
+    height: 10px;
+    border-top: 1.5px solid currentColor;
+    border-right: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    opacity: 0.35;
+    transition:
+      opacity 0.3s,
+      transform 0.4s var(--ease);
+  }
+
+  .project-row:hover .project-row__arrow,
+  .project-row:focus-visible .project-row__arrow {
+    opacity: 1;
+    transform: rotate(45deg) translate(2px, -2px);
+  }
+
+  /* tablet/mobile: 1줄 제목 + Status, 2줄 Year · Industry · Type (같은 DOM, 중복 마크업 없음) */
+  @media (max-width: 1100px) {
+    .project-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      column-gap: 14px;
+      row-gap: 6px;
+    }
+
+    .project-row__title {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .project-row__status {
+      flex: none;
+    }
+
+    .project-row__meta {
+      order: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 14px;
+      flex-basis: 100%;
+    }
+
+    .project-row__year,
+    .project-row__industry,
+    .project-row__type {
+      font-size: var(--fs-label);
+    }
+
+    .project-row__arrow {
+      display: none;
+    }
+
+    .project-row:hover,
+    .project-row:focus-visible {
+      padding-left: 0;
+    }
+  }
+</style>

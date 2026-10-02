@@ -1,0 +1,75 @@
+---
+/**
+ * Pagination — /projects?page=2 형식 (docs/seo.md §15). 1페이지는 기본 URL.
+ * 이전/다음이 없을 때는 링크 대신 비활성 텍스트로 표시한다.
+ * 스타일: src/styles/pagination.css (src/scripts/project-filter.ts가 같은 마크업을 렌더링하므로 공용 CSS)
+ */
+import '@/styles/pagination.css';
+import { buildPageHref, getPaginationItems } from '@/lib/pagination';
+
+interface Props {
+  current: number;
+  total: number;
+  basePath: string;
+  /** 유지할 query (필터 등) */
+  query?: Record<string, string | undefined>;
+  label?: string;
+}
+
+const { current, total, basePath, query = {}, label = '페이지 탐색' } = Astro.props;
+const items = getPaginationItems(current, total);
+const href = (page: number) => buildPageHref(basePath, page, query);
+const hasPrev = current > 1;
+const hasNext = current < total;
+---
+
+{
+  total > 1 && (
+    <nav class="pagination" aria-label={label}>
+      {hasPrev ? (
+        <a class="pagination__step" href={href(current - 1)} rel="prev">
+          <span class="pagination__chevron pagination__chevron--prev" aria-hidden="true" />
+          이전<span class="visually-hidden"> 페이지</span>
+        </a>
+      ) : (
+        <span class="pagination__step" aria-disabled="true">
+          <span class="pagination__chevron pagination__chevron--prev" aria-hidden="true" />
+          이전<span class="visually-hidden"> 페이지</span>
+        </span>
+      )}
+
+      <ol class="pagination__pages" role="list">
+        {items.map((item) =>
+          item.type === 'ellipsis' ? (
+            <li class="pagination__ellipsis" aria-hidden="true">
+              …
+            </li>
+          ) : (
+            <li>
+              <a
+                class="pagination__page"
+                href={href(item.page)}
+                aria-current={item.page === current ? 'page' : undefined}
+              >
+                <span class="visually-hidden">페이지 </span>
+                {item.page}
+              </a>
+            </li>
+          ),
+        )}
+      </ol>
+
+      {hasNext ? (
+        <a class="pagination__step" href={href(current + 1)} rel="next">
+          다음<span class="visually-hidden"> 페이지</span>
+          <span class="pagination__chevron" aria-hidden="true" />
+        </a>
+      ) : (
+        <span class="pagination__step" aria-disabled="true">
+          다음<span class="visually-hidden"> 페이지</span>
+          <span class="pagination__chevron" aria-hidden="true" />
+        </span>
+      )}
+    </nav>
+  )
+}

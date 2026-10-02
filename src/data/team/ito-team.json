@@ -1,0 +1,188 @@
+{
+  "slug": "ito-team",
+  "order": 1,
+  "kind": "team",
+  "nameKo": "ITO 팀",
+  "nameEn": "IT Outsourcing Team",
+  "image": {
+    "legacyUrl": "/wp-content/uploads/2025/07/20250707_1405_아이콘-삭제-및-위치-조정_remix_01jzhm9z5bfhjsm2gdgrstt01d_Color2-683x1024.png",
+    "width": 683,
+    "height": 1024,
+    "alt": "",
+    "license": "unknown",
+    "aiGenerated": "unknown"
+  },
+  "introduction": [
+    "ITO팀은 은행, 보험, 증권 등 금융 전 분야는 물론, 제조·공공 부문에 이르기까지 대규모 시스템 운영 경험을 다수 보유한 최고 수준의 전문가 집단입니다. 각 분야별 특화된 기술 역량과 현장 중심의 실무 경험을 바탕으로, 복잡한 IT 환경에서도 안정성과 효율성을 동시에 확보하는 운영 서비스를 제공합니다.",
+    "ITO팀은 이러한 경험을 체계화하여 고유한 ITO 방법론을 정립하였으며, 이를 통해 서비스 수준 협약(SLA)에 기반한 정량적 품질관리를 실현하고 있습니다. 특히, 고객의 다양한 SI 사업과 유기적으로 연계되는 유연한 운영 체계를 통해, 단순 유지보수를 넘어 비즈니스 성과 향상을 위한 전략적 운영을 수행합니다.",
+    "또한, AI 기반 자동화 기술을 접목하여 운영 효율성을 극대화하고, 운영 체계를 지속적으로 선진화함으로써, ITO팀은 고객의 IT 전략을 함께 설계하고 실행하는 진정한 파트너로 자리매김하고 있습니다."
+  ],
+  "functions": [
+    "고객사 IT 운영 컨설팅 및 전환 계획 수립",
+    "고객 맞춤형 아웃소싱 전략 수립",
+    "SLA 기반 성과 관리 및 운영 분석",
+    "운영 인력 구성 및 파견/관리"
+  ],
+  "capabilities": [
+    "ITO 운영 컨설팅을 통한 최적화된 Service Module 적용",
+    "ITO 서비스 전환 컨설팅 (인수인계 매뉴얼 문서 등)",
+    "서비스 수준협약(SLA) 기반 KPI 설계 및 적용",
+    "다수의 ITO 전문 관리조직 보유 (PM,PMO,QA 등)"
+  ],
+  "relatedProjects": [
+    "project-1279",
+    "project-1135",
+    "project-1131",
+    "project-1080",
+    "project-1044",
+    "project-982",
+    "project-1209",
+    "project-1060",
+    "project-1057",
+    "project-406",
+    "project-1270",
+    "project-1257",
+    "project-973",
+    "project-1086",
+    "project-1028",
+    "project-1083",
+    "project-1444",
+    "project-1076",
+    "project-1051",
+    "project-1089",
+    "project-992"
+  ],
+  "relatedProjectsLegacy": [
+    {
+      "title": "티알엔 정보시스템 운영 용역 (TAS)",
+      "year": "2024",
+      "legacyUrl": "/티알엔-정보시스템-운영-용역tas/"
+    },
+    {
+      "title": "라이나손해보험 어플리케이션 유지보수",
+      "year": "2024",
+      "legacyUrl": "/라이나-손해보험-어플리케이션-유지보수/"
+    },
+    {
+      "title": "태광그룹 11개 계열사 홈페이지 운영",
+      "year": "2024",
+      "legacyUrl": "/1131-2/"
+    },
+    {
+      "title": "현대카드 채널계 / 처리계 유지보수 운영",
+      "year": "2024",
+      "legacyUrl": "/현대카드-채널계-처리계-유지보수-운영/"
+    },
+    {
+      "title": "삼성꿈장학재단 ITO 유지보수",
+      "year": "2024",
+      "legacyUrl": "/1044-2/"
+    },
+    {
+      "title": "Nike Korea Ltd. Retail & Logistics Tech Support",
+      "year": "2024",
+      "legacyUrl": "/nikekorea-retail-logistics-tech-support/"
+    },
+    {
+      "title": "한국투자캐피탈 시스템 운영",
+      "year": "2023",
+      "legacyUrl": "/1209-2/"
+    },
+    {
+      "title": "한국은행 IT통합 운영용역",
+      "year": "2023",
+      "legacyUrl": "/한국은행-it통합-운영용역/"
+    },
+    {
+      "title": "MG새마을금고 정보시스템 단위업무 운영",
+      "year": "2023",
+      "legacyUrl": "/mg새마을금고-정보시스템-단위업무-운영/"
+    },
+    {
+      "title": "흥국생명 IT 어플리케이션 유지보수",
+      "year": "2023",
+      "legacyUrl": "/2024-흥국생명-it-어플리케이션-유지보수/"
+    },
+    {
+      "title": "IBK연금보험 정보시스템 운영",
+      "year": "2022",
+      "legacyUrl": "/ibk연금보험-정보시스템-운영/"
+    },
+    {
+      "title": "IBK기업은행 스마트금융 상시 운영",
+      "year": "2022",
+      "legacyUrl": "/기업은행-스마트금융-상시-운영/"
+    },
+    {
+      "title": "IBK기업은행 정보시스템 운영",
+      "year": "2022",
+      "legacyUrl": "/ibk기업은행-정보시스템-운영/"
+    },
+    {
+      "title": "LG 헬로비전 시스템 운영",
+      "year": "2021",
+      "legacyUrl": "/lg-헬로비전-시스템-운영/"
+    },
+    {
+      "title": "SBI저축은행 IT아웃소싱 통합",
+      "year": "2021",
+      "legacyUrl": "/sbi저축은행-it아웃소싱-통합_코어뱅킹-비대면-개발/"
+    },
+    {
+      "title": "카카오페이 청구서서비스 운영",
+      "year": "2021",
+      "legacyUrl": "/카카오페이-청구서서비스-운영/"
+    },
+    {
+      "title": "산림조합중앙회 차세대시스템 유지보수 계약",
+      "year": "2020",
+      "legacyUrl": "/산림조합중앙회-차세대시스템-유지보수-계약/"
+    },
+    {
+      "title": "예금보험공사 케이알앤씨 정보시스템 통합 유지보수",
+      "year": "2020",
+      "legacyUrl": "/케이알앤씨-정보시스템-통합-유지보수/"
+    },
+    {
+      "title": "MG새마을금고 업무프로그램 개발 및 유지보수",
+      "year": "2018",
+      "legacyUrl": "/mg새마을금고-업무프로그램-개발-및-유지보수/"
+    },
+    {
+      "title": "CJ ENM 시스템 운영",
+      "year": "2018",
+      "legacyUrl": "/cj-enm-시스템-운영/"
+    },
+    {
+      "title": "현대차증권 IT아웃소싱 외주개발 도급계약",
+      "year": "2016",
+      "legacyUrl": "/992-2/"
+    }
+  ],
+  "legacyId": 1409,
+  "legacyUrl": "/team/ito-팀/",
+  "review": {
+    "status": "needs-confirmation",
+    "notes": [
+      {
+        "field": "image",
+        "note": "원본 파일/라이선스 미확인 (D-13). 파일명(remix_…)상 AI 생성 이미지로 추정되며 이미지 안에 팀명 텍스트 포함 — 사용 여부 확인 필요. 확인 전까지 placeholder"
+      },
+      {
+        "field": "relatedProjectsLegacy",
+        "note": "기존 목록 22번째 항목이 비어 있음(title/url 없음) — 제외"
+      },
+      {
+        "field": "relatedProjectsLegacy",
+        "note": "'흥국생명 IT 어플리케이션 유지보수' 연도 2023 — 확인 필요"
+      },
+      {
+        "field": "image",
+        "note": "목록 페이지 흑백 이미지(별도 파일): /wp-content/uploads/2025/07/20250707_1405_아이콘-삭제-및-위치-조정_remix_01jzhm9z5bfhjsm2gdgrstt01d-683x1024.png"
+      }
+    ]
+  },
+  "seo": {
+    "status": "draft"
+  }
+}

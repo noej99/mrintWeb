@@ -1,0 +1,76 @@
+/* Pagination — src/components/ui/Pagination.astro, src/scripts/project-filter.ts 공용 (클래스명 pagination__* 고유) */
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 16px;
+}
+
+.pagination__pages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.pagination__page,
+.pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 8px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.pagination__page {
+  border: 1px solid var(--border);
+  transition:
+    background 0.3s var(--ease),
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.pagination__page:hover {
+  border-color: var(--border-strong);
+}
+
+.pagination__page[aria-current='page'] {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--surface);
+}
+
+.pagination__ellipsis {
+  color: var(--text-muted);
+}
+
+.pagination__step {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 12px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.pagination__step[aria-disabled='true'] {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.pagination__chevron {
+  width: 7px;
+  height: 7px;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.pagination__chevron--prev {
+  transform: rotate(-135deg);
+}

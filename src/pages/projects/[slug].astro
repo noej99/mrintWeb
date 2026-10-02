@@ -1,0 +1,76 @@
+---
+/**
+ * Project 상세 (/projects/project-{legacyId}) — 기존 /{한글·숫자 slug}/ (legacyUrl, Phase 11에서 301)
+ * - h1은 제목 1개만 (기존 사이트의 '{year} {title}' H1/H2 중복 미재현). 연도·Status는 메타로 표시
+ * TODO(Phase 10): title/description 정책 확정
+ */
+import type { GetStaticPaths } from 'astro';
+import ProjectDetail from '@/components/projects/ProjectDetail.astro';
+import PageHeader from '@/components/ui/PageHeader.astro';
+import StatusBadge from '@/components/ui/StatusBadge.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getPartner, getProjectHistory, getProjects, getTermLabels, type ProjectEntry } from '@/lib/content';
+import { SITE_NAME } from '@/lib/site';
+
+export const getStaticPaths = (async () => {
+  const projects = await getProjects();
+  return projects.map((project) => ({ params: { slug: project.data.slug }, props: { project } }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  project: ProjectEntry;
+}
+
+const { project } = Astro.props;
+const { data } = project;
+const [typeLabels, industryLabels, statusLabels, history, partner] = await Promise.all([
+  getTermLabels('type'),
+  getTermLabels('industry'),
+  getTermLabels('status'),
+  getProjectHistory(project),
+  getPartner(data.partner),
+]);
+const typeLabel = data.type ? typeLabels[data.type] : undefined;
+const statusLabel = statusLabels[data.status] ?? data.status;
+---
+
+<BaseLayout title={`${data.title} | ${SITE_NAME}`} canonicalPath={`/projects/${data.slug}`}>
+  <PageHeader
+    title={data.title}
+    size="compact"
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Projects', href: '/projects' }, { label: data.title }]}
+  >
+    <p class="project-head-meta mono">
+      <span>Projects</span>
+      <time datetime={String(data.year)}>{data.year}</time>
+      <span>{industryLabels[data.industry]}</span>
+      {typeLabel && <span>{typeLabel}</span>}
+      <StatusBadge label={statusLabel} tone={data.status === 'proceeding' ? 'strong' : 'outline'} />
+    </p>
+  </PageHeader>
+
+  <ProjectDetail
+    project={project}
+    history={history}
+    typeLabel={typeLabel}
+    statusLabel={statusLabel}
+    partnerName={partner?.data.name}
+  />
+</BaseLayout>
+
+<style>
+  .project-head-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 16px;
+    order: -1;
+    margin-bottom: 4px;
+    color: var(--text-muted);
+  }
+
+  .project-head-meta time {
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+</style>

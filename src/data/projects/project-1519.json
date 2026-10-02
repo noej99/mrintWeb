@@ -1,0 +1,69 @@
+{
+  "slug": "project-1519",
+  "title": "애큐온저축은행 채널 운영",
+  "name": "애큐온저축은행 채널 운영",
+  "date": "2025-08-06",
+  "year": 2024,
+  "type": "ito",
+  "industry": "29",
+  "status": "proceeding",
+  "period": "2024.01 ~ 진행중",
+  "client": "애큐온저축은행",
+  "overview": "디지털 채널 운영",
+  "description": [
+    {
+      "type": "paragraph",
+      "text": "애큐온저축은행은 고객에게 편리하고 안정적인 금융 서비스를 제공하기 위해 모바일 앱과 웹 기반 시스템을 운영하고 있습니다.\n미래아이엔텍은 고객 디지털 채널의 접근성을 높이고, 비대면 금융 거래를 활성화하는 데 초점을 맞추어 서비스 하고 있습니다."
+    },
+    {
+      "type": "paragraph",
+      "text": "■ 운영대상"
+    },
+    {
+      "type": "paragraph",
+      "text": "1. 모바일 앱"
+    },
+    {
+      "type": "paragraph",
+      "text": "- 저축은행 전용 모바일 애플리케이션\n- 주요 기능: 계좌 개설, 이체, 대출 신청, 금융 상품 가입, 조회 서비스 등"
+    },
+    {
+      "type": "paragraph",
+      "text": "2. 웹 포털"
+    },
+    {
+      "type": "paragraph",
+      "text": "- 저축은행 공식 웹사이트\n- 주요 기능: 정보 제공, 고객 상담, 대출/상품 서비스 연계, 로그인 기반 금융 거래"
+    }
+  ],
+  "images": [
+    {
+      "legacyUrl": "/wp-content/uploads/2024/12/애큐온저축은행전경.jpg",
+      "legacyMediaId": 1186,
+      "width": 750,
+      "height": 510,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    }
+  ],
+  "partner": "partner-1184",
+  "legacyId": 1519,
+  "legacyUrl": "/애큐온저축은행-채널-운영/",
+  "review": {
+    "status": "needs-confirmation",
+    "notes": [
+      {
+        "field": "images",
+        "note": "원본 파일/라이선스 미확인 (D-13), 고객사 로고·간판 포함 여부 확인 필요 — 확인 전까지 placeholder, alt 원문 없음"
+      },
+      {
+        "field": "slug",
+        "note": "slug 규칙 project-{legacyId} (D-07) — 영문 SEO slug는 추후 별도 검토"
+      }
+    ]
+  },
+  "seo": {
+    "status": "draft"
+  }
+}

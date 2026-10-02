@@ -1,0 +1,159 @@
+---
+/**
+ * ProjectFilter — Type / Industry / Status / Year (docs/decisions.md D-08)
+ * - fieldset + radio (키보드: Tab으로 그룹 이동, 방향키로 선택)
+ * - query parameter 이름은 기존 사이트(FacetWP)와 동일: _type, _industry, _status, _year
+ * - JS 미동작 시에는 숨기고 전체 목록을 보여준다. (정적 페이지에서 서버 필터링 불가)
+ * - 동작: src/scripts/project-filter.ts (건수 갱신, 0건 옵션 비활성)
+ */
+export interface FilterOption {
+  key: string;
+  label: string;
+  count: number;
+}
+
+export interface FilterGroup {
+  group: string;
+  label: string;
+  param: string;
+  options: readonly FilterOption[];
+}
+
+interface Props {
+  groups: readonly FilterGroup[];
+  total: number;
+}
+
+const { groups, total } = Astro.props;
+---
+
+<form class="project-filter" aria-label="프로젝트 필터" data-project-filter>
+  {
+    groups.map((group) => (
+      <fieldset class="project-filter__group" data-filter-group={group.group}>
+        <legend class="project-filter__legend mono">{group.label}</legend>
+        <div class="project-filter__options">
+          <label class="project-filter__option">
+            <input type="radio" name={group.param} value="" checked />
+            <span>전체</span>
+            <span class="project-filter__count" data-option-count>
+              ({total})
+            </span>
+          </label>
+          {group.options.map((option) => (
+            <label class="project-filter__option">
+              <input type="radio" name={group.param} value={option.key} />
+              <span>{option.label}</span>
+              <span class="project-filter__count" data-option-count>
+                ({option.count})
+              </span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+    ))
+  }
+</form>
+
+<style>
+  .project-filter {
+    border-top: 1px solid var(--border-strong);
+  }
+
+  :global(html:not(.js)) .project-filter {
+    display: none;
+  }
+
+  .project-filter__group {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 12px 24px;
+    align-items: start;
+    margin: 0;
+    padding: 16px 0;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .project-filter__legend {
+    float: left;
+    padding: 10px 0 0;
+    color: var(--text-muted);
+  }
+
+  .project-filter__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .project-filter__option {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 40px;
+    padding: 0 14px;
+    border: 1px solid var(--border);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+      background 0.3s var(--ease),
+      color 0.3s,
+      border-color 0.3s;
+  }
+
+  .project-filter__option input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .project-filter__option:hover {
+    border-color: var(--border-strong);
+  }
+
+  .project-filter__option:has(input:checked) {
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--surface);
+  }
+
+  .project-filter__option:has(input:focus-visible) {
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
+  }
+
+  .project-filter__option:has(input:disabled) {
+    color: var(--text-muted);
+    border-style: dashed;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  .project-filter__count {
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    opacity: 0.75;
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 767px) {
+    .project-filter__group {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 8px;
+    }
+
+    .project-filter__legend {
+      float: none;
+      padding: 0;
+    }
+
+    .project-filter__option {
+      min-height: 44px;
+    }
+  }
+</style>

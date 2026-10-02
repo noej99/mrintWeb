@@ -1,0 +1,189 @@
+---
+/**
+ * Home 메인 슬라이더 — 기존 사이트의 full-screen horizontal slider를 prototype 디자인으로 재구성
+ * - CSS scroll-snap 기반 (터치 스와이프/스크롤 지원), 이전/다음 버튼은 src/scripts/slider.ts
+ * - 자동 회전 없음
+ * - APG carousel 패턴: aria-roledescription, 슬라이드별 group + "n / total" label
+ * - JS 미동작 시: 버튼을 숨기고 가로 스크롤로 탐색
+ */
+import Container from '@/components/ui/Container.astro';
+import type { HomeCard } from '@/data/home';
+import HomeSlide from './HomeSlide.astro';
+
+interface Props {
+  cards: readonly HomeCard[];
+  label: string;
+}
+
+const { cards, label } = Astro.props;
+const total = cards.length;
+const pad = (value: number) => String(value).padStart(2, '0');
+---
+
+<section class="home-slider tone-ink" aria-roledescription="캐러셀" aria-label={label} data-slider>
+  <div class="home-slider__controls">
+    <Container class="home-slider__controls-inner">
+      <p class="home-slider__counter mono" aria-live="polite" aria-atomic="true">
+        <span class="visually-hidden">슬라이드 </span>
+        <span class="home-slider__current" data-slider-current>{pad(1)}</span>
+        <span aria-hidden="true">/</span><span class="visually-hidden">전체</span>
+        {pad(total)}
+      </p>
+      <div class="home-slider__buttons">
+        <button
+          type="button"
+          class="home-slider__button home-slider__button--prev"
+          aria-controls="home-slides"
+          aria-disabled="true"
+          data-slider-prev
+        >
+          <span class="visually-hidden">이전 슬라이드</span>
+          <span class="home-slider__arrow" aria-hidden="true"></span>
+        </button>
+        <button
+          type="button"
+          class="home-slider__button"
+          aria-controls="home-slides"
+          aria-disabled={total > 1 ? 'false' : 'true'}
+          data-slider-next
+        >
+          <span class="visually-hidden">다음 슬라이드</span>
+          <span class="home-slider__arrow" aria-hidden="true"></span>
+        </button>
+      </div>
+    </Container>
+  </div>
+
+  <div id="home-slides" class="home-slider__track" data-slider-track>
+    {cards.map((card, index) => <HomeSlide card={card} index={index} total={total} />)}
+  </div>
+</section>
+
+<script>
+  import '@/scripts/slider';
+</script>
+
+<style>
+  .home-slider {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - var(--header-h));
+    height: calc(100svh - var(--header-h));
+    min-height: 480px;
+  }
+
+  .home-slider__track {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .home-slider__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .home-slider__controls {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    border-top: 1px solid var(--line-d);
+  }
+
+  .home-slider__controls-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: 72px;
+  }
+
+  .home-slider__counter {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    color: var(--muted-d);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .home-slider__current {
+    color: var(--paper);
+  }
+
+  .home-slider__buttons {
+    display: flex;
+    gap: 8px;
+  }
+
+  .home-slider__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(244, 244, 241, 0.35);
+    color: var(--paper);
+    transition:
+      background 0.3s var(--ease),
+      border-color 0.3s,
+      color 0.3s;
+  }
+
+  .home-slider__button:hover:not([aria-disabled='true']) {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--ink);
+  }
+
+  .home-slider__button[aria-disabled='true'] {
+    color: var(--muted-d);
+    border-color: var(--line-d);
+    cursor: default;
+  }
+
+  .home-slider__arrow {
+    position: relative;
+    width: 18px;
+    height: 1px;
+    background: currentColor;
+  }
+
+  .home-slider__arrow::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -3px;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    transform: rotate(45deg);
+  }
+
+  .home-slider__button--prev .home-slider__arrow {
+    transform: rotate(180deg);
+  }
+
+  :global(html:not(.js)) .home-slider__buttons,
+  :global(html:not(.js)) .home-slider__counter {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    .home-slider__controls-inner {
+      height: 64px;
+    }
+
+    .home-slider__button {
+      width: 44px;
+      height: 44px;
+    }
+  }
+</style>

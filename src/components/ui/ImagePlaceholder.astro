@@ -1,0 +1,93 @@
+---
+/**
+ * ImagePlaceholder — 이미지/지도 원본 확인 전 표시용 (docs/decisions.md D-13, D-14)
+ * - ratio가 없으면 부모 영역을 가득 채운다. ratio가 있으면 해당 비율을 유지한다.
+ * - 장식 요소이므로 보조기기에서 숨긴다.
+ * 실제 이미지로 교체되면 ResponsiveImage를 사용한다.
+ */
+interface Props {
+  /** placeholder에 표시할 식별용 텍스트 (예: 카드 제목) */
+  label?: string;
+  /** 표시 접두어 */
+  prefix?: string;
+  /** 가로/세로 비율 (예: 750 / 398) */
+  ratio?: number;
+  tone?: 'dark' | 'light';
+  class?: string;
+}
+
+const { label, prefix = 'Image placeholder', ratio, tone = 'dark', class: className } = Astro.props;
+---
+
+<div
+  class:list={['image-placeholder', `image-placeholder--${tone}`, { 'image-placeholder--ratio': ratio }, className]}
+  style={ratio ? `aspect-ratio: ${ratio}` : undefined}
+  aria-hidden="true"
+  data-image-placeholder
+>
+  <span class="image-placeholder__label mono">
+    {prefix}{label && <>&nbsp;—&nbsp;{label}</>}
+  </span>
+</div>
+
+<style>
+  .image-placeholder {
+    --ph-bg: var(--ink-2);
+    --ph-line: var(--line-d);
+    --ph-text: rgba(244, 244, 241, 0.72);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    background-color: var(--ph-bg);
+    background-image:
+      linear-gradient(var(--ph-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--ph-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: center;
+  }
+
+  .image-placeholder--light {
+    --ph-bg: var(--paper-2);
+    --ph-line: var(--line);
+    --ph-text: var(--muted);
+    border: 1px solid var(--line);
+  }
+
+  .image-placeholder--ratio {
+    height: auto;
+    min-height: 0;
+  }
+
+  .image-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top right,
+      transparent calc(50% - 0.5px),
+      var(--ph-line) calc(50% - 0.5px),
+      var(--ph-line) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    );
+  }
+
+  .image-placeholder__label {
+    position: absolute;
+    top: 24px;
+    left: var(--pad);
+    right: var(--pad);
+    z-index: 1;
+    color: var(--ph-text);
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .image-placeholder--ratio .image-placeholder__label {
+    top: 16px;
+    left: 16px;
+    right: 16px;
+  }
+</style>

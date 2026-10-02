@@ -1,0 +1,47 @@
+---
+/**
+ * TeamGrid — portrait 카드 그리드 (desktop 4열 / tablet 2열 / mobile 2열)
+ */
+import type { TeamEntry } from '@/lib/content';
+import TeamCard from './TeamCard.astro';
+
+interface Props {
+  members: readonly TeamEntry[];
+}
+
+const { members } = Astro.props;
+---
+
+<ul class="team-grid" role="list">
+  {
+    members.map((member) => (
+      <li>
+        <TeamCard member={member} />
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--gutter);
+  }
+
+  .team-grid > li {
+    min-width: 0;
+  }
+
+  @media (max-width: 1100px) {
+    .team-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 767px) {
+    .team-grid {
+      gap: 12px;
+    }
+  }
+</style>

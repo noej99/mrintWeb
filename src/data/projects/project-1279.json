@@ -1,0 +1,57 @@
+{
+  "slug": "project-1279",
+  "title": "티알엔 정보시스템 운영 용역 (TAS)",
+  "name": "티알엔 정보시스템 운영 용역(TAS)",
+  "date": "2024-12-18",
+  "year": 2024,
+  "type": "ito",
+  "industry": "12",
+  "status": "proceeding",
+  "period": "2024.01 ~ 진행중",
+  "client": "티알엔",
+  "overview": "모바일 앱 개발 및 운영 (메인개편/회원등급제)",
+  "description": [
+    {
+      "type": "paragraph",
+      "text": "태광그룹 계열사인 티알엔의 모바일 앱 개선 및 유지보수 업무를 수행하고 있습니다."
+    }
+  ],
+  "images": [
+    {
+      "legacyUrl": "/wp-content/uploads/2024/12/쇼핑엔티.png",
+      "legacyMediaId": 1281,
+      "width": 788,
+      "height": 595,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    }
+  ],
+  "partner": "partner-477",
+  "legacyId": 1279,
+  "legacyUrl": "/티알엔-정보시스템-운영-용역tas/",
+  "review": {
+    "status": "needs-confirmation",
+    "notes": [
+      {
+        "field": "name",
+        "note": "제목과 Name(businesss_name) 원문 상이: '티알엔 정보시스템 운영 용역(TAS)'"
+      },
+      {
+        "field": "partner",
+        "note": "partner가 '티시스'(477)로 연결, Client는 티알엔 — 연결 확인 필요 (원문 유지)"
+      },
+      {
+        "field": "images",
+        "note": "원본 파일/라이선스 미확인 (D-13), 고객사 로고·간판 포함 여부 확인 필요 — 확인 전까지 placeholder, alt 원문 없음"
+      },
+      {
+        "field": "slug",
+        "note": "slug 규칙 project-{legacyId} (D-07) — 영문 SEO slug는 추후 별도 검토"
+      }
+    ]
+  },
+  "seo": {
+    "status": "draft"
+  }
+}

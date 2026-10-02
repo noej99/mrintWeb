@@ -1,0 +1,93 @@
+---
+/**
+ * ProjectTable — 결과 요약 + 목록 + 결과 없음 + Pagination
+ * - HTML에는 57건 전체를 렌더링한다. (JS 미동작 시 전체 목록)
+ * - JS 동작 시 src/scripts/project-filter.ts가 필터/페이지(20건)를 적용하고 Pagination을 그린다.
+ */
+import '@/styles/pagination.css';
+import EmptyState from '@/components/ui/EmptyState.astro';
+import type { ProjectEntry } from '@/lib/content';
+import ProjectRow, { type ProjectLabels } from './ProjectRow.astro';
+
+interface Props {
+  projects: readonly ProjectEntry[];
+  labels: ProjectLabels;
+}
+
+const { projects, labels } = Astro.props;
+---
+
+<div class="project-table">
+  <p class="project-table__summary mono" aria-live="polite" data-project-summary>
+    <span data-project-total>{projects.length}</span> Projects
+  </p>
+
+  <div class="project-table__head mono" aria-hidden="true">
+    <span>Project</span>
+    <span>Year</span>
+    <span>Industry</span>
+    <span>Type</span>
+    <span>Status</span>
+    <span></span>
+  </div>
+
+  <ol id="project-list" class="project-table__list" role="list" tabindex="-1" data-project-list>
+    {projects.map((project) => <ProjectRow project={project} labels={labels} />)}
+  </ol>
+
+  <div data-project-empty hidden>
+    <EmptyState title="조건에 맞는 프로젝트가 없습니다." headingLevel={2}>
+      <a class="project-table__reset" href="/projects">필터 초기화</a>
+    </EmptyState>
+  </div>
+
+  <div class="project-table__pagination" data-project-pagination></div>
+</div>
+
+<style>
+  .project-table__summary {
+    padding: 20px 0 12px;
+    color: var(--text-muted);
+  }
+
+  .project-table__summary span {
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .project-table__head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 72px 120px 96px 88px 16px;
+    gap: 24px;
+    padding: 12px 0;
+    border-top: 1px solid var(--border-strong);
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  .project-table__list {
+    outline: none;
+  }
+
+  .project-table__reset {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+
+  .project-table__pagination {
+    margin-top: 40px;
+  }
+
+  @media (max-width: 1100px) {
+    .project-table__head {
+      display: none;
+    }
+
+    .project-table__list {
+      border-top: 1px solid var(--border-strong);
+    }
+  }
+</style>

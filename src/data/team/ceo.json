@@ -1,0 +1,109 @@
+{
+  "slug": "ceo",
+  "order": 0,
+  "kind": "person",
+  "nameKo": "김학연",
+  "nameEn": "Kim Hakyun",
+  "titleKo": "대표이사",
+  "titleEn": "CEO",
+  "image": {
+    "legacyUrl": "/wp-content/uploads/2024/02/김학연-이사-2-1-1024x1024.jpg",
+    "width": 1024,
+    "height": 1024,
+    "alt": "",
+    "license": "unknown",
+    "aiGenerated": "unknown"
+  },
+  "biography": [
+    {
+      "lang": "ko",
+      "title": "(주)미래아이엔텍 대표이사",
+      "items": [
+        "Application Outsourcing 사업 총괄",
+        "End User Service 사업 총괄",
+        "Infra Business 사업 총괄"
+      ]
+    },
+    {
+      "lang": "en",
+      "title": "Mirae I&Tech CEO",
+      "items": [
+        "Application Outsourcing Business Manager",
+        "End User Service Business Manager",
+        "Infra Business General Manager"
+      ]
+    }
+  ],
+  "relatedProjects": [
+    "project-1199",
+    "project-1131",
+    "project-1001",
+    "project-406",
+    "project-973",
+    "project-1028",
+    "project-992"
+  ],
+  "relatedProjectsLegacy": [
+    {
+      "title": "KDB캐피탈 차세대(인프라 구축)",
+      "year": "2025",
+      "legacyUrl": "/kdb캐피탈-차세대/"
+    },
+    {
+      "title": "태광그룹 11개 계열사 홈페이지 운영",
+      "year": "2024",
+      "legacyUrl": "/1131-2/"
+    },
+    {
+      "title": "한국투자저축은행 인프라 유지보수",
+      "year": "2024",
+      "legacyUrl": "/한국투자저축은행-인프라-유지보수/"
+    },
+    {
+      "title": "흥국생명 IT 어플리케이션 유지보수",
+      "year": "2023",
+      "legacyUrl": "/2024-흥국생명-it-어플리케이션-유지보수/"
+    },
+    {
+      "title": "IBK기업은행 정보시스템 운영",
+      "year": "2022",
+      "legacyUrl": "/ibk기업은행-정보시스템-운영/"
+    },
+    {
+      "title": "SBI저축은행 IT아웃소싱 통합",
+      "year": "2021",
+      "legacyUrl": "/sbi저축은행-it아웃소싱-통합_코어뱅킹-비대면-개발/"
+    },
+    {
+      "title": "현대차증권 IT아웃소싱 외주개발 도급계약",
+      "year": "2016",
+      "legacyUrl": "/992-2/"
+    }
+  ],
+  "legacyId": 145,
+  "legacyUrl": "/team/김학연/",
+  "review": {
+    "status": "needs-confirmation",
+    "notes": [
+      {
+        "field": "image",
+        "note": "인물 사진 — 원본 파일/초상·사용 권한 확인 필요 (D-13). 확인 전까지 placeholder"
+      },
+      {
+        "field": "biography[1].title",
+        "note": "영문 약력 제목 원문 'Mirae I&Tech CEO' — 사이트 영문 표기 'Mirae I&Tec'과 상이, 확인 필요 (D-04)"
+      },
+      {
+        "field": "relatedProjectsLegacy",
+        "note": "'흥국생명 IT 어플리케이션 유지보수' 연도 2023 (Home 카드 날짜 2024.04.01, 기존 URL slug '2024-…') — 확인 필요"
+      },
+      {
+        "field": "image",
+        "note": "목록 페이지 흑백 이미지(별도 파일): /wp-content/uploads/2024/02/김학연-이사-2-2-1024x1024.jpg"
+      }
+    ]
+  },
+  "seo": {
+    "status": "draft"
+  }
+}

@@ -1,0 +1,77 @@
+---
+import { NAVIGATION } from '@/data/navigation';
+import { matchPath } from '@/lib/url';
+import MegaMenu from './MegaMenu.astro';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+---
+
+<nav class="desktop-nav" aria-label="주 메뉴">
+  <ul class="desktop-nav__list" role="list">
+    {
+      NAVIGATION.map((item) =>
+        item.type === 'group' ? (
+          <li>
+            <MegaMenu group={item} currentPath={currentPath} />
+          </li>
+        ) : (
+          <li>
+            <a
+              class="desktop-nav__cta"
+              href={item.href}
+              aria-current={matchPath(currentPath, item.href) === 'exact' ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ),
+      )
+    }
+  </ul>
+</nav>
+
+<script>
+  import '@/scripts/mega-menu';
+</script>
+
+<style>
+  .desktop-nav__list {
+    display: flex;
+    align-items: center;
+    gap: clamp(24px, 3vw, 48px);
+  }
+
+  .desktop-nav__cta {
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 20px;
+    border: 1px solid currentColor;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    font-weight: 500;
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+    transition:
+      background 0.3s,
+      color 0.3s,
+      border-color 0.3s;
+  }
+
+  .desktop-nav__cta:hover,
+  .desktop-nav__cta[aria-current] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--ink);
+  }
+
+  @media (max-width: 1100px) {
+    .desktop-nav {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,109 @@
+---
+/**
+ * 프로젝트 목록 (제목 + 연도, 순서 유지) — Team Related Projects / Project History 공용
+ * - href가 있으면 Project 상세 링크
+ * - current: 현재 페이지 프로젝트 (링크 대신 aria-current="page" 텍스트)
+ */
+export interface RelatedProjectItem {
+  title: string;
+  year?: string | number | undefined;
+  href?: string | undefined;
+  current?: boolean;
+}
+
+interface Props {
+  items: readonly RelatedProjectItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<ol class="related-projects" role="list">
+  {
+    items.map((item) => (
+      <li class="related-projects__item">
+        {item.href && !item.current ? (
+          <a class="related-projects__row" href={item.href}>
+            <span class="related-projects__title">{item.title}</span>
+            {item.year && (
+              <span class="related-projects__year mono">
+                <time datetime={String(item.year)}>{item.year}</time>
+              </span>
+            )}
+          </a>
+        ) : (
+          <span class="related-projects__row" aria-current={item.current ? 'page' : undefined}>
+            <span class="related-projects__title">{item.title}</span>
+            {item.year && (
+              <span class="related-projects__year mono">
+                <time datetime={String(item.year)}>{item.year}</time>
+              </span>
+            )}
+          </span>
+        )}
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .related-projects {
+    border-top: 1px solid var(--border-strong);
+  }
+
+  .related-projects__item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .related-projects__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: baseline;
+    padding: 18px 0;
+    transition:
+      padding 0.4s var(--ease),
+      color 0.3s;
+  }
+
+  a.related-projects__row:hover,
+  a.related-projects__row:focus-visible {
+    padding-left: 12px;
+  }
+
+  a.related-projects__row:focus-visible {
+    outline-offset: -3px;
+  }
+
+  .related-projects__row[aria-current] .related-projects__title {
+    color: var(--accent-text);
+  }
+
+  .related-projects__title {
+    font-size: var(--fs-md);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.5;
+  }
+
+  .related-projects__year {
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 767px) {
+    .related-projects__row {
+      padding: 14px 0;
+      gap: 16px;
+    }
+
+    a.related-projects__row:hover,
+    a.related-projects__row:focus-visible {
+      padding-left: 0;
+    }
+
+    .related-projects__title {
+      font-size: var(--fs-base);
+    }
+  }
+</style>

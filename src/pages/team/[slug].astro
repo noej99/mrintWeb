@@ -1,0 +1,48 @@
+---
+/**
+ * Team 상세 (/team/{slug}) — 기존 /team/{한글 slug}/ (legacyUrl, Phase 11에서 301)
+ * 기존 사이트는 목록에서 popup으로 열렸으나, 신규에서는 독립 URL 페이지로 제공한다.
+ * TODO(Phase 10): title/description 정책 확정
+ */
+import type { GetStaticPaths } from 'astro';
+import TeamDetail from '@/components/team/TeamDetail.astro';
+import PageHeader from '@/components/ui/PageHeader.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getTeam, type TeamEntry } from '@/lib/content';
+import { SITE_NAME } from '@/lib/site';
+
+export const getStaticPaths = (async () => {
+  const members = await getTeam();
+  return members.map((member) => ({ params: { slug: member.data.slug }, props: { member } }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  member: TeamEntry;
+}
+
+const { member } = Astro.props;
+const { data } = member;
+const role = [data.titleKo, data.titleEn].filter(Boolean).join(' / ');
+---
+
+<BaseLayout title={`${data.nameKo} | ${SITE_NAME}`} canonicalPath={`/team/${data.slug}`}>
+  <PageHeader
+    title={data.nameKo}
+    eyebrow={role || undefined}
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Team', href: '/team' }, { label: data.nameKo }]}
+  >
+    <p class="team-name-en" lang="en">{data.nameEn}</p>
+  </PageHeader>
+
+  <TeamDetail member={member} />
+</BaseLayout>
+
+<style>
+  .team-name-en {
+    margin-top: 16px;
+    font-size: var(--fs-lead);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: var(--text-muted);
+  }
+</style>

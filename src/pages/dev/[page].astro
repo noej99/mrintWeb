@@ -1,0 +1,137 @@
+---
+/**
+ * 개발/테스트 전용 컴포넌트 미리보기 (/dev/components)
+ * - astro dev 또는 `--mode test` 빌드(scripts/e2e-server.ts)에서만 생성된다. production 빌드에는 포함되지 않는다.
+ * - 표시 문구는 모두 UI 확인용 예시이며 사이트 콘텐츠가 아니다.
+ */
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/ui/Button.astro';
+import Card from '@/components/ui/Card.astro';
+import Container from '@/components/ui/Container.astro';
+import EmptyState from '@/components/ui/EmptyState.astro';
+import Link from '@/components/ui/Link.astro';
+import PageHeader from '@/components/ui/PageHeader.astro';
+import Pagination from '@/components/ui/Pagination.astro';
+import ResponsiveImage from '@/components/ui/ResponsiveImage.astro';
+import Section from '@/components/ui/Section.astro';
+import StatusBadge from '@/components/ui/StatusBadge.astro';
+import sample from '../../../tests/fixtures/images/sample-1600x900.png';
+
+export const getStaticPaths = (() => {
+  const enabled = import.meta.env.DEV || import.meta.env.MODE === 'test';
+  return enabled ? [{ params: { page: 'components' } }] : [];
+}) satisfies GetStaticPaths;
+---
+
+<BaseLayout title="DEV: 컴포넌트 미리보기" noindex>
+  <PageHeader
+    eyebrow="DEV — Components"
+    title="컴포넌트 미리보기"
+    description="개발/테스트 전용 페이지입니다. 표시 문구는 모두 예시입니다."
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'DEV' }, { label: '컴포넌트 미리보기' }]}
+  />
+
+  <Section tone="paper" spacing="compact" aria-labelledby="dev-buttons">
+    <h2 id="dev-buttons" class="dev-heading">Button / Link</h2>
+    <div class="dev-row">
+      <Button arrow>예시 primary</Button>
+      <Button variant="secondary" arrow>예시 secondary</Button>
+      <Button variant="solid">예시 solid</Button>
+      <Button href="#dev-cards" variant="secondary" size="lg" arrow>예시 링크 버튼</Button>
+      <Button disabled>예시 disabled</Button>
+    </div>
+    <p class="dev-text">
+      본문 안의 <Link href="#dev-cards">예시 inline 링크</Link>와 단독
+      <Link href="#dev-cards" variant="standalone">예시 standalone 링크</Link>,
+      <Link href="https://example.com" newTab>예시 새 창 링크</Link>
+    </p>
+  </Section>
+
+  <Section tone="ink" spacing="compact" aria-labelledby="dev-dark">
+    <h2 id="dev-dark" class="dev-heading">Dark tone</h2>
+    <div class="dev-row">
+      <Button arrow>예시 primary</Button>
+      <Button variant="ghost" arrow>예시 ghost</Button>
+      <StatusBadge label="예시 neutral" />
+      <StatusBadge label="예시 outline" tone="outline" />
+      <StatusBadge label="예시 strong" tone="strong" />
+    </div>
+  </Section>
+
+  <Section spacing="compact" aria-labelledby="dev-cards">
+    <h2 id="dev-cards" class="dev-heading">Card / StatusBadge</h2>
+    <div class="dev-grid">
+      <Card title="예시 링크 카드" href="#dev-cards" eyebrow="01 / 예시">
+        <StatusBadge slot="meta" label="예시" tone="strong" />
+        카드 설명 예시 문구입니다.
+      </Card>
+      <Card title="예시 카드" eyebrow="02 / 예시">
+        <StatusBadge slot="meta" label="예시" tone="outline" />
+        링크가 없는 카드 예시입니다.
+      </Card>
+      <Card title="예시 이미지 카드" href="#dev-cards">
+        <ResponsiveImage slot="media" src={sample} alt="" sizes="(max-width: 767px) 100vw, 33vw" />
+        <StatusBadge slot="meta" label="예시" tone="accent" />
+      </Card>
+    </div>
+  </Section>
+
+  <Section tone="paper" spacing="compact" aria-labelledby="dev-image">
+    <h2 id="dev-image" class="dev-heading">ResponsiveImage</h2>
+    <ResponsiveImage src={sample} alt="회색 단색 예시 이미지" sizes="(max-width: 1480px) 100vw, 1480px" />
+  </Section>
+
+  <Section spacing="compact" aria-labelledby="dev-pagination">
+    <h2 id="dev-pagination" class="dev-heading">Pagination / EmptyState</h2>
+    <Pagination current={5} total={12} basePath="/dev/components" query={{ type: 'example' }} />
+    <Container class="dev-gap">
+      <EmptyState title="예시: 결과가 없습니다." description="EmptyState 예시 문구입니다." live>
+        <Button variant="secondary" href="/dev/components">예시 초기화</Button>
+      </EmptyState>
+    </Container>
+  </Section>
+</BaseLayout>
+
+<style>
+  .dev-heading {
+    margin-bottom: 32px;
+    font-size: var(--fs-h3);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .dev-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .dev-text {
+    margin-top: 32px;
+  }
+
+  .dev-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gutter);
+  }
+
+  .dev-gap {
+    margin-top: 48px;
+    padding-inline: 0;
+  }
+
+  @media (max-width: 1100px) {
+    .dev-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 767px) {
+    .dev-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

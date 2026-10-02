@@ -1,0 +1,43 @@
+---
+/**
+ * BusinessCard — Business Line 목록 카드 (기존 목록: thumbnail / title / description-summary)
+ * 링크는 제목 1개 (기존의 텍스트 없는 <a> 미재현). 이미지는 확인 전 placeholder (원본 비율).
+ */
+import Card from '@/components/ui/Card.astro';
+import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
+import { imageRatio } from '@/lib/business';
+import type { BusinessEntry } from '@/lib/content';
+
+interface Props {
+  line: BusinessEntry;
+  index: number;
+  headingLevel?: 2 | 3;
+}
+
+const { line, index, headingLevel = 2 } = Astro.props;
+const { data } = line;
+---
+
+<Card
+  title={data.title}
+  href={`/business/${data.slug}`}
+  eyebrow={String(index + 1).padStart(2, '0')}
+  headingLevel={headingLevel}
+  class="business-card"
+>
+  {
+    data.thumbnail && (
+      <div slot="media" class="business-card__media">
+        {/* TODO: 이미지 원본/라이선스 확인 후 ResponsiveImage로 교체 (D-13) */}
+        <ImagePlaceholder ratio={imageRatio(data.thumbnail, 16 / 9)} />
+      </div>
+    )
+  }
+  <p>{data.summary}</p>
+</Card>
+
+<style>
+  .business-card__media {
+    border-bottom: 1px solid var(--border);
+  }
+</style>

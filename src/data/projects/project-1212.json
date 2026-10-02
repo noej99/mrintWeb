@@ -1,0 +1,55 @@
+{
+  "slug": "project-1212",
+  "title": "BNK캐피탈 영업지원시스템 화면(UI/UX)전환 사업",
+  "name": "BNK캐피탈 영업지원시스템 화면 (UI / UX) 전환 사업",
+  "date": "2024-12-17",
+  "year": 2024,
+  "type": "si",
+  "industry": "11",
+  "status": "proceeding",
+  "period": "2024.10 ~ 2025.07",
+  "client": "BNK캐피탈",
+  "overview": "화면전환, 크로스브라우징, 여신통합조회화면 재개발 구축",
+  "images": [
+    {
+      "legacyUrl": "/wp-content/uploads/2024/12/변환_20250617_1004_BNK-금융그룹-건물_remix_01jxxpj3cef3vbzg9m9c74z84r-2.jpg",
+      "legacyMediaId": 1401,
+      "width": 1280,
+      "height": 853,
+      "alt": "",
+      "license": "unknown",
+      "aiGenerated": "unknown"
+    }
+  ],
+  "partner": "partner-1350",
+  "legacyId": 1212,
+  "legacyUrl": "/bnk캐피탈-영업지원시스템-화면ui-ux전환-사업/",
+  "review": {
+    "status": "needs-confirmation",
+    "notes": [
+      {
+        "field": "name",
+        "note": "제목과 Name(businesss_name) 원문 상이: 'BNK캐피탈 영업지원시스템 화면 (UI / UX) 전환 사업'"
+      },
+      {
+        "field": "status",
+        "note": "Status '진행중' / Period '2024.10 ~ 2025.07' 종료일 경과 — 자동 변경하지 않음, 확인 필요"
+      },
+      {
+        "field": "images",
+        "note": "원본 파일/라이선스 미확인 (D-13), 고객사 로고·간판 포함 여부 확인 필요 — 확인 전까지 placeholder, alt 원문 없음"
+      },
+      {
+        "field": "images[0]",
+        "note": "파일명(remix_…)상 AI 생성 이미지로 추정"
+      },
+      {
+        "field": "slug",
+        "note": "slug 규칙 project-{legacyId} (D-07) — 영문 SEO slug는 추후 별도 검토"
+      }
+    ]
+  },
+  "seo": {
+    "status": "draft"
+  }
+}
