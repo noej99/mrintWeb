@@ -12,12 +12,13 @@
   "overview": "정산, 청약, 물류, 수수료, 채권, 빌링, 소액결제, 수납, 문자발송, 번호이동, 고객, 상담 등 유지보수",
   "images": [
     {
+      "src": "media/1087-헬로비전.jpg",
       "legacyUrl": "/wp-content/uploads/2024/05/헬로비전.jpg",
       "legacyMediaId": 1087,
       "width": 1200,
       "height": 684,
       "alt": "",
-      "license": "unknown",
+      "license": "confirmed",
       "aiGenerated": "unknown"
     }
   ],
@@ -38,6 +39,10 @@
       {
         "field": "slug",
         "note": "slug 규칙 project-{legacyId} (D-07) — 영문 SEO slug는 추후 별도 검토"
+      },
+      {
+        "field": "images",
+        "note": "2026-10-02 이미지 사용 권리·공개 사용 확인 완료 (D-13) — license: confirmed, Phase 9.5에서 실제 이미지 적용. 위 '확인 전' 메모는 당시 기록으로 유지, aiGenerated는 변경하지 않음"
       }
     ]
   },

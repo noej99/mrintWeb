@@ -12,11 +12,12 @@
   },
   "images": [
     {
+      "src": "media/832-35nd-large-e1712245987379.jpg",
       "legacyUrl": "/wp-content/uploads/2024/04/35nd-large-e1712245987379.jpg",
       "width": 750,
       "height": 398,
       "alt": "",
-      "license": "unknown",
+      "license": "confirmed",
       "aiGenerated": "unknown"
     }
   ],
@@ -41,7 +42,8 @@
       { "field": "introduction.ko", "note": "띄어쓰기 원문 유지: 'Help Desk 까지', '극대화 하기' — 고객 확인 필요" },
       { "field": "introduction.en", "note": "기존 사이트 영문 소개 영역(div.en)이 비어 있음 — 데이터 생성하지 않음" },
       { "field": "images[0]", "note": "원본 파일/라이선스 미확인 (D-13). 확인 전까지 placeholder 표시" },
-      { "field": "map", "note": "기존 사이트 실제 표시 지도(Google Maps, ACF) 좌표. Naver 주석 코드 좌표(37.563204, 126.990103)와 상이 — 확인 필요 (D-14)" }
+      { "field": "map", "note": "기존 사이트 실제 표시 지도(Google Maps, ACF) 좌표. Naver 주석 코드 좌표(37.563204, 126.990103)와 상이 — 확인 필요 (D-14)" },
+      { "field": "images[0]", "note": "2026-10-02 이미지 사용 권리·공개 사용 확인 완료 (D-13) — license: confirmed, Phase 9.5에서 실제 이미지 적용. 위 '확인 전' 메모는 당시 기록으로 유지, aiGenerated는 변경하지 않음" }
     ]
   },
   "seo": {

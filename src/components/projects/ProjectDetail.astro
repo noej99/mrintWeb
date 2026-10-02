@@ -2,7 +2,7 @@
 /**
  * ProjectDetail — 기존 상세 정보 구조를 하나의 마크업으로 구성 (PC/모바일 중복 마크업 없음)
  * ├─ Meta (Type/Status/Name/Period/Client/Project Overview/Partner)
- * ├─ Gallery (확인 전 placeholder, 원본 비율)
+ * ├─ Gallery (원본 비율, image.src 없으면 placeholder)
  * ├─ Description (원문 블록, 있을 때만)
  * └─ History (같은 partner의 프로젝트, 자기 자신 포함 — 1회만 출력)
  */
@@ -10,8 +10,10 @@ import NewsBody from '@/components/news/NewsBody.astro';
 import RelatedProjectList from '@/components/team/RelatedProjectList.astro';
 import Container from '@/components/ui/Container.astro';
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
+import ResponsiveImage from '@/components/ui/ResponsiveImage.astro';
 import SplitSection from '@/components/ui/SplitSection.astro';
 import type { ProjectEntry } from '@/lib/content';
+import { resolveImage } from '@/lib/images';
 import ProjectMeta from './ProjectMeta.astro';
 
 interface Props {
@@ -43,8 +45,15 @@ const historyItems = history.map((entry) => ({
         <div class="project-detail__gallery" data-project-gallery>
           {data.images.map((image) => (
             <figure class="project-detail__figure">
-              {/* TODO: 이미지 원본/라이선스 확인 후 ResponsiveImage로 교체 (D-13) */}
-              <ImagePlaceholder ratio={image.width && image.height ? image.width / image.height : 16 / 9} tone="light" />
+              {image.src ? (
+                <ResponsiveImage
+                  src={resolveImage(image.src)}
+                  alt={image.alt}
+                  sizes="(max-width: 1100px) 100vw, 960px"
+                />
+              ) : (
+                <ImagePlaceholder ratio={image.width && image.height ? image.width / image.height : 16 / 9} tone="light" />
+              )}
             </figure>
           ))}
         </div>

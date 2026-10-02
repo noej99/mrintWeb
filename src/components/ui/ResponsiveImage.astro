@@ -3,8 +3,10 @@
  * ResponsiveImage — AVIF/WebP + srcset/sizes + width/height (CLAUDE.md §11)
  * - alt 필수. 장식용은 alt="" (CLAUDE.md §9)
  * - priority: Hero/LCP 이미지 → lazy 해제, fetchpriority=high
- * - 원본보다 큰 width는 생성하지 않는다.
- * src는 import한 로컬 이미지(ImageMetadata). 데이터의 image.src 연결은 콘텐츠 이관 Phase에서 정의한다.
+ * - 원본보다 큰 width는 생성하지 않는다. (astro:assets가 원본 width 초과 값을 제외하고 원본 width를 최대값으로 추가)
+ * - src.width 등 ImageMetadata 속성을 여기서 직접 읽지 않는다. 읽으면 Astro가 원본 파일을 "참조됨"으로 보고
+ *   변환되지 않은 원본까지 build 결과에 복사한다. (원본을 그대로 전달하지 않는다 — CLAUDE.md §11)
+ * src는 import한 로컬 이미지(ImageMetadata). 데이터의 image.src는 src/lib/images.ts resolveImage()로 변환한다.
  */
 import type { ImageMetadata } from 'astro';
 import { Picture } from 'astro:assets';
@@ -21,13 +23,12 @@ interface Props {
 const DEFAULT_WIDTHS = [480, 768, 1024, 1440, 1920];
 
 const { src, alt, sizes = '100vw', widths = DEFAULT_WIDTHS, priority = false, class: className } = Astro.props;
-const usableWidths = [...new Set([...widths.filter((width) => width < src.width), src.width])].sort((a, b) => a - b);
 ---
 
 <Picture
   src={src}
   alt={alt}
-  widths={usableWidths}
+  widths={widths}
   sizes={sizes}
   formats={['avif', 'webp']}
   loading={priority ? 'eager' : 'lazy'}

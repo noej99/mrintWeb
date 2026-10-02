@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
+import { expectPictures, trackExternalImageRequests } from './helpers/page';
 
 const company = JSON.parse(readFileSync(join(process.cwd(), 'src/data/company/company.json'), 'utf8')) as {
   introduction: { ko: string[] };
@@ -73,15 +74,14 @@ test.describe('Company /company', () => {
     await expect(link).toBeVisible();
   });
 
-  test('이미지 placeholder: img 없음, 원본 비율(750:398) 유지', async ({ page }) => {
+  test('이미지: 로컬 최적화 이미지, 원본 비율(750:398) 유지, 외부 이미지 미로드', async ({ page }) => {
+    const requests = trackExternalImageRequests(page);
+    await page.reload();
     const intro = section(page, 'INTRODUCTION');
-    await expect(intro.locator('img')).toHaveCount(0);
-    const placeholder = intro.locator('[data-image-placeholder]');
-    await expect(placeholder).toHaveAttribute('aria-hidden', 'true');
-    const box = await placeholder.boundingBox();
-    expect(box).not.toBeNull();
-    expect((box?.width ?? 0) / (box?.height ?? 1)).toBeCloseTo(750 / 398, 1);
+    await expectPictures(intro, [750 / 398]);
+    const box = await intro.locator('picture > img').boundingBox();
     expect(box?.width).toBeGreaterThan(200);
+    expect(requests).toEqual([]);
   });
 
   test('레이아웃: desktop은 좌측 제목/우측 콘텐츠, mobile·tablet은 1열', async ({ page }, testInfo) => {

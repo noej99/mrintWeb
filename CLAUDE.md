@@ -402,22 +402,24 @@ Hero/LCP 이미지는 필요한 경우 lazy loading을 사용하지 않는다.
 
 ## 15. Current Project Status
 
-Phase 1(프로젝트 기반 구성), Phase 2(공통 Layout), Phase 3(Home), Phase 4(Company), Phase 5(Team), Phase 6(News), Phase 7(Projects), Phase 8(Business Line), Phase 9(Search, 404) 완료. SEO/Redirect 등은 아직 진행하지 않았다.
+Phase 1(프로젝트 기반 구성), Phase 2(공통 Layout), Phase 3(Home), Phase 4(Company), Phase 5(Team), Phase 6(News), Phase 7(Projects), Phase 8(Business Line), Phase 9(Search, 404), Phase 9.5(Image Migration) 완료. SEO/Redirect 등은 아직 진행하지 않았다.
+
+- 이미지: `src/assets/images/{media,partners,replacements}/` (WordPress 원본 130파일, media 단위 1파일), 데이터 `image.src` → `src/lib/images.ts` `resolveImage()` → `ResponsiveImage` (D-24). 사용 권리는 2026-10-02 사용자 확인 (D-13). Partner 로고는 asset만 연결, 화면은 이름 텍스트
 
 - Search: `/search?q=` (build 시 `/search-index.json` 생성, `src/lib/search/*` 정규화·문서·매칭, `src/scripts/search.ts`). 원본 data 불변, Partner는 Project/Business 문서 필드로만 색인, News 908 본문 미색인 (D-23)
 - 404: `src/pages/404.astro` (홈 이동 + 검색 form)
 - 배포 미리보기: GitHub Pages (`.github/workflows/deploy-pages.yml`, base `/mrintWeb`), 내부 링크는 `withBase()` 사용
-- Business Line 데이터: `src/data/business/*.json` (기존 4건, ACF contents 블록 원문, Main Clients = ACF partners 순서, 이미지는 placeholder, Project 관계 없음)
+- Business Line 데이터: `src/data/business/*.json` (기존 4건, ACF contents 블록 원문, Main Clients = ACF partners 순서, 이미지는 실제 이미지(Phase 9.5), Project 관계 없음)
 - Partners 데이터: `src/data/partners.json` (기존 67건 전체, 중복 미병합, 화면 표시는 BL/Project 참조 40건, 개별 페이지 없음)
 - Projects 데이터: `src/data/projects/*.json` (기존 57건, slug `project-{legacyId}`), `src/data/taxonomies.json`(27 terms)
 
 - News 데이터: `src/data/news/*.json` (기존 8건, 임시 slug `news-{post ID}`, 외부 기사 908은 권리 확인 전 본문 미표시)
 
 - 디자인 시스템: `docs/design-system.md` (참고자료 분석, Design Direction, 공통 패턴/페이지 템플릿)
-- Team 데이터: `src/data/team/*.json` (기존 /team/ 6건, 이미지는 placeholder, Related Projects는 Project 상세와 연결)
+- Team 데이터: `src/data/team/*.json` (기존 /team/ 6건, 이미지는 실제 이미지(Phase 9.5), Related Projects는 Project 상세와 연결)
 
-- Home 카드 데이터: `src/data/home.ts` (기존 사이트 메인 4개, 이미지는 placeholder)
-- Company 데이터: `src/data/company/company.json` (기존 /mirae/ 원문, 지도는 외부 링크만, 이미지는 placeholder)
+- Home 카드 데이터: `src/data/home.ts` (기존 사이트 메인 4개, 이미지는 실제 이미지(Phase 9.5))
+- Company 데이터: `src/data/company/company.json` (기존 /mirae/ 원문, 지도는 외부 링크만, 이미지는 실제 이미지(Phase 9.5))
 
 - 공통 Layout/컴포넌트: `src/layouts/BaseLayout.astro`, `src/components/{layout,ui,seo}/*`
 - 컴포넌트 미리보기: `/dev/components` (dev/test 빌드 전용, production 미포함)

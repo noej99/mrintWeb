@@ -5,11 +5,12 @@
   "nameKo": "인프라 팀",
   "nameEn": "Infrastructure Maintenance Team",
   "image": {
+    "src": "media/1418-20250707_1418_흑백-리믹스-디자인_remix_01jzhn134wftftc6ryf7v7h1c9_Color.png",
     "legacyUrl": "/wp-content/uploads/2025/07/20250707_1418_흑백-리믹스-디자인_remix_01jzhn134wftftc6ryf7v7h1c9_Color-683x1024.png",
     "width": 683,
     "height": 1024,
     "alt": "",
-    "license": "unknown",
+    "license": "confirmed",
     "aiGenerated": "unknown"
   },
   "introduction": [
@@ -50,6 +51,10 @@
       {
         "field": "image",
         "note": "목록 페이지 흑백 이미지(별도 파일): /wp-content/uploads/2025/07/20250707_1418_흑백-리믹스-디자인_remix_01jzhn134wftftc6ryf7v7h1c9-683x1024.png"
+      },
+      {
+        "field": "image",
+        "note": "2026-10-02 이미지 사용 권리·공개 사용 확인 완료 (D-13) — license: confirmed, Phase 9.5에서 실제 이미지 적용. 위 '확인 전' 메모는 당시 기록으로 유지, aiGenerated는 변경하지 않음"
       }
     ]
   },

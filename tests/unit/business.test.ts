@@ -171,7 +171,7 @@ describe('Business Line 데이터 (기존 4건)', () => {
     }
   });
 
-  it('이미지: 메타데이터만 보존 (src 없음, alt 빈 값, license/AI unknown, 원본 크기)', () => {
+  it('이미지: 로컬 asset 연결(Phase 9.5) + 메타데이터 (alt 빈 값, license confirmed(D-13), AI unknown, 원본 크기)', () => {
     const images = businessData.flatMap((data) => [
       ...(data.thumbnail ? [data.thumbnail] : []),
       ...data.contents.flatMap((block) =>
@@ -180,13 +180,13 @@ describe('Business Line 데이터 (기존 4건)', () => {
     ]);
     expect(images).toHaveLength(18);
     for (const image of images) {
-      expect(image.src).toBeUndefined();
+      expect(image.src).toMatch(new RegExp(`^media/${image.legacyMediaId}-`));
       expect(image.legacyUrl).toMatch(/^\/wp-content\/uploads\//);
       expect(image.legacyMediaId).toBeGreaterThan(0);
       expect(image.width).toBeGreaterThan(0);
       expect(image.height).toBeGreaterThan(0);
       expect(image.alt).toBe('');
-      expect(image.license).toBe('unknown');
+      expect(image.license).toBe('confirmed');
       expect(image.aiGenerated).toBe('unknown');
     }
     expect(line(271).thumbnail).toMatchObject({ legacyMediaId: 283, width: 1688, height: 301 });
@@ -233,11 +233,17 @@ describe('Partner 데이터 (기존 67건)', () => {
     for (const entry of partners) expect(entry.data.legacyUrl).toBe(`/partners/${entry.data.legacySlug}/`);
   });
 
-  it('로고: 사용하지 않고 메타데이터만 보존 (65건, 미등록 1030/1130)', () => {
+  it('로고: partners/ asset 연결(Phase 9.5), 권리 확인(D-13), 화면은 이름 텍스트 유지 (65건, 미등록 1030/1130)', () => {
     expect(partners.filter((entry) => !entry.data.logo).map((entry) => entry.data.legacyId)).toEqual([1030, 1130]);
     for (const entry of partners) {
-      expect(entry.data.logoPermission).toBe('unknown');
-      expect(entry.data.logo?.src).toBeUndefined();
+      if (entry.data.logo) {
+        expect(entry.data.logo.src).toMatch(new RegExp(`^partners/${entry.data.logo.legacyMediaId}-`));
+        expect(entry.data.logo.license).toBe('confirmed');
+        expect(entry.data.logoPermission).toBe('granted');
+      } else {
+        // 로고가 없는 Partner는 확인 대상 로고가 없으므로 기록값 유지
+        expect(entry.data.logoPermission).toBe('unknown');
+      }
     }
   });
 

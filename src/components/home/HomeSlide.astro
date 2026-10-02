@@ -3,11 +3,12 @@
  * Home 슬라이드 1개
  * - 카드 전체가 링크 영역 (제목 링크의 ::after가 슬라이드를 덮는다. 링크는 1개)
  * - 링크 accessible name: "{title} 상세 보기" 또는 목록 임시 연결 시 "{title} — Projects 목록 보기"
- * - 이미지가 없으면 ImagePlaceholder (레이아웃 동일)
+ * - 이미지가 없으면 ImagePlaceholder (레이아웃 동일). 첫 슬라이드 이미지는 LCP → priority (lazy 해제)
  */
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
 import ResponsiveImage from '@/components/ui/ResponsiveImage.astro';
 import type { HomeCard } from '@/data/home';
+import { resolveImage } from '@/lib/images';
 import { withBase } from '@/lib/url';
 
 interface Props {
@@ -19,6 +20,7 @@ interface Props {
 const { card, index, total } = Astro.props;
 const linkSuffix = card.linkTarget === 'detail' ? ' 상세 보기' : ` — ${card.type} 목록 보기`;
 const datetime = card.date.replaceAll('.', '-');
+const photo = card.image ? resolveImage(card.image) : undefined;
 ---
 
 <div
@@ -30,9 +32,9 @@ const datetime = card.date.replaceAll('.', '-');
 >
   <div class="slide__media">
     {
-      card.image ? (
+      photo ? (
         <ResponsiveImage
-          src={card.image}
+          src={photo}
           alt={card.imageAlt}
           sizes="100vw"
           priority={index === 0}
@@ -71,6 +73,12 @@ const datetime = card.date.replaceAll('.', '-');
     position: absolute;
     inset: 0;
     z-index: -2;
+  }
+
+  /* ResponsiveImage는 <picture>로 감싸므로 picture도 영역을 채워야 img height:100%가 적용된다 */
+  .slide__media :global(picture) {
+    width: 100%;
+    height: 100%;
   }
 
   .slide__media :global(img) {

@@ -18,12 +18,13 @@
   ],
   "images": [
     {
+      "src": "media/1194-IMG_0012.jpeg",
       "legacyUrl": "/wp-content/uploads/2024/12/IMG_0012.jpeg",
       "legacyMediaId": 1194,
       "width": 530,
       "height": 333,
       "alt": "",
-      "license": "unknown",
+      "license": "confirmed",
       "aiGenerated": "unknown"
     }
   ],
@@ -47,6 +48,10 @@
       {
         "field": "images[0]",
         "note": "KDB캐피탈 건물 간판·로고 포함 사진, WP 미디어 연결 게시물 없음 — 출처/권리 확인 필요"
+      },
+      {
+        "field": "images",
+        "note": "2026-10-02 이미지 사용 권리·공개 사용 확인 완료 (D-13) — license: confirmed, Phase 9.5에서 실제 이미지 적용. 위 '확인 전' 메모는 당시 기록으로 유지, aiGenerated는 변경하지 않음"
       }
     ]
   },

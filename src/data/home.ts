@@ -5,12 +5,12 @@
  * - 기존 사이트에 설명(description)이 없으므로 만들지 않는다.
  * - title/type/date는 원문 표기 그대로 유지한다.
  *
- * 이미지: 원본 파일/라이선스 미확인 (docs/decisions.md D-13)
- * - image가 null이면 placeholder를 표시한다. 확보 후 import한 이미지로 image 값만 교체한다.
+ * 이미지 (Phase 9.5, docs/decisions.md D-13)
+ * - image: src/assets/images/ 기준 경로 (src/lib/images.ts resolveImage). null이면 placeholder를 표시한다.
+ *   다른 영역과 같은 원본은 같은 파일을 참조한다. (카드 2: Business system-integration, 카드 3·4: Projects/News)
  * - legacyImagePath는 기존 이미지 경로 기록용이며 로드하지 않는다.
  * - imageAlt: 기존 HTML이 alt=""였으므로 임의 설명을 만들지 않는다.
  */
-import type { ImageMetadata } from 'astro';
 
 export interface HomeCard {
   title: string;
@@ -24,7 +24,8 @@ export interface HomeCard {
   linkTarget: 'detail' | 'list';
   /** 기존 URL (redirect 대상, docs/migration.md) */
   legacyUrl: string;
-  image: ImageMetadata | null;
+  /** src/assets/images/ 기준 경로 */
+  image: string | null;
   imageAlt: string;
   legacyImagePath: string;
 }
@@ -37,7 +38,7 @@ export const HOME_CARDS: readonly HomeCard[] = [
     href: '/business/it-outsourcing',
     linkTarget: 'detail',
     legacyUrl: '/business_line/application-outsourcing/',
-    image: null,
+    image: 'media/361-unsplash_ZKBzlifgkgw.jpg',
     imageAlt: '',
     legacyImagePath: '/wp-content/uploads/2024/02/unsplash_ZKBzlifgkgw.jpg',
   },
@@ -48,7 +49,7 @@ export const HOME_CARDS: readonly HomeCard[] = [
     href: '/business/system-integration',
     linkTarget: 'detail',
     legacyUrl: '/business_line/si/',
-    image: null,
+    image: 'media/793-kevin-ku-w7ZyuGYNpRQ-unsplash.jpg',
     imageAlt: '',
     legacyImagePath: '/wp-content/uploads/2024/02/kevin-ku-w7ZyuGYNpRQ-unsplash-scaled.jpg',
   },
@@ -59,7 +60,7 @@ export const HOME_CARDS: readonly HomeCard[] = [
     href: '/projects/project-973',
     linkTarget: 'detail',
     legacyUrl: '/ibk기업은행-정보시스템-운영/',
-    image: null,
+    image: 'media/978-기업은행.jpg',
     imageAlt: '',
     legacyImagePath: '/wp-content/uploads/2024/04/기업은행.jpg',
   },
@@ -70,7 +71,7 @@ export const HOME_CARDS: readonly HomeCard[] = [
     href: '/projects/project-406',
     linkTarget: 'detail',
     legacyUrl: '/2024-흥국생명-it-어플리케이션-유지보수/',
-    image: null,
+    image: 'media/620-흥국생명_해머링맨.jpeg',
     imageAlt: '',
     legacyImagePath: '/wp-content/uploads/2024/04/흥국생명_해머링맨.jpeg',
   },

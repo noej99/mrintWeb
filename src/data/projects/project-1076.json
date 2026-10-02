@@ -12,12 +12,13 @@
   "overview": "채권회수정보시스템, 자산관리시스템, 홈페이지, 전자결재시스템, 전산시스템",
   "images": [
     {
+      "src": "media/1078-예금보험공사.jpg",
       "legacyUrl": "/wp-content/uploads/2024/05/예금보험공사.jpg",
       "legacyMediaId": 1078,
       "width": 600,
       "height": 400,
       "alt": "",
-      "license": "unknown",
+      "license": "confirmed",
       "aiGenerated": "unknown"
     }
   ],
@@ -38,6 +39,10 @@
       {
         "field": "slug",
         "note": "slug 규칙 project-{legacyId} (D-07) — 영문 SEO slug는 추후 별도 검토"
+      },
+      {
+        "field": "images",
+        "note": "2026-10-02 이미지 사용 권리·공개 사용 확인 완료 (D-13) — license: confirmed, Phase 9.5에서 실제 이미지 적용. 위 '확인 전' 메모는 당시 기록으로 유지, aiGenerated는 변경하지 않음"
       }
     ]
   },

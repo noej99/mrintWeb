@@ -102,10 +102,10 @@ describe('Projects 데이터 (기존 57건)', () => {
     for (const p of projectData) for (const block of p.description ?? []) expect(block.type).toBe('paragraph');
   });
 
-  it('이미지: gallery 메타만 보존 (src 없음, alt 빈 값), 2장 = 406/982/1001', () => {
+  it('이미지: gallery 로컬 asset 연결(Phase 9.5) + 메타 보존 (alt 빈 값), 2장 = 406/982/1001', () => {
     expect(projectData.filter((p) => p.images.length === 2).map((p) => Number(p.legacyId)).sort((a, b) => a - b)).toEqual([406, 982, 1001]);
     for (const image of projectData.flatMap((p) => p.images)) {
-      expect(image.src).toBeUndefined();
+      expect(image.src).toMatch(new RegExp(`^media/${image.legacyMediaId}-`));
       expect(image.alt).toBe('');
       expect(image.legacyMediaId).toBeTypeOf('number');
       expect(image.width).toBeGreaterThan(0);

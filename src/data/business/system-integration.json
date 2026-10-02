@@ -5,12 +5,13 @@
   "date": "2024-02-23",
   "summary": "고객에게 최적화된 정보 시스템과 전문적이고 효율적인 IT 솔루션을 제공합니다.",
   "thumbnail": {
+    "src": "media/282-Frame-62.png",
     "legacyUrl": "/wp-content/uploads/2024/02/Frame-62.png",
     "legacyMediaId": 282,
     "width": 1688,
     "height": 301,
     "alt": "",
-    "license": "unknown",
+    "license": "confirmed",
     "aiGenerated": "unknown"
   },
   "contents": [
@@ -25,12 +26,13 @@
     {
       "type": "image",
       "image": {
+        "src": "media/793-kevin-ku-w7ZyuGYNpRQ-unsplash.jpg",
         "legacyUrl": "/wp-content/uploads/2024/02/kevin-ku-w7ZyuGYNpRQ-unsplash-scaled.jpg",
         "legacyMediaId": 793,
         "width": 2560,
         "height": 1919,
         "alt": "",
-        "license": "unknown",
+        "license": "confirmed",
         "aiGenerated": "unknown"
       }
     }
@@ -70,6 +72,14 @@
       {
         "field": "clients",
         "note": "ACF partners 원문 순서. 로고 사용 권한 미확인으로 Partner 이름 텍스트로 표시"
+      },
+      {
+        "field": "images",
+        "note": "2026-10-02 이미지 사용 권리·공개 사용 확인 완료 (D-13) — license: confirmed, Phase 9.5에서 실제 이미지 적용. 위 '확인 전' 메모는 당시 기록으로 유지, aiGenerated는 변경하지 않음"
+      },
+      {
+        "field": "clients",
+        "note": "2026-10-02 고객사 로고 사용 권리 확인 (D-13) — 화면은 D-22에 따라 Partner 이름 텍스트 유지"
       }
     ]
   },

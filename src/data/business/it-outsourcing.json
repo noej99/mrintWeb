@@ -5,12 +5,13 @@
   "date": "2024-02-23",
   "summary": "안정적이고 효율적인 IT 운영 서비스를 제공합니다.",
   "thumbnail": {
+    "src": "media/283-Frame-63.png",
     "legacyUrl": "/wp-content/uploads/2024/02/Frame-63.png",
     "legacyMediaId": 283,
     "width": 1688,
     "height": 301,
     "alt": "",
-    "license": "unknown",
+    "license": "confirmed",
     "aiGenerated": "unknown"
   },
   "contents": [
@@ -25,12 +26,13 @@
     {
       "type": "image",
       "image": {
+        "src": "media/1343-unnamed.jpg",
         "legacyUrl": "/wp-content/uploads/2024/02/unnamed.jpg",
         "legacyMediaId": 1343,
         "width": 1024,
         "height": 1024,
         "alt": "",
-        "license": "unknown",
+        "license": "confirmed",
         "aiGenerated": "unknown"
       }
     },
@@ -49,12 +51,13 @@
     {
       "type": "image",
       "image": {
+        "src": "media/945-KakaoTalk_20240407_192948675.jpg",
         "legacyUrl": "/wp-content/uploads/2024/02/KakaoTalk_20240407_192948675.jpg",
         "legacyMediaId": 945,
         "width": 1440,
         "height": 610,
         "alt": "",
-        "license": "unknown",
+        "license": "confirmed",
         "aiGenerated": "unknown"
       }
     },
@@ -72,12 +75,13 @@
         {
           "title": "프로젝트 수행 경험",
           "image": {
+            "src": "media/1342-7d299c3d-f0e8-4371-beca-547dbfab7407.png",
             "legacyUrl": "/wp-content/uploads/2024/02/7d299c3d-f0e8-4371-beca-547dbfab7407.png",
             "legacyMediaId": 1342,
             "width": 1536,
             "height": 1024,
             "alt": "",
-            "license": "unknown",
+            "license": "confirmed",
             "aiGenerated": "unknown"
           },
           "description": "•\t2003년 설립 이후 20년 이상의 업무 수행 경험을 보유\r\n\r\n•\t흥국생명, IBK기업은행, 현대차증권, SC제일은행, SBI저축은행, 애큐온캐피탈 등 금융권 고객과의 다양한 사업경험 보유\r\n\r\n•\t금융권 경력을 바탕으로 고객별 비즈니스와 IT환경에 최적화된 서비스 제공\r\n\r\n•\t기존 운영 우수 인력을 중심으로 한 조직구성으로 서비스 연속성 및 품질을 보장"
@@ -85,12 +89,13 @@
         {
           "title": "분야별 전문 인력 보유",
           "image": {
+            "src": "media/943-dylan-gillis-KdeqA3aTnBY-unsplash.jpg",
             "legacyUrl": "/wp-content/uploads/2024/02/dylan-gillis-KdeqA3aTnBY-unsplash-scaled.jpg",
             "legacyMediaId": 943,
             "width": 2560,
             "height": 1707,
             "alt": "",
-            "license": "unknown",
+            "license": "confirmed",
             "aiGenerated": "unknown"
           },
           "description": "•\t인력 관리 프로그램(MIRAE_IN)을 활용하여 풍부한 인력을 적기 적소에 지원\r\n\r\n•\t각 분야별 소싱 전담팀을 구성하여 적극적인 업무협조\r\n\r\n•\t전문 인력에 의해 발굴되고 검증된 신기술 및 솔루션을 적용한 서비스 제공\r\n\r\n•\t협력업체 관리 시스템을 통해 검증된 협력업체의 기술, 솔루션, 인력의 활용"
@@ -98,12 +103,13 @@
         {
           "title": "고객 중심 맞춤 서비스",
           "image": {
+            "src": "media/829-sla.png",
             "legacyUrl": "/wp-content/uploads/2024/02/sla.png",
             "legacyMediaId": 829,
             "width": 1435,
             "height": 486,
             "alt": "",
-            "license": "unknown",
+            "license": "confirmed",
             "aiGenerated": "unknown"
           },
           "description": "•\t종합 IT 전문서비스 회사로써 인력관리(미래인 솔루션), 프로젝트 관리(SR, 요구사항, SLA, 업무량), KPI 등 솔루션 역량을 동원하여 전사적 지원 체계를 활용한 전방위적 고객 사업 지원 가능\r\n\r\n•\t서비스수준협약(SLA)을 통해 IT서비스의 품질수준 보장\r\n명확한 이행을 위한 서비스 수준 측정, 보고, 개선 활동 등의 서비스 수준관리(SLM) 제공"
@@ -170,6 +176,14 @@
       {
         "field": "clients",
         "note": "ACF partners 원문 순서. 로고 사용 권한 미확인으로 Partner 이름 텍스트로 표시"
+      },
+      {
+        "field": "images",
+        "note": "2026-10-02 이미지 사용 권리·공개 사용 확인 완료 (D-13) — license: confirmed, Phase 9.5에서 실제 이미지 적용. 위 '확인 전' 메모는 당시 기록으로 유지, aiGenerated는 변경하지 않음"
+      },
+      {
+        "field": "clients",
+        "note": "2026-10-02 고객사 로고 사용 권리 확인 (D-13) — 화면은 D-22에 따라 Partner 이름 텍스트 유지"
       }
     ]
   },

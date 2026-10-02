@@ -44,9 +44,14 @@ describe('HOME_CARDS (기존 mrint.co.kr 메인 카드)', () => {
     ]);
   });
 
-  it('이미지는 확인 전까지 null(placeholder), alt는 원문과 같이 빈 값', () => {
+  it('이미지: 로컬 asset 경로 (Phase 9.5), alt는 원문과 같이 빈 값, 기존 경로 보존', () => {
+    expect(HOME_CARDS.map((card) => card.image)).toEqual([
+      'media/361-unsplash_ZKBzlifgkgw.jpg',
+      'media/793-kevin-ku-w7ZyuGYNpRQ-unsplash.jpg',
+      'media/978-기업은행.jpg',
+      'media/620-흥국생명_해머링맨.jpeg',
+    ]);
     for (const card of HOME_CARDS) {
-      expect(card.image).toBeNull();
       expect(card.imageAlt).toBe('');
       expect(card.legacyImagePath).toMatch(/^\/wp-content\/uploads\//);
     }

@@ -1,12 +1,14 @@
 ---
 /**
  * BusinessCard — Business Line 목록 카드 (기존 목록: thumbnail / title / description-summary)
- * 링크는 제목 1개 (기존의 텍스트 없는 <a> 미재현). 이미지는 확인 전 placeholder (원본 비율).
+ * 링크는 제목 1개 (기존의 텍스트 없는 <a> 미재현). 이미지는 원본 비율 (thumbnail.src 없으면 placeholder).
  */
 import Card from '@/components/ui/Card.astro';
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
+import ResponsiveImage from '@/components/ui/ResponsiveImage.astro';
 import { imageRatio } from '@/lib/business';
 import type { BusinessEntry } from '@/lib/content';
+import { resolveOptionalImage } from '@/lib/images';
 
 interface Props {
   line: BusinessEntry;
@@ -16,6 +18,7 @@ interface Props {
 
 const { line, index, headingLevel = 2 } = Astro.props;
 const { data } = line;
+const thumbnail = resolveOptionalImage(data.thumbnail);
 ---
 
 <Card
@@ -27,9 +30,12 @@ const { data } = line;
 >
   {
     data.thumbnail && (
-      <div slot="media" class="business-card__media">
-        {/* TODO: 이미지 원본/라이선스 확인 후 ResponsiveImage로 교체 (D-13) */}
-        <ImagePlaceholder ratio={imageRatio(data.thumbnail, 16 / 9)} />
+      <div slot="media" class="business-card__media" style={`--media-ratio: ${imageRatio(data.thumbnail, 16 / 9)}`}>
+        {thumbnail ? (
+          <ResponsiveImage src={thumbnail} alt={data.thumbnail.alt} sizes="(max-width: 767px) 100vw, 50vw" />
+        ) : (
+          <ImagePlaceholder ratio={imageRatio(data.thumbnail, 16 / 9)} />
+        )}
       </div>
     )
   }
@@ -39,5 +45,11 @@ const { data } = line;
 <style>
   .business-card__media {
     border-bottom: 1px solid var(--border);
+  }
+
+  /* Card의 16:10 crop 대신 원본 비율 유지 (placeholder와 같은 비율, 명시 비율 → CLS 방지) */
+  .business-card__media :global(picture > img) {
+    aspect-ratio: var(--media-ratio);
+    object-fit: cover;
   }
 </style>

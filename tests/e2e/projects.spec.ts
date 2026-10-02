@@ -2,6 +2,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
 import { expectNoA11yViolations } from './helpers/a11y';
+import { expectPictures, trackExternalImageRequests } from './helpers/page';
 import { PROJECT_LEGACY_ORDER } from './routes';
 
 type Project = {
@@ -207,21 +208,25 @@ test.describe('Project 상세 57건', () => {
       );
 
       await expect(page.locator('#project-description')).toHaveCount(project.description ? 1 : 0);
-      await expect(page.locator('[data-project-gallery] [data-image-placeholder]')).toHaveCount(project.images.length);
-      await expect(page.locator('main img')).toHaveCount(0);
+      await expect(page.locator('[data-project-gallery] picture > img')).toHaveCount(project.images.length);
+      await expect(page.locator('main [data-image-placeholder]')).toHaveCount(0);
     }
   });
 
   test('982(Type 없음), 406(이미지 2장·영문 description) 정상 렌더링, 외부 이미지 요청 없음', async ({ page }) => {
-    const requests: string[] = [];
-    page.on('request', (request) => requests.push(request.url()));
+    const requests = trackExternalImageRequests(page);
     await page.goto('/projects/project-982');
     await expect(page.locator('.project-meta dt')).not.toContainText(['Type']);
-    await expect(page.locator('[data-project-gallery] [data-image-placeholder]')).toHaveCount(2);
+    const p982 = projects.find((p) => p.slug === 'project-982');
+    const p982Images = (p982?.images ?? []) as { width?: number; height?: number }[];
+    await expectPictures(
+      page.locator('[data-project-gallery]'),
+      p982Images.map((image) => (image.width ?? 16) / (image.height ?? 9)),
+    );
     await page.goto('/projects/project-406');
     await expect(page.locator('[data-news-body]')).toContainText('Heungkuk Life Insurance application maintenance');
     await expect(page.locator('[data-news-body]')).toContainText('> 사내 인력 관리 및 공급을 담당하는 HR전담 팀');
-    expect(requests.filter((url) => url.includes('wp-content') || url.includes('mrint.co.kr'))).toEqual([]);
+    expect(requests).toEqual([]);
   });
 
   test('History 링크: 다른 프로젝트로 이동, 현재 항목은 링크 아님', async ({ page }) => {

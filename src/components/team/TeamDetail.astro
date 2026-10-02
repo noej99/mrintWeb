@@ -3,12 +3,14 @@
  * TeamDetail — 기존 Markdown 원문을 구조화된 HTML로 표시
  * - team: Team Introduction / Main Functions / Key Capabilities (기존 원문 제목)
  * - person(CEO): 약력 블록 (기존 원문 블록 제목)
- * - 대표 이미지는 첫 섹션 본문 상단 (확인 전 placeholder)
+ * - 대표 이미지는 첫 섹션 본문 상단 (image.src 없으면 placeholder)
  * - Related Projects: 항목이 있을 때만. Team 원문 제목/연도를 표시하고 Project 상세로 연결
  */
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
+import ResponsiveImage from '@/components/ui/ResponsiveImage.astro';
 import SplitSection from '@/components/ui/SplitSection.astro';
 import type { TeamEntry } from '@/lib/content';
+import { resolveOptionalImage } from '@/lib/images';
 import RelatedProjectList from './RelatedProjectList.astro';
 
 interface Props {
@@ -18,6 +20,7 @@ interface Props {
 const { member } = Astro.props;
 const { data } = member;
 const ratio = data.image?.width && data.image.height ? data.image.width / data.image.height : 2 / 3;
+const photo = resolveOptionalImage(data.image);
 
 // Related Projects: 기존 Team 원문(제목·연도) + 신규 Project 상세 링크 (relatedProjects와 같은 순서)
 const relatedItems = data.relatedProjectsLegacy.map((project, index) => {
@@ -54,8 +57,16 @@ const blocks: Block[] = [
     <SplitSection title={block.title} id={block.id}>
       {index === 0 && data.image && (
         <figure class="team-detail__media media-mono" style={`--ratio: ${ratio}`}>
-          {/* TODO: 이미지 원본/라이선스 확인 후 ResponsiveImage로 교체 (D-13) */}
-          <ImagePlaceholder ratio={ratio} tone="light" />
+          {photo ? (
+            <ResponsiveImage
+              src={photo}
+              alt={data.image.alt}
+              sizes="(max-width: 767px) 100vw, 520px"
+              widths={[360, 520, 720, 1040]}
+            />
+          ) : (
+            <ImagePlaceholder ratio={ratio} tone="light" />
+          )}
         </figure>
       )}
       {block.kind === 'paragraphs' ? (

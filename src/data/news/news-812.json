@@ -10,12 +10,13 @@
   ],
   "images": [
     {
+      "src": "media/825-austin-park-JdSXY1nC5rc-unsplash.jpg",
       "legacyUrl": "/wp-content/uploads/2024/04/austin-park-JdSXY1nC5rc-unsplash-scaled.jpg",
       "legacyMediaId": 825,
       "width": 2560,
       "height": 2048,
       "alt": "",
-      "license": "unknown",
+      "license": "confirmed",
       "aiGenerated": "unknown"
     }
   ],
@@ -35,6 +36,10 @@
       {
         "field": "images[0]",
         "note": "파일명상 Unsplash 이미지, 원래 다른 게시물(84) 소속 — 라이선스 확인 필요"
+      },
+      {
+        "field": "images",
+        "note": "2026-10-02 이미지 사용 권리·공개 사용 확인 완료 (D-13) — license: confirmed, Phase 9.5에서 실제 이미지 적용. 위 '확인 전' 메모는 당시 기록으로 유지, aiGenerated는 변경하지 않음"
       }
     ]
   },

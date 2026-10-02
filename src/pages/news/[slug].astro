@@ -9,9 +9,11 @@ import NewsBody from '@/components/news/NewsBody.astro';
 import Container from '@/components/ui/Container.astro';
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
 import PageHeader from '@/components/ui/PageHeader.astro';
+import ResponsiveImage from '@/components/ui/ResponsiveImage.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getNews, type NewsEntry } from '@/lib/content';
 import { formatDotDate } from '@/lib/date';
+import { resolveImage } from '@/lib/images';
 import { SITE_NAME } from '@/lib/site';
 
 export const getStaticPaths = (async () => {
@@ -45,8 +47,11 @@ const label = 'News&Notices';
       {
         data.images.map((image) => (
           <figure class="news-article__media">
-            {/* TODO: 이미지 원본/라이선스 확인 후 ResponsiveImage로 교체 (D-13) */}
-            <ImagePlaceholder ratio={image.width && image.height ? image.width / image.height : 16 / 9} tone="light" />
+            {image.src ? (
+              <ResponsiveImage src={resolveImage(image.src)} alt={image.alt} sizes="(max-width: 880px) 100vw, 880px" />
+            ) : (
+              <ImagePlaceholder ratio={image.width && image.height ? image.width / image.height : 16 / 9} tone="light" />
+            )}
           </figure>
         ))
       }

@@ -1,11 +1,14 @@
 ---
 /**
- * TeamCard — Card 재사용. 이미지(확인 전 placeholder) + 한국어/영어 이름 + 역할
+ * TeamCard — Card 재사용. 이미지(image.src 없으면 placeholder) + 한국어/영어 이름 + 역할
+ * 이미지는 원본 비율(2:3)로 표시한다. (Card 기본 16:10 crop 미적용)
  * 카드 전체 링크 1개 (제목 = 한국어 이름)
  */
 import Card from '@/components/ui/Card.astro';
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
+import ResponsiveImage from '@/components/ui/ResponsiveImage.astro';
 import type { TeamEntry } from '@/lib/content';
+import { resolveOptionalImage } from '@/lib/images';
 
 interface Props {
   member: TeamEntry;
@@ -16,12 +19,23 @@ const { member, headingLevel = 2 } = Astro.props;
 const { data } = member;
 const ratio = data.image?.width && data.image.height ? data.image.width / data.image.height : 2 / 3;
 const role = [data.titleKo, data.titleEn].filter(Boolean);
+const photo = resolveOptionalImage(data.image);
 ---
 
 <Card title={data.nameKo} href={`/team/${data.slug}`} headingLevel={headingLevel} class="team-card">
-  <div slot="media" class="team-card__media media-mono">
-    {/* TODO: 이미지 원본/라이선스 확인 후 ResponsiveImage로 교체 (D-13) */}
-    <ImagePlaceholder ratio={ratio} tone="light" />
+  <div slot="media" class="team-card__media media-mono" style={`--media-ratio: ${ratio}`}>
+    {
+      photo ? (
+        <ResponsiveImage
+          src={photo}
+          alt={data.image?.alt ?? ''}
+          sizes="(max-width: 1100px) 50vw, 25vw"
+          widths={[360, 540, 720, 1080]}
+        />
+      ) : (
+        <ImagePlaceholder ratio={ratio} tone="light" />
+      )
+    }
   </div>
   <p class="team-card__en" lang="en">{data.nameEn}</p>
   {
@@ -35,6 +49,12 @@ const role = [data.titleKo, data.titleEn].filter(Boolean);
 </Card>
 
 <style>
+  /* Card의 16:10 crop 대신 원본 비율 유지 (명시 비율 → 이미지 로드 전 공간 확보, CLS 방지) */
+  .team-card__media :global(picture > img) {
+    aspect-ratio: var(--media-ratio);
+    object-fit: cover;
+  }
+
   .team-card__en {
     color: var(--text);
     font-weight: 500;

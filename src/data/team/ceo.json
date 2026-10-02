@@ -7,11 +7,12 @@
   "titleKo": "대표이사",
   "titleEn": "CEO",
   "image": {
+    "src": "media/김학연-이사-2-1.jpg",
     "legacyUrl": "/wp-content/uploads/2024/02/김학연-이사-2-1-1024x1024.jpg",
     "width": 1024,
     "height": 1024,
     "alt": "",
-    "license": "unknown",
+    "license": "confirmed",
     "aiGenerated": "unknown"
   },
   "biography": [
@@ -100,6 +101,10 @@
       {
         "field": "image",
         "note": "목록 페이지 흑백 이미지(별도 파일): /wp-content/uploads/2024/02/김학연-이사-2-2-1024x1024.jpg"
+      },
+      {
+        "field": "image",
+        "note": "2026-10-02 이미지 사용 권리·공개 사용 확인 완료 (D-13) — license: confirmed, Phase 9.5에서 실제 이미지 적용. 위 '확인 전' 메모는 당시 기록으로 유지, aiGenerated는 변경하지 않음"
       }
     ]
   },

@@ -115,15 +115,17 @@ describe('Team 데이터 (기존 /team/)', () => {
     ]);
   });
 
-  it('이미지: 원본 미확보(src 없음), alt 빈 값, 원본 비율 기록', () => {
+  it('이미지: 로컬 원본 연결(Phase 9.5), alt 빈 값, 기존 크기 기록 유지', () => {
     for (const m of members) {
-      expect(m.image?.src).toBeUndefined();
+      expect(m.image?.src).toMatch(/^media\//);
       expect(m.image?.alt).toBe('');
-      expect(m.image?.license).toBe('unknown');
+      expect(m.image?.license).toBe('confirmed');
       expect(m.image?.legacyUrl).toMatch(/^\/wp-content\/uploads\//);
     }
     expect([bySlug('ceo').image?.width, bySlug('ceo').image?.height]).toEqual([1024, 1024]);
     expect([bySlug('si-team').image?.width, bySlug('si-team').image?.height]).toEqual([683, 1024]);
+    // 대표이사: WP media 기록은 없지만 서버의 원본 파일(1024×1024 파생본의 원본)을 사용
+    expect(bySlug('ceo').image?.src).toBe('media/김학연-이사-2-1.jpg');
   });
 
   it('고객 확인 필요 상태', () => {

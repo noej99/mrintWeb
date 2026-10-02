@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
+import { expectPictures, trackExternalImageRequests } from './helpers/page';
 import { NEWS_SLUGS } from './routes';
 
 type Block = { type: 'paragraph'; text: string } | { type: 'list'; items: string[] };
@@ -108,18 +109,14 @@ for (const slug of NEWS_SLUGS) {
       }
     });
 
-    test('이미지: placeholder 개수/비율, 외부 이미지 요청 없음', async ({ page }) => {
-      const requests: string[] = [];
-      page.on('request', (request) => requests.push(request.url()));
+    test('이미지: 개수/원본 비율, 외부 이미지 요청 없음', async ({ page }) => {
+      const requests = trackExternalImageRequests(page);
       await page.reload();
-      expect(requests.filter((url) => url.includes('wp-content') || url.includes('mrint.co.kr'))).toEqual([]);
-      await expect(page.locator('main img')).toHaveCount(0);
-      const placeholders = page.locator('main [data-image-placeholder]');
-      await expect(placeholders).toHaveCount(news.images.length);
-      for (const [index, image] of news.images.entries()) {
-        const box = await placeholders.nth(index).boundingBox();
-        expect((box?.width ?? 0) / (box?.height ?? 1)).toBeCloseTo((image.width ?? 16) / (image.height ?? 9), 1);
-      }
+      await expectPictures(
+        page.locator('main'),
+        news.images.map((image) => (image.width ?? 16) / (image.height ?? 9)),
+      );
+      expect(requests).toEqual([]);
     });
   });
 }

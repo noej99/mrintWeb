@@ -40,13 +40,13 @@ describe('company.json (기존 /mirae/ 원문)', () => {
     expect(company.map).toEqual({ lat: 37.5631966, lng: 126.9900875, zoom: 16, provider: 'google' });
   });
 
-  it('이미지: 원본 미확보 상태(src 없음), alt 빈 값, 라이선스 unknown', () => {
+  it('이미지: 로컬 asset 연결(Phase 9.5), alt 빈 값, license confirmed (D-13)', () => {
     expect(company.images).toHaveLength(1);
     const [image] = company.images;
-    expect(image?.src).toBeUndefined();
+    expect(image?.src).toBe('media/832-35nd-large-e1712245987379.jpg');
     expect(image?.legacyUrl).toBe('/wp-content/uploads/2024/04/35nd-large-e1712245987379.jpg');
     expect(image?.alt).toBe('');
-    expect(image?.license).toBe('unknown');
+    expect(image?.license).toBe('confirmed');
   });
 
   it('SEO 문구는 아직 없다 (Phase 10)', () => {

@@ -5,12 +5,13 @@
   "date": "2024-02-23",
   "summary": "고객이 필요로 하는 사업관리 및 운영 전반을 통합한 전문적인 서비스를 제공합니다.",
   "thumbnail": {
+    "src": "media/359-unsplash_7aakZdIl4vg-e1711695367674.jpg",
     "legacyUrl": "/wp-content/uploads/2024/02/unsplash_7aakZdIl4vg-e1711695367674.jpg",
     "legacyMediaId": 359,
     "width": 1485,
     "height": 264,
     "alt": "",
-    "license": "unknown",
+    "license": "confirmed",
     "aiGenerated": "unknown"
   },
   "contents": [
@@ -25,12 +26,13 @@
     {
       "type": "image",
       "image": {
+        "src": "media/1432-ChatGPT-Image-2025년-7월-9일-오후-02_27_33.png",
         "legacyUrl": "/wp-content/uploads/2024/02/ChatGPT-Image-2025년-7월-9일-오후-02_27_33.png",
         "legacyMediaId": 1432,
         "width": 1536,
         "height": 1024,
         "alt": "",
-        "license": "unknown",
+        "license": "confirmed",
         "aiGenerated": "unknown"
       }
     },
@@ -44,12 +46,13 @@
         {
           "title": "CubeOne™ Plug-In",
           "image": {
+            "src": "media/1437-20250709_1728_스캔-파일-업스케일링_remix_01jzq4q12xf6etd3mhrbzp7yan.png",
             "legacyUrl": "/wp-content/uploads/2024/02/20250709_1728_스캔-파일-업스케일링_remix_01jzq4q12xf6etd3mhrbzp7yan.png",
             "legacyMediaId": 1437,
             "width": 1024,
             "height": 1024,
             "alt": "",
-            "license": "unknown",
+            "license": "confirmed",
             "aiGenerated": "unknown"
           },
           "description": "Application 독립성\r\nApplication에서 사용하는 SQL의 수정을 최소한으로 하여 암호화 적용 \r\n\r\n 무중단 구축\r\n초기 암호화 적용 및 암호화 컬럼 추가 시 무중단 암호화 적용(Oracle Version)\r\n\r\n 암호화 색인 검색\r\n암호화 되어 저장된 Index 검색기능, 암호화 적용 후 Application 성능 보장\r\n\r\n 빠른 암호화 성능\r\n암/복호화 시 시스템 부하를 최소화 하는 구조 (타 제품 대비 2~3배 성능) \r\n"
@@ -57,12 +60,13 @@
         {
           "title": "CubeOne™ API",
           "image": {
+            "src": "media/1439-20250709_1757_폰트-크기-축소_remix_01jzq6cdvaf3mbxkxd80a4w6rk.png",
             "legacyUrl": "/wp-content/uploads/2024/02/20250709_1757_폰트-크기-축소_remix_01jzq6cdvaf3mbxkxd80a4w6rk.png",
             "legacyMediaId": 1439,
             "width": 1024,
             "height": 1024,
             "alt": "",
-            "license": "unknown",
+            "license": "confirmed",
             "aiGenerated": "unknown"
           },
           "description": "DBMS에 종속적이지 않는 이기종 DBMS간의 암호화 기능 제공\r\n\r\n 간단한 Daemon-less 서비스 구조로서 무장애 구조 및 고성능 (경쟁제품 대비 약 50% 이상 빠름)\r\n\r\n DBMS서버에 Hybrid(Plug-In & API) 방식 적용 시  Local 배치 업무 시 총 수행시간 단축 \r\n\r\n Docker와 Kubernetes와 같은 컨테이너 기반 가상화 환경에서 CubeOne 관리 데몬 없이 실행 모듈 기반의  Daemonless API 제공으로 컨테이너 가상화 환경에서 최적의 암호화 환경 구성 지원"
@@ -70,12 +74,13 @@
         {
           "title": "CubeOne™ SAP",
           "image": {
+            "src": "media/1438-20250709_1732_CubeOne-for-SAP_remix_01jzq4ywybeaxvj8jascsw7rkd.png",
             "legacyUrl": "/wp-content/uploads/2024/02/20250709_1732_CubeOne-for-SAP_remix_01jzq4ywybeaxvj8jascsw7rkd.png",
             "legacyMediaId": 1438,
             "width": 1024,
             "height": 1024,
             "alt": "",
-            "license": "unknown",
+            "license": "confirmed",
             "aiGenerated": "unknown"
           },
           "description": "자유로운 SAP 비지니스 솔루션 업그레이드 가능 (Integrity 보장)\r\n\r\nSAP Standard 수정 불필요 \r\n\r\n암호화 데이터 모니터링 기능제공 \r\n\r\n암호화 설정 및 적용의 모든 자동화 처리로 암호화로 인한 혼란 없이 편리하고 안전하게 SAP 운영 가능"
@@ -126,6 +131,14 @@
       {
         "field": "clients",
         "note": "ACF partners 원문 순서. 로고 사용 권한 미확인으로 Partner 이름 텍스트로 표시"
+      },
+      {
+        "field": "images",
+        "note": "2026-10-02 이미지 사용 권리·공개 사용 확인 완료 (D-13) — license: confirmed, Phase 9.5에서 실제 이미지 적용. 위 '확인 전' 메모는 당시 기록으로 유지, aiGenerated는 변경하지 않음"
+      },
+      {
+        "field": "clients",
+        "note": "2026-10-02 고객사 로고 사용 권리 확인 (D-13) — 화면은 D-22에 따라 Partner 이름 텍스트 유지"
       }
     ]
   },

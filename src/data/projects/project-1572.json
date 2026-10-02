@@ -12,12 +12,13 @@
   "overview": "NEO 계정계 차세대 구축 / 외축환 개선",
   "images": [
     {
+      "src": "media/1576-BandiView_0gPaz2_cx57RKeIF-3_nipm6PsOn-ipVf0W6FqA8OAJbkO7wefiJNjrMZ3eiUv0kXbWKphrbjwu0LC79tHqcR7p6v3mAL9j_weUk5g6ye6sUI3KNIbC8ATQj-MUwG-RaznJzMFo_s9ztsuZRsm8lag.jpg",
       "legacyUrl": "/wp-content/uploads/2026/02/BandiView_0gPaz2_cx57RKeIF-3_nipm6PsOn-ipVf0W6FqA8OAJbkO7wefiJNjrMZ3eiUv0kXbWKphrbjwu0LC79tHqcR7p6v3mAL9j_weUk5g6ye6sUI3KNIbC8ATQj-MUwG-RaznJzMFo_s9ztsuZRsm8lag.jpg",
       "legacyMediaId": 1576,
       "width": 1280,
       "height": 720,
       "alt": "",
-      "license": "unknown",
+      "license": "confirmed",
       "aiGenerated": "unknown"
     }
   ],
@@ -38,6 +39,10 @@
       {
         "field": "slug",
         "note": "slug 규칙 project-{legacyId} (D-07) — 영문 SEO slug는 추후 별도 검토"
+      },
+      {
+        "field": "images",
+        "note": "2026-10-02 이미지 사용 권리·공개 사용 확인 완료 (D-13) — license: confirmed, Phase 9.5에서 실제 이미지 적용. 위 '확인 전' 메모는 당시 기록으로 유지, aiGenerated는 변경하지 않음"
       }
     ]
   },

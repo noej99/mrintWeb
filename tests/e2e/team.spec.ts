@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
+import { expectPictures, trackExternalImageRequests } from './helpers/page';
 import { TEAM_SLUGS } from './routes';
 
 type Member = {
@@ -13,6 +14,7 @@ type Member = {
   biography?: { title: string; items: string[] }[];
   relatedProjects?: string[];
   relatedProjectsLegacy: { title: string; year?: string }[];
+  image?: { width?: number; height?: number };
 };
 
 const load = (slug: string): Member =>
@@ -53,19 +55,11 @@ test.describe('Team 목록 /team', () => {
     ]);
   });
 
-  test('이미지 placeholder: 외부 이미지 미로드, 2:3 / 1:1 비율', async ({ page }) => {
-    const requests: string[] = [];
-    page.on('request', (request) => requests.push(request.url()));
+  test('이미지: 로컬 최적화 이미지 6장, 1:1 / 2:3 비율, 외부 이미지 미로드', async ({ page }) => {
+    const requests = trackExternalImageRequests(page);
     await page.reload();
-    expect(requests.filter((url) => url.includes('wp-content') || url.includes('mrint.co.kr'))).toEqual([]);
-    await expect(page.locator('main img')).toHaveCount(0);
-
-    const placeholders = page.locator('main [data-image-placeholder]');
-    await expect(placeholders).toHaveCount(6);
-    const ceoBox = await placeholders.first().boundingBox();
-    const teamBox = await placeholders.nth(1).boundingBox();
-    expect((ceoBox?.width ?? 0) / (ceoBox?.height ?? 1)).toBeCloseTo(1, 1);
-    expect((teamBox?.width ?? 0) / (teamBox?.height ?? 1)).toBeCloseTo(683 / 1024, 1);
+    await expectPictures(page.locator('main'), [1, 683 / 1024, 683 / 1024, 683 / 1024, 683 / 1024, 683 / 1024]);
+    expect(requests).toEqual([]);
   });
 
   test('그리드 열 수: desktop 4 / tablet·mobile 2', async ({ page }, testInfo) => {
@@ -159,9 +153,9 @@ for (const slug of TEAM_SLUGS) {
       expect(hrefs).toEqual((member.relatedProjects ?? []).map((slug) => `/projects/${slug}`));
     });
 
-    test('이미지 placeholder 1개, img 없음', async ({ page }) => {
-      await expect(page.locator('main [data-image-placeholder]')).toHaveCount(1);
-      await expect(page.locator('main img')).toHaveCount(0);
+    test('이미지 1장 (원본 비율), placeholder 없음', async ({ page }) => {
+      const ratio = (member.image?.width ?? 2) / (member.image?.height ?? 3);
+      await expectPictures(page.locator('main'), [ratio]);
     });
   });
 }

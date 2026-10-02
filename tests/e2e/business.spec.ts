@@ -1,8 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { expectNoA11yViolations } from './helpers/a11y';
-import { collectPageErrors, expectNoHorizontalScroll } from './helpers/page';
+import { collectPageErrors, expectNoHorizontalScroll, expectPictures, trackExternalImageRequests } from './helpers/page';
 import { BUSINESS_SLUGS } from './routes';
 
 type Block =
@@ -10,7 +10,14 @@ type Block =
   | { type: 'description'; description: string }
   | { type: 'image'; image: { width?: number; height?: number } }
   | { type: 'tabs'; tabs: { title: string; description: string; image?: { width?: number; height?: number } }[] };
-type Line = { slug: string; title: string; summary: string; contents: Block[]; clients: string[] };
+type Line = {
+  slug: string;
+  title: string;
+  summary: string;
+  thumbnail?: { width?: number; height?: number };
+  contents: Block[];
+  clients: string[];
+};
 type Partner = { id: string; name: string };
 
 const DATA = join(process.cwd(), 'src/data');
@@ -27,17 +34,6 @@ const lines = (text: string) =>
     .map((line) => line.replace(/\s+/g, ' ').trim())
     .filter(Boolean);
 
-const trackExternalImages = (page: Page) => {
-  const requests: string[] = [];
-  page.on('request', (request) => {
-    const url = request.url();
-    if (request.resourceType() === 'image' || url.includes('wp-content') || url.includes('mrint.co.kr')) {
-      requests.push(url);
-    }
-  });
-  return requests;
-};
-
 test.describe('Business Line 목록 /business', () => {
   test('h1, canonical, 카드 4개 순서/링크/summary', async ({ page }) => {
     await page.goto('/business');
@@ -53,15 +49,18 @@ test.describe('Business Line 목록 /business', () => {
     }
   });
 
-  test('빈 링크 없음, 이미지 요청 0건, placeholder', async ({ page }) => {
-    const requests = trackExternalImages(page);
+  test('빈 링크 없음, 썸네일 4장(원본 비율), 외부 이미지 요청 0건', async ({ page }) => {
+    const requests = trackExternalImageRequests(page);
     await page.goto('/business');
     const empty = await page
       .locator('main a')
       .evaluateAll((links) => links.filter((a) => !(a.textContent ?? '').trim() && !a.getAttribute('aria-label')).length);
     expect(empty).toBe(0);
-    await expect(page.locator('main img')).toHaveCount(0);
-    await expect(page.locator('[data-business-list] [data-image-placeholder]')).toHaveCount(4);
+    const ratios = BUSINESS_SLUGS.map((slug) => {
+      const thumbnail = load(slug).thumbnail;
+      return (thumbnail?.width ?? 16) / (thumbnail?.height ?? 9);
+    });
+    await expectPictures(page.locator('[data-business-list]'), ratios);
     expect(requests).toEqual([]);
   });
 
@@ -122,18 +121,18 @@ for (const slug of BUSINESS_SLUGS) {
       await expect(page.locator('[data-main-clients] img, [data-main-clients] a')).toHaveCount(0);
     });
 
-    test('이미지: placeholder 원본 비율, 외부 이미지 요청 0건', async ({ page }) => {
-      const requests = trackExternalImages(page);
+    test('이미지: 본문 이미지 원본 비율, 탭 이미지, 외부 이미지 요청 0건', async ({ page }) => {
+      const requests = trackExternalImageRequests(page);
       await page.goto(`/business/${slug}`);
-      await expect(page.locator('main img')).toHaveCount(0);
       const images = line.contents.filter((block) => block.type === 'image') as Extract<Block, { type: 'image' }>[];
-      const sectionPlaceholders = page.locator('.business-section__media [data-image-placeholder]');
-      await expect(sectionPlaceholders).toHaveCount(images.length);
-      for (const [index, block] of images.entries()) {
-        const box = await sectionPlaceholders.nth(index).boundingBox();
-        const expected = (block.image.width ?? 16) / (block.image.height ?? 9);
-        expect(box && box.width / box.height).toBeCloseTo(expected, 1);
+      const ratios = images.map((block) => (block.image.width ?? 16) / (block.image.height ?? 9));
+      for (const [index, ratio] of ratios.entries()) {
+        await expectPictures(page.locator('.business-section__media').nth(index), [ratio]);
       }
+      await expect(page.locator('.business-section__media')).toHaveCount(images.length);
+      const tabImages = line.contents.flatMap((block) => (block.type === 'tabs' ? block.tabs.filter((tab) => tab.image) : []));
+      await expect(page.locator('.features__media picture > img')).toHaveCount(tabImages.length);
+      await expect(page.locator('main [data-image-placeholder]')).toHaveCount(0);
       expect(requests).toEqual([]);
     });
 

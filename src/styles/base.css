@@ -171,6 +171,11 @@ ol[role='list'] {
   background: var(--accent);
 }
 
+/* ResponsiveImage(<picture>): 부모 폭을 채우고 원본 비율을 유지한다. (width/height 속성 + height:auto로 CLS 방지) */
+picture > img {
+  width: 100%;
+}
+
 /* Image treatment: 인물/팀 이미지 단색 처리, 링크 카드 hover/focus 시 컬러 (docs/design-system.md §5.6) */
 .media-mono img {
   filter: grayscale(1);

@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { expectPictures, trackExternalImageRequests } from './helpers/page';
 
 const CARDS = [
   { title: 'IT OUTSOURCING', type: 'Business line', date: '2024.02.23', href: '/business/it-outsourcing', name: 'IT OUTSOURCING 상세 보기' },
@@ -68,25 +69,27 @@ test.describe('Home', () => {
     expect(hit).toBe('/business/it-outsourcing');
   });
 
-  test('이미지 placeholder: 외부 이미지 미로드, 레이아웃 유지', async ({ page }) => {
-    const requests: string[] = [];
-    page.on('request', (request) => requests.push(request.url()));
+  test('이미지: 로컬 최적화 이미지 4장, 첫 슬라이드 LCP 우선 로드, 외부 이미지 미로드, 레이아웃 유지', async ({ page }) => {
+    const requests = trackExternalImageRequests(page);
     await page.reload();
 
-    await expect(slider(page).locator('img')).toHaveCount(0);
-    expect(requests.filter((url) => url.includes('wp-content') || url.includes('mrint.co.kr'))).toEqual([]);
+    await expectPictures(slider(page), [null, null, null, null]);
+    expect(requests).toEqual([]);
 
-    const placeholders = slider(page).locator('[data-image-placeholder]');
-    await expect(placeholders).toHaveCount(4);
-    await expect(placeholders.first()).toHaveAttribute('aria-hidden', 'true');
-    await expect(placeholders.first()).toContainText('IT OUTSOURCING');
+    const images = slider(page).locator('picture > img');
+    await expect(images.first()).toHaveAttribute('loading', 'eager');
+    await expect(images.first()).toHaveAttribute('fetchpriority', 'high');
+    for (let i = 1; i < 4; i++) await expect(images.nth(i)).toHaveAttribute('loading', 'lazy');
+    for (let i = 0; i < 4; i++) await expect(images.nth(i)).toHaveAttribute('alt', '');
 
+    // 슬라이드 이미지는 slider 영역을 cover로 채운다 (placeholder와 같은 레이아웃)
     const sliderBox = await slider(page).boundingBox();
     const viewport = page.viewportSize();
     for (let i = 0; i < 4; i++) {
-      const box = await placeholders.nth(i).boundingBox();
+      const box = await images.nth(i).boundingBox();
       expect(box?.width).toBeCloseTo(sliderBox?.width ?? 0, 0);
       expect(box?.height).toBeCloseTo(sliderBox?.height ?? 0, 0);
+      expect(await images.nth(i).evaluate((el) => getComputedStyle(el).objectFit)).toBe('cover');
     }
     expect(sliderBox?.width).toBeCloseTo(viewport?.width ?? 0, 0);
   });

@@ -98,7 +98,7 @@ describe('News 데이터 (기존 /newsnotices/)', () => {
     for (const other of items.filter((item) => item.legacyId !== 908)) expect(other.rights).toBeUndefined();
   });
 
-  it('이미지: gallery 원본 크기, src 없음, alt 빈 값, 권리 unknown', () => {
+  it('이미지: gallery 원본 크기, 로컬 asset 연결(Phase 9.5), alt 빈 값, 권리 기록 유지', () => {
     expect(items.map((news) => [news.legacyId, news.images.map((image) => `${image.width}x${image.height}`)])).toEqual([
       [1583, []],
       [1563, ['1280x853']],
@@ -110,9 +110,9 @@ describe('News 데이터 (기존 /newsnotices/)', () => {
       [908, []],
     ]);
     for (const image of items.flatMap((news) => news.images)) {
-      expect(image.src).toBeUndefined();
+      expect(image.src).toMatch(new RegExp(`^media/${image.legacyMediaId}-`));
       expect(image.alt).toBe('');
-      expect(image.license).toBe('unknown');
+      expect(image.license).toBe('confirmed');
       expect(image.legacyMediaId).toBeTypeOf('number');
     }
   });

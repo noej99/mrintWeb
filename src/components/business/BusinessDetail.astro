@@ -6,9 +6,11 @@
  * Related Projects는 원본 관계 데이터가 없으므로 표시하지 않는다. (BL-15)
  */
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder.astro';
+import ResponsiveImage from '@/components/ui/ResponsiveImage.astro';
 import SplitSection from '@/components/ui/SplitSection.astro';
 import { groupBusinessSections, imageRatio } from '@/lib/business';
 import type { BusinessEntry, PartnerEntry } from '@/lib/content';
+import { resolveImage } from '@/lib/images';
 import BusinessText from './BusinessText.astro';
 import MainClients from './MainClients.astro';
 import ServiceFeatures from './ServiceFeatures.astro';
@@ -33,8 +35,15 @@ const sectionTitle = (title: string | undefined) => title ?? line.data.title;
             <BusinessText text={block.description} />
           ) : block.type === 'image' ? (
             <figure class="business-section__media">
-              {/* TODO: 이미지 원본/라이선스/AI 생성 여부 확인 후 ResponsiveImage로 교체 (D-13) */}
-              <ImagePlaceholder ratio={imageRatio(block.image, 16 / 9)} tone="light" />
+              {block.image.src ? (
+                <ResponsiveImage
+                  src={resolveImage(block.image.src)}
+                  alt={block.image.alt}
+                  sizes="(max-width: 1100px) 100vw, 880px"
+                />
+              ) : (
+                <ImagePlaceholder ratio={imageRatio(block.image, 16 / 9)} tone="light" />
+              )}
             </figure>
           ) : (
             <ServiceFeatures tabs={block.tabs} id={`${section.id}-features-${index + 1}`} labelledby={section.id} />
