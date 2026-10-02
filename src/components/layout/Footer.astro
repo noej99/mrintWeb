@@ -10,7 +10,6 @@ import { getCompany } from '@/lib/content';
 import { NAVIGATION } from '@/data/navigation';
 import { withBase } from '@/lib/url';
 import Logo from './Logo.astro';
-import LogoMark from './LogoMark.astro';
 
 const company = await getCompany();
 const year = new Date().getFullYear();
@@ -72,10 +71,6 @@ const year = new Date().getFullYear();
         </address>
       )
     }
-
-    <div class="site-footer__wordmark" aria-hidden="true">
-      <LogoMark />
-    </div>
 
     <div class="site-footer__bottom mono">
       {company && <p>© {year} {company.data.name.ko}</p>}
@@ -158,22 +153,13 @@ const year = new Date().getFullYear();
     font-size: 15px;
   }
 
-  .site-footer__wordmark {
-    margin: 80px 0 40px;
-    color: var(--ink-3);
-  }
-
-  .site-footer__wordmark :global(svg) {
-    width: 100%;
-    height: auto;
-  }
-
   .site-footer__bottom {
     display: flex;
     justify-content: space-between;
     gap: 24px;
     flex-wrap: wrap;
     min-height: 1px;
+    margin-top: 56px;
     padding-top: 24px;
     border-top: 1px solid var(--border);
     color: var(--text-muted);

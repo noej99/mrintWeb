@@ -34,7 +34,7 @@
 | Animation | `.rv` reveal(28px up, 1s, stagger 80ms), counter, marquee, canvas | reveal만 선택적. counter/marquee/canvas 미사용 (가짜 수치, WCAG 2.2.2) |
 | Mobile layout | ≤1100 1열 전환, ≤760 카드 1열, 64px header, row → 2줄 카드 | 채택 (breakpoint 767/1100) |
 | Page transition | 없음 (단일 페이지) | 신규: CSS cross-document View Transition (JS 없음, reduced-motion 시 끔) |
-| Footer | ink 배경, 로고 + 메뉴, 대형 워드마크(ink-3), mono 하단 행 | 채택. 연락처는 company 데이터가 있을 때만 |
+| Footer | ink 배경, 로고 + 메뉴, 대형 워드마크(ink-3), mono 하단 행 | 채택. 연락처는 company 데이터가 있을 때만. 대형 워드마크는 2026-10-02 제거 (사용자 결정) |
 
 ---
 
